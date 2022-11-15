@@ -1,151 +1,579 @@
-<footer class="footer relative py-10 bg-brown text-cream">
-    <div class="container-full">
-        <div class="grid grid-cols-3 gap-24 mb-10 lg:gap-10">
-            <div class="-mr-[15%] md:mr-0 md:col-span-3">
-                {% if section.settings.title != blank %}
-                    <h4 class="font-matter text-13">{{ section.settings.title }}</h4>
+{% assign design_link = 'http://boostertheme.com/' %}
+<footer class="site-footer" role="contentinfo">
+  <div class="page-width">
+    <div class="grid grid--no-gutters">
+      {% for block in section.blocks %}
+        <div class="grid__item seaction_gape {% if forloop.length >= 4 %}large-up--one-quarter medium--one-third{% elsif forloop.length == 3 %}medium-up--one-third{% elsif forloop.length == 2 %}medium-up--one-half{% endif %}" {{ block.shopify_attributes }}>
+          {% if block.type == 'logo' %}
+          <style>
+            .footer_logo .desktop_logo img{
+              width:{{block.settings.desktop_logo_size}};
+            }
+          </style>
+          <ul class="footer_logo">
+            {% if template.name == 'index' %}
+            <h1 class="h2 site-header__logo" itemscope itemtype="http://schema.org/Organization">
+              {% else %}
+              <div class="h2 site-header__logo" itemscope itemtype="http://schema.org/Organization">
                 {% endif %}
-                {% if section.settings.headline != blank %}
-                    <p class="text-12 mt-2">{{ section.settings.headline }}</p>
+                {% if block.settings.logo %}
+                {%- assign img_url = block.settings.logo | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
+                <a href="/" itemprop="url" class="desktop_logo site-header__logo-image">
+                  {% capture logo_alt %}{{ block.settings.logo.alt | default: shop.name }}{% endcapture %}
+                  <img class="lazyload js"
+                       src="{{ block.settings.logo | img_url: '300x300' }}"
+                       data-src="{{ img_url }}"
+                       data-widths="[180, 360, 540, 720, 900, 1080, 1296, 1512, 1728, 2048]"
+                       data-aspectratio="{{ block.settings.logo.aspect_ratio }}"
+                       data-sizes="auto"
+                       alt="{{ logo_alt | escape }}"
+                       >
+                  <noscript>
+                    {% capture image_size %}300x{% endcapture %}
+                    <img src="{{ block.settings.logo | img_url: image_size }}"
+                         srcset="{{ block.settings.logo | img_url: image_size }} 1x, {{ block.settings.logo | img_url: image_size, scale: 2 }} 2x"
+                         alt="{{ block.settings.logo.alt | default: shop.name }}"
+                         itemprop="logo"
+                         >
+                  </noscript>
+                </a>
+                {% else %}
+                <a class="site-header__logo-link" href="/" itemprop="url">{{ shop.name }}</a>
                 {% endif %}
-                {% form 'customer', class: 'form w-full flex flex-col mt-6' %}
-                    <input type="hidden" name="return_to" value="{{ request.path }}#newsletter-success" /> 
-                    <input type="hidden" name="contact[tags]" value="newsletter">
+                {% if template.name == 'index' %}
+                </h1>
+              {% else %}
+              </div>
+            {% endif %}
 
-                    {% if form.errors %}
-                        <div class="scroll-bottom border p-3 border-cream text-center text-12 mb-4">{{ form.errors | default_errors }}</div>   
-                    {% endif %}  
-                    <p id="newsletter-success" class="border p-3 border-cream text-center text-12 mb-4" style="display:none;">{{ section.settings.success }}</p>
-                    {% if form.email != blank %}
-                        <p id="newsletter-subscribed" class="scroll-bottom border p-3 border-cream text-center text-12 mb-4">You're already on the list!</p>
-                    {% endif %}
 
-                    <div class="grid grid-cols-2 gap-6">
-                        <input
-                            type="text"
-                            name="contact[first_name]"
-                            class="form__input text-cream text-13 tracking-[.081em] min-h-0 pl-0 mb-6 border-b border-cream placeholder:text-cream placeholder:opacity-50"
-                            value="{{ form.first_name }}"
-                            autocorrect="off"
-                            autocapitalize="off"
-                            placeholder="First Name"
-                        >     
-                        <input
-                            type="text"
-                            name="contact[last_name]"
-                            class="form__input text-cream text-13 tracking-[.081em] min-h-0 pl-0 mb-6 border-b border-cream placeholder:text-cream placeholder:opacity-50"
-                            value="{{ form.last_name }}"
-                            autocorrect="off"
-                            autocapitalize="off"
-                            placeholder="Last Name"
-                        >     
-                    </div>                  
-                    <input
-                        type="email"
-                        name="contact[email]"
-                        class="form__input text-cream text-13 tracking-[.081em] min-h-0 pl-0 mb-6 border-b border-cream placeholder:text-cream placeholder:opacity-50"
-                        value="{{ form.email }}"
-                        aria-required="true"
-                        autocorrect="off"
-                        autocapitalize="off"
-                        autocomplete="email"
-                        placeholder="Your Email"
-                        required
-                    >          
-                    <div class="inline-block">
-                        <input type="submit" class="font-matterlight text-13 tracking-[.081em] opacity-50 transition-smooth cursor-pointer hover:opacity-100" name="commit" value="Subscribe" />
-                    </div>                         
-                  {% endform %}                
-            </div>
-            <div class="col-span-2 pl-[5%] md:col-span-3 md:pl-0">
-                <div class="grid grid-cols-3 gap-[15%] pr-[15%] md:grid-cols-2 md:pr-0 md:grid-cols-[1.5fr_1fr] md:gap-10 md:pb-6 md:border-b md:border-cream sm:gap-6 ">
-                    {% for block in section.blocks %}
-                        <ul>
-                            {% if block.settings.url != blank %}
-                                <li class="font-matter text-13 tracking-[.1em] mb-6"><a href="{{ block.settings.url }}" class="hover:text-orange">{{ block.settings.title }}</a></li>
-                            {% else %}
-                                <li class="font-matter text-13 tracking-[.1em] mb-6">{{ block.settings.title }}</li>
-                            {% endif %}
-                            {% for link in linklists[block.settings.menu].links %}
-                                <li{% unless forloop.last %} class="mb-2"{% endunless %}><a href="{{ link.url }}" class="font-matterlight text-13 tracking-[.081em] transition-smooth hover:text-orange"{% if linklists[block.settings.menu].handle == 'footer-connected' %} target="_blank"{% endif %}>{{ link.title }}</a></li>
-                            {% endfor %}
-                        </ul>                     
+          </ul>
+
+          {% elsif block.type == 'link_list' %}
+            <div class="footer_menu site-footer__linklist">
+              {% if block.settings.menu != blank %}
+                <h5 class="footer_title">{{ linklists[block.settings.menu].title }}</h5>
+                <div class="toggle_content">
+                  <ul>
+                    {% for link in linklists[block.settings.menu].links %}
+                      <li><a href="{{ link.url }}">{{ link.title }}</a></li>
                     {% endfor %}
-                    <svg class="max-w-[71px] mr-auto md_min:hidden" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 55 55"><path d="M.65 25.277 0 24.643c1.625-1.588 5.866-3.543 10.83-4.201 3.77-.505 7.174-.137 9.962 1.03L.924 2.041l.651-.636 19.868 19.433c-1.195-2.729-1.568-6.057-1.056-9.744C21.062 6.237 23.06 2.089 24.684.5l.648.637c-1.478 1.444-3.394 5.468-4.035 10.078-.433 3.116-.564 8.929 3.418 12.824l-.65.636c-3.983-3.897-9.922-3.764-13.111-3.345-4.712.628-8.826 2.503-10.304 3.947Zm53.7 0c-1.478-1.444-5.592-3.319-10.304-3.947-3.19-.42-9.13-.552-13.111 3.345l-.65-.636c3.982-3.895 3.85-9.707 3.416-12.824-.64-4.61-2.556-8.634-4.034-10.078l.65-.637c2.74 2.679 6.483 12.894 3.25 20.329L53.423 1.405l.65.636-19.866 19.433c2.787-1.169 6.188-1.537 9.962-1.032 4.964.658 9.205 2.613 10.83 4.2l-.65.635ZM30.317 54.5l-.65-.637c3.089-3.021 7.538-16.134.618-22.902l.65-.636c3.983 3.898 9.926 3.765 13.111 3.344 4.712-.627 8.826-2.502 10.304-3.946l.65.634c-1.625 1.588-5.866 3.542-10.83 4.201-3.774.504-7.175.135-9.962-1.032L54.075 52.96l-.651.636-19.858-19.424c3.234 7.435-.509 17.65-3.249 20.329Zm-5.633 0c-1.624-1.588-3.622-5.737-4.297-10.593-.512-3.687-.139-7.017 1.056-9.745L1.575 53.595l-.65-.636 19.867-19.434c-2.788 1.168-6.191 1.537-9.962 1.033-4.964-.66-9.205-2.613-10.83-4.2l.65-.635c1.478 1.444 5.592 3.319 10.304 3.946 3.19.42 9.13.552 13.111-3.344l.65.636c-3.982 3.895-3.851 9.708-3.418 12.825.641 4.61 2.557 8.633 4.035 10.077l-.648.637Z" fill="#FBF1DC" /></svg>
-
+                  </ul>
                 </div>
+              {% else %}
+                <h6>Menu title<span class="right icon-down-arrow"></span></h6>
+                <div class="toggle_content">
+                  <ul>
+                    <li><p>{{ 'homepage.onboarding.no_content' | t }}</p></li>
+                  </ul>
+                </div>
+              {% endif %}
             </div>
-        </div>
-        <div class="grid grid-cols-[1fr_165px_1fr] gap-6 items-end md:grid-cols-2 md:gap-4">
-            <p class="font-matterlight text-13 tracking-[.1em]">© {{ 'now' | date: '%Y'  }} BASK, Inc, All Rights Reserved.</p>
-            <div class="text-center md:text-right">
-                <a href="https://nicepeopleco.com/" class="font-matterlight text-13 tracking-[.1em] transition-smooth hover:text-orange" target="_blank">Made by Nice People</a>
+
+          {% elsif block.type == 'text' %}
+            <div class="footer_content">
+              {% if block.settings.logo_footer%}
+              <style>
+                .footer_logo-1 .desktop_logo img{
+                  width:{{block.settings.desktop_logo_size}};
+                }
+              </style>
+              <ul class="footer_logo-1">
+                {% if template.name == 'index' %}
+                <h1 class="h2 site-header__logo" itemscope itemtype="http://schema.org/Organization">
+                  {% else %}
+                  <div class="h2 site-header__logo" itemscope itemtype="http://schema.org/Organization">
+                    {% endif %}
+                    {% if block.settings.logo %}
+                    {%- assign img_url = block.settings.logo | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
+                    <a href="/" itemprop="url" class="desktop_logo site-header__logo-image">
+                      {% capture logo_alt %}{{ block.settings.logo.alt | default: shop.name }}{% endcapture %}
+                      <img class="lazyload js"
+                           src="{{ block.settings.logo | img_url: '300x300' }}"
+                           data-src="{{ img_url }}"
+                           data-widths="[180, 360, 540, 720, 900, 1080, 1296, 1512, 1728, 2048]"
+                           data-aspectratio="{{ block.settings.logo.aspect_ratio }}"
+                           data-sizes="auto"
+                           alt="{{ logo_alt | escape }}"
+                           >
+                      <noscript>
+                        {% capture image_size %}300x{% endcapture %}
+                        <img src="{{ block.settings.logo | img_url: image_size }}"
+                             srcset="{{ block.settings.logo | img_url: image_size }} 1x, {{ block.settings.logo | img_url: image_size, scale: 2 }} 2x"
+                             alt="{{ block.settings.logo.alt | default: shop.name }}"
+                             itemprop="logo"
+                             >
+                      </noscript>
+                    </a>
+                    {% else %}
+                    <a class="site-header__logo-link" href="/" itemprop="url">{{ shop.name }}</a>
+                    {% endif %}
+                    {% if template.name == 'index' %}
+                    </h1>
+                  {% else %}
+                  </div>
+                {% endif %}
+
+
+              </ul>
+              {% endif %}
+              {% if block.settings.title != blank %}
+                <h5 class="footer_title">{{ block.settings.title }}</h5>
+               {% endif %}
+              {% if block.settings.content != blank %}
+                <div class="toggle_content">
+                  {{ block.settings.content }}
+                </div>  
+              {% endif %}
             </div>
-            <svg class="max-w-[71px] ml-auto md:hidden" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 55 55"><path d="M.65 25.277 0 24.643c1.625-1.588 5.866-3.543 10.83-4.201 3.77-.505 7.174-.137 9.962 1.03L.924 2.041l.651-.636 19.868 19.433c-1.195-2.729-1.568-6.057-1.056-9.744C21.062 6.237 23.06 2.089 24.684.5l.648.637c-1.478 1.444-3.394 5.468-4.035 10.078-.433 3.116-.564 8.929 3.418 12.824l-.65.636c-3.983-3.897-9.922-3.764-13.111-3.345-4.712.628-8.826 2.503-10.304 3.947Zm53.7 0c-1.478-1.444-5.592-3.319-10.304-3.947-3.19-.42-9.13-.552-13.111 3.345l-.65-.636c3.982-3.895 3.85-9.707 3.416-12.824-.64-4.61-2.556-8.634-4.034-10.078l.65-.637c2.74 2.679 6.483 12.894 3.25 20.329L53.423 1.405l.65.636-19.866 19.433c2.787-1.169 6.188-1.537 9.962-1.032 4.964.658 9.205 2.613 10.83 4.2l-.65.635ZM30.317 54.5l-.65-.637c3.089-3.021 7.538-16.134.618-22.902l.65-.636c3.983 3.898 9.926 3.765 13.111 3.344 4.712-.627 8.826-2.502 10.304-3.946l.65.634c-1.625 1.588-5.866 3.542-10.83 4.201-3.774.504-7.175.135-9.962-1.032L54.075 52.96l-.651.636-19.858-19.424c3.234 7.435-.509 17.65-3.249 20.329Zm-5.633 0c-1.624-1.588-3.622-5.737-4.297-10.593-.512-3.687-.139-7.017 1.056-9.745L1.575 53.595l-.65-.636 19.867-19.434c-2.788 1.168-6.191 1.537-9.962 1.033-4.964-.66-9.205-2.613-10.83-4.2l.65-.635c1.478 1.444 5.592 3.319 10.304 3.946 3.19.42 9.13.552 13.111-3.344l.65.636c-3.982 3.895-3.851 9.708-3.418 12.825.641 4.61 2.557 8.633 4.035 10.077l-.648.637Z" fill="#FBF1DC" /></svg>
+      
+          {% elsif block.type == 'customer_shopify' %}
+          
+          {% if settings.mailchimp_link != blank %}
+
+          <div class="site-footer__newsletter newsletter">
+            <span class="message"></span>
+
+            <form action="{{ settings.mailchimp_link }}" method="post" name="mc-embedded-subscribe-form" id="contact_form" target="_blank">
+              <label for="Email" class="h5">{{ 'general.newsletter_form.newsletter_email' | t }}</label>
+              <div class="input-group">
+                <input type="email" id="Email" class="input-group__field newsletter__input" value="" name="EMAIL" class="contact_email" placeholder="{{ 'general.newsletter_form.email_placeholder' | t }}">
+                <span class="input-group__btn">
+                  <button type="submit" class="btn newsletter__submit" name="subscribe" id="Subscribe" value="{{ 'general.newsletter_form.submit' | t }}">
+                    <span class="newsletter__submit-text--large">{{ 'general.newsletter_form.submit' | t }}</span>
+                  </button>
+                </span>                
+              </div>
+            </form>       
+
+          </div>
+
+          {% elsif settings.klaviyo_link != blank %}
+
+          <div class="site-footer__newsletter newsletter">
+         
+            <form action="{{ settings.klaviyo_link }}" method="post" class="klaviyo_styling klaviyo_standard_embed_LPUfWW" id="email_signup" target="_blank" novalidate="novalidate">
+              <input type="hidden" name="g" value="LPUfWW">
+              <input type="hidden" name="$fields" value="firstName,lastName"/>
+              <label for="Email" class="h5">{{ 'general.newsletter_form.newsletter_email' | t }}</label>
+              <div class="input-group klaviyo_field_group">
+                <input type="email" id="k_id_email" class="input-group__field contact_email newsletter__input" value="" name="EMAIL" class="contact_email" placeholder="{{ 'general.newsletter_form.email_placeholder' | t }}">
+                <div class="klaviyo_messages">
+                  <div class="success_message" style="display:none;"></div>
+                  <div class="error_message" style="display:none;"></div>
+                </div>
+                <span class="input-group__btn">
+                  <button type="submit" class="btn newsletter__submit klaviyo_submit_button" name="subscribe" id="btnSubmit" value="{{ 'general.newsletter_form.submit' | t }}">
+                    <span class="newsletter__submit-text--large">{{ 'general.newsletter_form.submit' | t }}</span>
+                  </button>
+                </span>                
+              </div>
+            </form>
+  
+          </div>
+
+          {% else %}
+          
+          <div class="site-footer__newsletter newsletter">
+            <span class="message"></span>
+            {% form 'customer' %}
+            {{ form.errors | default_errors }}
+            {% if form.posted_successfully? %}
+            <span class="message">{{ 'general.newsletter_form.confirmation' | t }}</span>
+            {% else %}
+            <label for="Email" class="h5">{{ 'general.newsletter_form.newsletter_email' | t }}</label>
+            <div class="input-group">
+              <input type="hidden" name="contact[tags]" value="newsletter">
+              <input type="hidden" name="challenge" value="false" />
+              <input type="email"
+                     name="contact[email]"
+                     id="Email"
+                     class="input-group__field newsletter__input"
+                     value="{% if customer %}{{ customer.email }}{% endif %}"
+                     placeholder="{{ 'general.newsletter_form.email_placeholder' | t }}"
+                     autocorrect="off"
+                     autocapitalize="off">
+              <span class="input-group__btn">
+                <button type="submit" class="btn newsletter__submit" name="commit" id="Subscribe">
+                  <span class="newsletter__submit-text--large">{{ 'general.newsletter_form.submit' | t }}</span>
+                </button>
+              </span>
+            </div>
+            {% endif %}
+            {% endform %}
+          </div>
+          {% endif %}
+          
+          {% elsif block.type == 'empty' %}
+            <div class="empty-column"></div>
+
+          {% endif %}
+
+          {% assign social_media_column = section.settings.social_media_column | plus: 0  %}
+
+          {% if block.settings.social_icons_footer %}
+            {% assign social_icons = true %}
+            <div class="footer-social-icons">
+              {% include 'social-icons' %}
+            </div>
+          {% endif %}
+
         </div>
+       
+      {% endfor %}
+
+      
     </div>
-</footer> 
+    <div class="grid">
+    <div class="grid__item medium-up--one-whole footer_credits">
+        <p class="credits">
+          &copy; {{ "now" | date: "%Y" }} 
+          {% if section.settings.shop_name != blank %}
+          <a href="/">{{ section.settings.shop_name }}</a>
+          {% else %}
+           {{ shop.name | link_to: '/' }}
+          {% endif %}
 
+          <a href='{{ design_link }}'>{{ 'general.copyright_credit.designer_credits_html' | t }}</a>
+          
+          {% if section.settings.display_shopify_by %} &
+          <a href="https://www.shopify.in/?ref=limitless-theme&utm_campaign=footer-link" target="_blank">Powered by shopify</a>.
+          {% endif %}
+        </p>
 
-<script type="text/javascript">
-    if (window.location.hash === "#newsletter-success") {
-        document.getElementById("newsletter-success").style.display = "block";
-        window.scrollTo(0, document.body.scrollHeight);
-    }
-    if(document.querySelector(".scroll-bottom") !== null){
-        window.scrollTo(0, document.body.scrollHeight);
-    }
-  </script>
+        {% if section.settings.display_payment_methods %}
+        <div class="site-footer__payment-icons site-footer__payment-icons--right">
+          <ul class="payment-icons list--inline">
+            {% if section.settings.pay_discover %}   
+            <li>
+              <span class="icon-fallback-text" title="{{ 'discover' | replace: '_',' '}}">
+                {% include 'icon-discover' %}
+                <span class="fallback-text">{{ 'discover' | replace: '_',' '}}</span>
+              </span>
+            </li>
+            {% endif %}
+
+            {% if section.settings.pay_diners_club %}   
+            <li>
+              <span class="icon-fallback-text" title="{{ 'diners_club' | replace: '_',' '}}">
+                {% include 'icon-diners_club' %}
+                <span class="fallback-text">{{ 'diners_club' | replace: '_',' '}}</span>
+              </span>
+            </li>
+            {% endif %}
+
+            {% if section.settings.pay_american_express %}   
+            <li>
+              <span class="icon-fallback-text" title="{{ 'american_express' | replace: '_',' '}}">
+                {% include 'icon-american_express' %}
+                <span class="fallback-text">{{ 'american_express' | replace: '_',' '}}</span>
+              </span>
+            </li>
+            {% endif %}
+
+            {% if section.settings.pay_paypal %}   
+            <li>
+              <span class="icon-fallback-text" title="{{ 'paypal' | replace: '_',' '}}">
+                {% include 'icon-paypal' %}
+                <span class="fallback-text">{{ 'paypal' | replace: '_',' '}}</span>
+              </span>
+            </li>
+            {% endif %}
+
+            {% if section.settings.pay_master %}   
+            <li>
+              <span class="icon-fallback-text">
+                {% include 'icon-master' %}
+                <span class="fallback-text">{{ 'master' | replace: '_',' '}}</span>
+              </span>
+            </li>
+            {% endif %}
+
+            {% if section.settings.pay_visa %}   
+            <li>
+              <span class="icon-fallback-text" title="{{ 'visa' | replace: '_',' '}}">
+                {% include 'icon-visa' %}
+                <span class="fallback-text">{{ 'visa' | replace: '_',' '}}</span>
+              </span>
+            </li>
+            {% endif %}
+
+          </ul>		
+        </div>
+      
+        {% endif %}
+      </div>
+    </div><!--end footer_credits-->
+  </div>
+</footer>
 
 {% schema %}
+
 {
-    "name": "Footer",
-    "settings": [      
+  "name": "Footer",
+  "class": "footer-section",
+  "max_blocks": 4,
+  "settings": [
+    {
+      "type": "header",
+      "content": "Footer [NEED HELP?](https:\/\/help.boostertheme.com\/hc/en-us\/articles\/360002081334-How-to-setup-the-Footer-in-Booster-2-0)"
+    },
+    {
+      "type": "text",
+      "id": "shop_name",
+      "label": "Shop Name"
+    },
+    {
+      "type": "checkbox",
+      "id": "display_shopify_by",
+      "label": "Show theme powered by shopify",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "display_payment_methods",
+      "label": "Show payment method icons",
+      "default": true
+    },
+	{
+      "type": "header",
+      "content": "Payment icons"
+    },
+    {
+      "type": "checkbox",
+      "id": "pay_visa",
+      "label": "Show Visa",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "pay_master",
+      "label": "Show Mastercard",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "pay_american_express",
+      "label": "Show American Express",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "pay_paypal",
+      "label": "Show PayPal",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "pay_diners_club",
+      "label": "Show Diners Club",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "pay_discover",
+      "label": "Show Discover",
+      "default": true
+    }
+  ],
+  "blocks": [
+    {
+      "type": "logo",
+      "name": "Logo",
+      "settings": [
         {
-            "type": "header",
-            "content": "Newsletter"
-        },  
-        {
-            "type": "text",
-            "id": "title",
-            "label": "Title",
-            "default": "Newsletter"
+          "type": "image_picker",
+          "id": "logo",
+          "label": "Desktop Logo"
         },
         {
-            "type": "textarea",
-            "id": "headline",
-            "label": "Headline",
-            "default": "Sign up for updates, pop-ups, and promotions."
-        },     
+          "type": "select",
+          "id": "desktop_logo_size",
+          "label": "Logo size in %",
+          "options": [
+            {
+              "value": "30%",
+              "label": "30"
+            },
+            {
+              "value": "35%",
+              "label": "35"
+            },
+            {
+              "value": "50%",
+              "label": "50"
+            },
+            {
+              "value": "60%",
+              "label": "60"
+            },
+            {
+              "value": "70%",
+              "label": "70"
+            },
+            {
+              "value": "75%",
+              "label": "75"
+            },
+            {
+              "value": "90%",
+              "label": "90"
+            },
+            {
+              "value": "100%",
+              "label": "100"
+            }
+          ]
+        },
         {
-            "type": "textarea",
-            "id": "success",
-            "label": "Success Message",
-            "default": "Thanks for subscribing!"
-        }           
-    ],
-    "blocks": [
-        {
-            "type": "column",
-            "name": "Column",
-            "settings": [
-                {
-                    "type": "text",
-                    "id": "title",
-                    "label": "Title"
-                },
-                {
-                    "type": "url",
-                    "id": "url",
-                    "label": "Optional Title URL"
-                },
-                {
-                    "type": "link_list",
-                    "id": "menu",
-                    "label": "Menu"
-                }
-            ]
+          "type": "checkbox",
+          "id": "social_icons_footer",
+          "label": "Show social media footer icons",
+          "default": false
         }
-    ] 
+      ]
+    },
+    {
+      "type": "link_list",
+      "name": "Menu",
+      "settings": [
+        {
+          "type": "link_list",
+          "id": "menu",
+          "label": "Menu",
+  		  "default": "footer"
+        },
+        {
+          "type": "checkbox",
+          "id": "social_icons_footer",
+          "label": "Show social media footer icons",
+          "default": false
+        }
+      ]
+    },
+	{
+      "type": "customer_shopify",
+      "name": "Newsletter",
+      "settings": [
+        {
+          "type": "paragraph",
+          "content": "Any customers who sign up will have an account created for them in Shopify. [View customers](/admin/customers?query=&accepts_marketing=1)"
+      	},
+        {
+          "type": "checkbox",
+          "id": "social_icons_footer",
+          "label": "Show social media footer icons",
+          "default": false
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "name": "Text",
+      "settings": [
+		{
+          "type": "checkbox",
+          "id": "logo_footer",
+          "label": "Enable logo",
+          "default": false
+        },
+		{
+          "type": "image_picker",
+          "id": "logo",
+          "label": "Desktop Logo"
+        },
+        {
+          "type": "select",
+          "id": "desktop_logo_size",
+          "label": "Logo size in %",
+          "options": [
+            {
+              "value": "30%",
+              "label": "30"
+            },
+            {
+              "value": "35%",
+              "label": "35"
+            },
+            {
+              "value": "50%",
+              "label": "50"
+            },
+            {
+              "value": "60%",
+              "label": "60"
+            },
+            {
+              "value": "70%",
+              "label": "70"
+            },
+            {
+              "value": "75%",
+              "label": "75"
+            },
+            {
+              "value": "90%",
+              "label": "90"
+            },
+            {
+              "value": "100%",
+              "label": "100"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Heading",
+          "default": "Title"
+        },
+        {
+          "type": "richtext",
+          "id": "content",
+          "label": "Text",
+          "default": "<p>Use this text to share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store.</p>"
+        },
+        {
+          "type": "checkbox",
+          "id": "social_icons_footer",
+          "label": "Show social media footer icons",
+          "default": false
+        }
+      ]
+    },
+    {
+      "type": "empty",
+      "name": "Empty column",
+      "settings": [
+        {
+          "type": "checkbox",
+          "id": "social_icons_footer",
+          "label": "Show social media footer icons",
+          "default": false
+        }
+      ]
+    }
+  ],
+  "default": {
+    "blocks": [
+      {
+        "type": "logo"
+      },
+      {
+        "type": "link_list"
+      },
+      {
+        "type": "link_list"
+      },
+      {
+        "type": "text"
+      }
+    ]
+  }
 }
+
 {% endschema %}
+
+
+
+

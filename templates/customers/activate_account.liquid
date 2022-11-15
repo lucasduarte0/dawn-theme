@@ -1,18 +1,26 @@
-{% section 'header-wordmark-brown' %}
+<div class="page-width text-center">
+  <div class="grid">
+    <div class="grid__item medium-up--one-half medium-up--push-one-quarter">
+      <div class="section-header">
+        <h1>{{ 'customer.activate_account.title' | t }}</h1>
+        <p>{{ 'customer.activate_account.subtext' | t }}</p>
+      </div>
 
-<div class="hero access bg-cream pt-40 md:pt-[114px]">
-  <div class="container-700 pt-20 pb-40 md:py-8 space-y-8 text-center">
-    <h1 class="mb-5 text-[50px] font-heading mb-8 lg:text-30">
-      Activate Account
-      </h1>
-      {% form 'activate_customer_password', class: "form space-y-6 md:space-y-5" %}
-        {{ form.errors | default_errors }}
-        <div><input type="password" value="" name="customer[password]" placeholder="Password" class="form__input tracking-widest border border-brown placeholder:text-brown" /></div>
-        <div><input type="password" value="" name="customer[password_confirmation]" placeholder="Password Confirmation" class="form__input tracking-widest border border-brown placeholder:text-brown" /></div>
-        <div class="flex flex-wrap items-center justify-center space-x-4 mt-6">
-          <div><button class="button">Activate</button></div>
-          <div><button name="decline">Decline</button></div>
-        </div>
-      {% endform %}
+      <div class="form-vertical">
+        {% form 'activate_customer_password' %}
+
+          {{ form.errors | default_errors }}
+
+          <label for="CustomerPassword" class="label--hidden">{{ 'customer.activate_account.password' | t }}</label>
+          <input type="password" value="" name="customer[password]" id="CustomerPassword" placeholder="{{ 'customer.activate_account.password' | t }}">
+
+          <label for="CustomerPasswordConfirmation" class="label--hidden">{{ 'customer.activate_account.password_confirm' | t }}</label>
+          <input type="password" value="" name="customer[password_confirmation]" id="CustomerPasswordConfirmation" placeholder="{{ 'customer.activate_account.password_confirm' | t }}">
+
+          <input type="submit" class="btn" value="{{ 'customer.activate_account.submit' | t }}">
+          <div><input type="submit" name="decline" value="{{ 'customer.activate_account.cancel' | t }}"></div>
+        {% endform %}
+      </div>
+    </div>
   </div>
 </div>

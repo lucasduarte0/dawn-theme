@@ -1,28 +1,84 @@
-<div class="instagram{% if template == 'index' %} pt-12{% endif %} pb-20 bg-cream relative md:pb-8" data-viewport>
-    <div class="container md:px-0">
-        <div class="text-center {% if template == 'index' %}border-t border-brown py-12 md:py-4 md:mx-5{% else %} pb-12 md:pb-4{% endif %}">
-            <h2 class="text-18 font-matter text-brown fade-in" data-viewport>{{ section.settings.title }}</h2>
+<div class="page-width social-feeds-wrap">
+  <div class="grid grid--uniform homepage_content">
+    <div class="grid__item medium-up--one-whole">
+      <div class="section-header text-{{settings.title_position}}">
+        <h2 class="title insta">
+          {% if settings.social_instagram_link != blank %}
+          <a href="{{ settings.social_instagram_link }}" target="_blank">
+            {% endif %}
+            {{ section.settings.instagram_title }}
+            {% if settings.social_instagram_link != blank %}
+          </a>
+          {% endif %}
+        </h2>
+      </div>
+      {% if section.settings.instagram_title != blank %}
+      <div class="feature_divider"></div>
+      {% endif %}
+      {%- assign image_limit = section.settings.instagram_count | times: section.settings.rows -%}
+
+      {% if section.settings.instagram_client_id != blank %}
+
+      <div id="instafeed" class="js-instafeed" data-client-id="{{ section.settings.instagram_client_id | strip }}" data-count="{{ image_limit }}" data-limit="{{  section.settings.instagram_count }}"></div>
+      {% else %}
+      <div id="instafeed" class="clearfix placeholder-instagram">
+        {% for i in (1..image_limit) %}
+        <div class="grid__item {% if section.settings.instagram_count == 8 %}medium-up--one-eighth {% elsif section.settings.instagram_count == 6 %}medium-up--one-sixth {% elsif section.settings.instagram_count == 4 %}medium-up--one-quarter {% endif %}small--one-half inst_image">
+          <a href="#">
+            {{ 'image' | placeholder_svg_tag: 'placeholder-svg placeholder-svg--instagram' }}
+          </a>
         </div>
-        <div class="grid grid-cols-5 gap-10 md:gap-5 md:flex md:flex-nowrap md:px-5 md:overflow-auto">
-            <a href="https://instagram.com/p/{{ shop.metafields.bask.instagram_post_5 | split: '~' | first }}" target="_blank" class="md:min-w-[37vw] fade-in hover:opacity-60"><img src="{{ "insta-1.jpg" | asset_url }}"></a>
-            <a href="https://instagram.com/p/{{ shop.metafields.bask.instagram_post_4 | split: '~' | first }}" target="_blank" class="md:min-w-[37vw] fade-in delay-300 hover:opacity-60"><img src="{{ "insta-2.jpg" | asset_url }}"></a>
-            <a href="https://instagram.com/p/{{ shop.metafields.bask.instagram_post_3 | split: '~' | first }}" target="_blank" class="md:min-w-[37vw] fade-in delay-600 hover:opacity-60"><img src="{{ "insta-3.jpg" | asset_url }}"></a>
-            <a href="https://instagram.com/p/{{ shop.metafields.bask.instagram_post_2 | split: '~' | first }}" target="_blank" class="md:min-w-[37vw] fade-in delay-900 hover:opacity-60"><img src="{{ "insta-4.jpg" | asset_url }}"></a>
-            <a href="https://instagram.com/p/{{ shop.metafields.bask.instagram_post_1 | split: '~' | first }}" target="_blank" class="md:min-w-[37vw] fade-in delay-1200 hover:opacity-60"><img src="{{ "insta-5.jpg" | asset_url }}"></a>
-        </div>
+        {% endfor %}
+      </div>
+      {% endif %}
     </div>
+  </div>
 </div>
 
 {% schema %}
-{
-  "name": "Instagram",
-  "settings": [
+  {
+    "name": "Instagram",
+    "class": "social-feeds-section index-section",
+    "settings": [
       {
-          "type": "richtext",
-          "id": "title",
-          "label": "Title",
-          "default": "<p>Follow along <a href='https://instagram.com/instagram' target='_blank'>@instagram</a></p>"
+        "type": "header",
+        "content": "Instagram [NEED HELP?](https:\/\/help.boostertheme.com\/hc\/en-us\/articles\/360002079133-How-to-setup-Instagram-section-in-Booster-2-0)"
+      },
+      {
+        "type": "text",
+        "id": "instagram_client_id",
+        "label": "Instagram Access Token ()"
+      },
+      {
+        "type": "text",
+        "id": "instagram_title",
+        "label": "Heading",
+        "default": "Instagram"
+      },
+      {
+        "type": "range",
+        "id": "instagram_count",
+        "min": 4,
+        "max": 8,
+        "step": 2,
+        "label": "Number of images per row",
+        "default": 6
+      },
+      {
+        "type": "range",
+        "id": "rows",
+        "label": "Rows",
+        "min": 1,
+        "max": 5,
+        "step": 1,
+        "default": 2
       }
-  ]
-}
+    ],
+    "presets": [
+      {
+        "name": "Instagram",
+        "category": "Social"
+      }
+    ]
+  }
 {% endschema %}
