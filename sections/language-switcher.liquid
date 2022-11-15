@@ -1,9 +1,0 @@
-<div>
-   {% form 'localization' %}
-   <!-- hiển thi tên ngôn ngữ đang sửu dụng -->
-   <!-- <div>{{form.current_locale.endonym_name}}</div> -->
-   {% for locale in shop.published_locales %}
-       <a href="#">{{locale.endonym_name}}</a>
-   {% endfor %}
-   {% endform %}
-</div>

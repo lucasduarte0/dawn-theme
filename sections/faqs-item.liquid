@@ -1,0 +1,49 @@
+<div id="{{ section.settings.title | handleize }}" class="container-768 scroll-mt-40">
+    {% if section.settings.title %}
+        <h2 class="font-italic text-24 mb-4">{{ section.settings.title }}</h2>
+    {% endif %}
+    {% for block in section.blocks %}
+        <div>
+            <div class="font-matterlight text-24 toggle-trigger relative ml-8 mb-4 cursor-pointer md:text-20" data-container="faqs-{{ section.settings.title | handleize }}-{{ forloop.index }}">{{ block.settings.title }}</div>
+            <div id="faqs-{{ section.settings.title | handleize }}-{{ forloop.index }}" class="text-17 leading-[1.59] toggle-container ml-8">{{ block.settings.answer }}</div>      
+        </div>
+    {% endfor %}
+</div>
+
+{% schema %}
+{ 
+  "name": "FAQs Section",
+  "class": "faqs__section",
+  "presets": [
+    {
+      "name": "FAQs Section"
+    }
+  ],
+  "settings": [
+      { 
+          "type": "text",
+          "id": "title",
+          "label": "FAQs Section Title"
+      }     
+  ],    
+  "blocks": [
+      {
+          "type": "faq",
+          "name": "FAQ",
+          "settings": [
+              { 
+                  "type": "textarea",
+                  "id": "title",
+                  "label": "Question"
+              },
+              { 
+                  "type": "richtext",
+                  "id": "answer",
+                  "label": "Answer"
+              }                
+          ]
+      }
+  ]
+  
+}
+{% endschema %}

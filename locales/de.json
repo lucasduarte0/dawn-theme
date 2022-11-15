@@ -51,8 +51,7 @@
     "slider": {
       "of": "von",
       "next_slide": "Nach rechts schieben",
-      "previous_slide": "Nach links schieben",
-      "name": "Slider"
+      "previous_slide": "Nach links schieben"
     }
   },
   "newsletter": {
@@ -74,9 +73,7 @@
     "loading": "Wird geladen ...",
     "skip_to_product_info": "Zu Produktinformationen springen",
     "total_reviews": "Bewertungen insgesamt",
-    "star_reviews_info": "{{ rating_value }} von {{ rating_max }} Sternen",
-    "collapsible_content_title": "Einklappbarer Inhalt",
-    "complementary_products": "Ergänzende Produkte"
+    "star_reviews_info": "{{ rating_value }} von {{ rating_max }} Sternen"
   },
   "blogs": {
     "article": {
@@ -148,9 +145,7 @@
       },
       "view_full_details": "Vollständige Details anzeigen",
       "include_taxes": "inkl. MwSt.",
-      "shipping_policy_html": "<a href=\"{{ link }}\">Versand</a> wird beim Checkout berechnet",
-      "choose_options": "Optionen auswählen",
-      "choose_product_options": "Optionen für {{ product_name }} auswählen"
+      "shipping_policy_html": "<a href=\"{{ link }}\">Versand</a> wird beim Checkout berechnet"
     },
     "modal": {
       "label": "Medien-Galerie"
@@ -158,7 +153,7 @@
     "facets": {
       "apply": "Anwenden",
       "clear": "Löschen",
-      "clear_all": "Alle entfernen",
+      "clear_all": "Alles löschen",
       "from": "Von",
       "filter_and_sort": "Filtern und sortieren",
       "filter_by_label": "Filter:",
@@ -180,10 +175,7 @@
       "sort_button": "Sortieren",
       "sort_by_label": "Sortieren nach:",
       "to": "Bis",
-      "clear_filter": "Filter entfernen",
-      "filter_selected_accessibility": "{{ type }} ({{ count }} Filter ausgewählt)",
-      "show_more": "Mehr anzeigen",
-      "show_less": "Weniger anzeigen"
+      "clear_filter": "Filter löschen"
     }
   },
   "templates": {
@@ -213,8 +205,7 @@
         "comment": "Kommentar",
         "send": "Senden",
         "post_success": "Danke, dass du uns kontaktiert hast. Wir werden uns so schnell wie möglich bei dir melden.",
-        "error_heading": "Bitte passe Folgendes an:",
-        "title": "Kontaktformular"
+        "error_heading": "Bitte passe Folgendes an:"
       }
     },
     "404": {
@@ -250,8 +241,7 @@
         "product": "Produkt",
         "price": "Preis",
         "total": "Gesamtsumme",
-        "quantity": "Anzahl",
-        "image": "Produktbild"
+        "quantity": "Anzahl"
       },
       "update": "Aktualisieren",
       "login": {
@@ -277,7 +267,7 @@
     "collection_template": {
       "title": "Kategorie",
       "empty": "Keine Produkte gefunden",
-      "use_fewer_filters_html": "Verwende weniger Filter oder <a class=\"{{ class }}\" href=\"{{ link }}\">entferne alle</a>"
+      "use_fewer_filters_html": "Verwende weniger Filter oder <a class=\"{{ class }}\" href=\"{{ link }}\">lösche alle</a>"
     },
     "video": {
       "load_video": "Video laden: {{ description }}"
@@ -290,9 +280,6 @@
       "play_slideshow": "Slideshow abspielen",
       "carousel": "Karussell",
       "slide": "Folie"
-    },
-    "page": {
-      "title": "Seitentitel"
     }
   },
   "localization": {
@@ -379,7 +366,7 @@
     },
     "reset_password": {
       "title": "Passwort für Konto zurücksetzen",
-      "subtext": "Neues Passwort eingeben",
+      "subtext": "Gib ein neues Passwort für {{ email }} ein",
       "password": "Passwort",
       "password_confirm": "Passwort bestätigen",
       "submit": "Passwort zurücksetzen"
@@ -406,8 +393,7 @@
       "tracking_url": "Tracking-Link",
       "tracking_company": "Versanddienstleister",
       "tracking_number": "Trackingnummer",
-      "subtotal": "Zwischensumme",
-      "total_duties": "Zollgebühren"
+      "subtotal": "Zwischensumme"
     }
   },
   "gift_cards": {

@@ -1,0 +1,337 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import "~flickity/css/flickity";
+
+@import "./components/cursor.scss";
+@import "./components/dropdown.scss";
+@import "./components/accordion.scss";
+@import "./components/instagram.scss";
+@import "./components/share.scss";
+@import "./components/hero.scss";
+@import "./components/header.scss";
+@import "./components/item-card.scss";
+@import "./components/shop-all.scss";
+@import "./components/home-quote.scss";
+@import "./components/sustainability-process.scss";
+@import "./components/about-quote.scss";
+@import "./components/swatches.scss";
+@import "./components/sizes.scss";
+@import "./components/cart-drawer.scss";
+@import "./components/product-reviews.scss";
+
+@import "./pages/faqs.scss";
+@import "./pages/blog.scss";
+@import "./pages/article.scss";
+@import "./pages/collection.scss";
+@import "./pages/product.scss";
+@import "./pages/customer.scss";
+
+@layer base {
+    a {
+        transition: .3s;
+    }
+    .font-matter, 
+    .font-matterlight {
+        text-transform: uppercase; 
+    }
+    .font-matter {
+      letter-spacing: .1em;
+    }
+    .arrow-link {
+      &-wrap {
+        @apply inline-flex items-center;
+        svg {
+          @apply ml-2 transition;
+        }
+        &:hover svg {
+          @apply translate-x-2;
+        }
+      }
+      @apply font-italic text-24 md:text-20;
+    }
+    .button {
+      @apply rounded-none appearance-none outline-none bg-orange text-cream border border-orange font-matterlight text-13 tracking-widest w-full p-3 min-h-[48px] cursor-pointer transition-smooth hover:bg-cream hover:text-orange md:text-16; 
+      &__outline {
+        @apply rounded-none appearance-none outline-none bg-cream text-orange border border-orange font-matterlight text-13 tracking-widest w-full p-3 min-h-[48px] cursor-pointer transition-smooth hover:bg-orange hover:text-cream md:text-16; 
+      }
+      &[disabled="true"] {
+        opacity: .4;
+        pointer-events: none;
+      }
+    }
+}
+
+@layer utilities {
+  .container-base {
+    @apply w-full mx-auto;
+  }
+  .container {
+    @apply container-base px-10 md:px-5;
+    max-width: 1680px;
+    &-full {
+      @apply container-base px-10 md:px-5;
+      max-width: 100%; 
+    }
+    &-1280 {
+      @apply container-base px-10 md:px-5; 
+      max-width: 1280px;
+    }
+    &-1060 {
+      @apply container-base px-10 md:px-5;
+      max-width: 1060px;
+    }
+    &-975 {
+      @apply container-base px-10 md:px-5;
+      max-width: 975px;
+    }
+    &-900 {
+      @apply container-base px-10 md:px-5;
+      max-width: 900px;
+    }
+    &-768 {
+      @apply container-base px-10 md:px-5; 
+      max-width: 768px;
+    }
+    &-700 {
+      @apply container-base px-10 md:px-5;
+      max-width: 700px;
+    }
+  }
+  .absolute-center {
+      @apply absolute top-1/2 -translate-y-1/2;
+  }
+  .invisible {
+    opacity: 0;
+    visibility: hidden;
+  }
+  .visible {
+    opacity: 1;
+    visibility: visible;
+  }
+  .transition-smooth {
+    transition: .3s;
+  }
+}
+
+@layer components {
+  //SCROLLMAGIC
+  .delay {
+    &.delay-0 {
+      transition-delay: 0ms;
+    }
+    &.delay-100 {
+      transition-delay: 100ms;
+    }
+    &.delay-200 {
+      transition-delay: 200ms;
+    }
+    &.delay-300 {
+      transition-delay: 300ms;
+    }
+    &.delay-400 {
+      transition-delay: 400ms;
+    }
+    &.delay-500 {
+      transition-delay: 500ms;
+    }
+    &.delay-600 {
+      transition-delay: 600ms;
+    }
+    &.delay-700 {
+      transition-delay: 700ms;
+    }
+    &.delay-800 {
+      transition-delay: 800ms;
+    }
+    &.delay-900 {
+      transition-delay: 900ms;
+    }
+    &.delay-1000 {
+      transition-delay: -1000ms;
+    }
+    &.delay-1100 {
+      transition-delay: 1100ms;
+    }
+    &.delay-1200 {
+      transition-delay: 1200ms;
+    }
+  }
+  [data-viewport] {
+    &.in-view {
+      .fade-in {
+        opacity: 1;
+        @apply delay;
+        &.highlighted {
+          transform: none;
+        }
+      }
+      .scale-in {
+        @apply delay scale-100;   
+      }      
+    }
+    &.fade-in,
+    .fade-in {
+      opacity: 0;
+      transition: .9s opacity;
+      &.in-view {
+        opacity: 1;
+        @apply delay;
+      }
+    }
+    &.scale-in,
+    .scale-in {
+      @apply scale-110;
+      transition: .9s;
+      &.in-view {
+        @apply delay scale-100;
+      }      
+    }
+  }
+  // EDITOR SCROLLMAGIC
+  [data-shopify-editor-section] {
+    .fade-in {
+      opacity: 1 !important;
+      transition-delay: 0s !important;
+      &.highlighted {
+        transform: none !important;
+        transition-delay: 0s !important;
+      }
+    }
+    .scale-in {
+      transform: scale(1) !important;
+      transition-delay: 0s !important;
+    } 
+  }
+  body.scrolled-past-hero .full__hero {
+    display: none !important;
+  }
+  //FORM
+  .form {
+    &__input {
+      @apply text-brown rounded-none appearance-none outline-none bg-transparent border-0 font-matterlight text-18 min-h-[59px] w-full py-2 px-4 md:text-16 md:min-h-[50px]; 
+      &[type="search"]::-webkit-search-cancel-button{
+          cursor: pointer;
+          -webkit-appearance: none;
+          height: 20px;
+          width: 20px;
+          background-image: url("data:image/svg+xml,%3Csvg class='absolute-center right-0 cursor-pointer' width='10px' height='9px' viewBox='0 0 10 9' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Cg stroke='none' stroke-width='1' fill='none' fill-rule='evenodd'%3E%3Cg transform='translate(-1418.000000, -12.000000)'%3E%3Cpolygon id='✕' fill='%23000' fill-rule='nonzero' points='1427.20695 21 1427.93693 20.2700195 1424.14103 16.4741211 1427.93693 12.6782227 1427.20695 11.9545898 1423.41105 15.7504883 1419.61515 11.9545898 1418.89152 12.6782227 1422.68742 16.4741211 1418.89152 20.2700195 1419.61515 21 1423.41105 17.2041016'%3E%3C/polygon%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+          background-size: 20px;
+          background-repeat: no-repeat;
+          background-position: center;
+      }
+    }
+  }
+  //RICHTEXT
+  .richtext {
+    h1 {
+      @apply font-heading normal-case text-38 leading-[1.265] md:text-30 md:leading-[1.325];
+    }
+    h2 {
+      @apply font-matterlight text-24 tracking-[.05em];
+    }
+    h3 {
+      @apply font-matter text-18;
+    }
+    a,
+    & > p > a {
+      display: inline-block;
+      padding-bottom: 1px;
+      border-bottom: 1px solid;
+      &:hover {
+          opacity: .6;
+      }
+    }     
+  }
+  //GLOW BUBBLE
+  .glow-bubble {
+    filter: blur(10px);
+    @apply bg-orange rounded-full;
+  }
+  //TICKER
+  @-webkit-keyframes ticker {
+    0% {
+      -webkit-transform: translate3d(0, 0, 0);
+      transform: translate3d(0, 0, 0);
+      visibility: visible;
+    }
+
+    100% {
+      -webkit-transform: translate3d(-100%, 0, 0);
+      transform: translate3d(-100%, 0, 0);
+    }
+  }
+  @keyframes ticker {
+    0% {
+      -webkit-transform: translate3d(0, 0, 0);
+      transform: translate3d(0, 0, 0);
+      visibility: visible;
+    }
+
+    100% {
+      -webkit-transform: translate3d(-100%, 0, 0);
+      transform: translate3d(-100%, 0, 0);
+    }
+  }
+  .ticker-wrap {
+    width: 100%;
+    overflow: hidden;
+    padding-left: 100%;
+    box-sizing: content-box;
+    .ticker {
+      display: inline-block;
+      white-space: nowrap;
+      padding-right: 100%;
+      box-sizing: content-box;
+      -webkit-animation-iteration-count: infinite; 
+              animation-iteration-count: infinite;
+      -webkit-animation-timing-function: linear;
+              animation-timing-function: linear;
+     -webkit-animation-name: ticker;
+             animation-name: ticker;
+      -webkit-animation-duration: 30s;
+              animation-duration: 30s;
+      &__item { 
+        display: inline-block;
+        padding: 0 2rem; 
+      }
+    }
+  }  
+  //FLICKITY
+  .carousel {
+    &__align-left-pl-5 {
+      @apply pl-5 overflow-hidden;
+      .flickity-viewport {
+        @apply overflow-visible;
+      }
+    }
+  }
+}
+
+html {
+  @apply scroll-smooth;
+}
+
+body.frozen {
+  overflow: hidden;
+}
+
+body {
+  @apply font-body;
+}
+
+*::-webkit-scrollbar {
+  display: none; /* for Chrome, Safari, and Opera */
+}
+
+// SHOPIFY CHALLENGE
+.shopify-challenge__container {
+  @apply container-975 py-40 flex flex-col items-center justify-center space-y-6;
+  form {
+    @apply space-y-6;
+  }
+  .shopify-challenge__button {
+    @apply button;
+  }
+}

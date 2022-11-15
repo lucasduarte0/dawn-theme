@@ -1,0 +1,129 @@
+<section class="home__philosophy relative bg-brown text-cream py-10 md:py-7" data-viewport>
+    <div class="container">
+        <div class="grid grid-cols-3 gap-24 md:grid-cols-1 sm:gap-0">
+            <div class="-mr-32 sm:mr-0">
+                <div class="text-17 space-y-8 pb-8 mb-10 border-b border-cream fade-in delay-300">
+                    {% if section.settings.title != blank %}
+                        <h2 class="font-matter text-18 fade-in" data-viewport="-200">{{ section.settings.title }}</h2>
+                    {% endif %}
+                    {% if section.settings.bodycopy %}<div class="fade-in delay-300" data-viewport="-200">{{ section.settings.bodycopy }}</div>{% endif %}
+                </div>
+                <div class="grid grid-cols-2 gap-10 sm:grid-cols-1 sm:gap-12 fade-in delay-600">
+                    <div class="sm:order-2">                
+                    {% if section.settings.image != blank %}
+                        <img src="{{ section.settings.image | img_url: '400x450' }}" loading="lazy" width="400" height="450" alt="{{ section.settings.image.alt }}" />                    
+                    {% endif %}
+                    </div>
+                    <div class="space-y-10 pb-16 sm:order-1 sm:pb-0 fade-in md_min:delay-900">
+                        {% for block in section.blocks %}     
+                            <div class="flex items-center">
+                                {% if block.settings.icon != blank %}
+                                    <img src="{{ block.settings.icon }}" class="mr-5 max-w-[40px]" loading="lazy" width="40" height="40" alt="{{ block.settings.icon.alt }}" />             
+                                {% endif %}
+                                {% if block.settings.title != blank %}
+                                    <p class="font-matter text-15">{{ block.settings.title }}</p>
+                                {% endif %}                                
+                            </div>
+                        {% endfor %}                                       
+                    </div>
+                    {% if section.settings.link_text != blank and section.settings.link_url != blank %}
+                        <div class="col-span-2 sm:order-3 sm:col-span-1 fade-in delay-1200">
+                            <a href="{{ section.settings.link_url }}" class="arrow-link-wrap" {% if section.settings.link_new_tab %} target="_blank"{% endif %}>
+                                <div class="arrow-link">{{ section.settings.link_text }}</div>
+                                <svg width="35px" height="18px" viewBox="0 0 35 18" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                        <g transform="translate(-133.000000, -1134.000000)" fill="#FBF1DC">
+                                            <g transform="translate(133.000000, 1134.000000)">
+                                                <path d="M34.6920857,8.50390775 L34.6908541,8.50390775 C31.5550551,8.50390775 29.2481613,6.42079807 28.1519865,5.1785767 C26.5206566,3.33010883 25.6412535,1.26770283 25.6418693,0.265431917 L25.6418693,0 L24.4921174,0 L24.4921174,0.265431917 C24.4921174,2.19459109 26.8685998,6.54873625 30.6892001,8.50443861 L0,8.50390775 L0,9.49556139 L30.6873526,9.49556139 C29.4409156,10.1294128 28.2646831,11.0552393 27.2374811,12.2210163 C25.4355667,14.2621877 24.4927332,16.5395936 24.4921174,17.7340372 L24.4921174,18 L25.6412535,17.9984074 L25.6412535,17.7335064 C25.6412535,16.7312354 26.5206566,14.6688294 28.1513707,12.8208924 C29.2500088,11.5786711 31.5605975,9.49556139 34.6896224,9.49556139 L34.6920857,9.49556139 L35,9.49556139 L35,8.50390775 L34.6920857,8.50390775 Z" id="Fill-1"></path>
+                                            </g>
+                                        </g>
+                                    </g>
+                                </svg>
+                            </a>
+                        </div>
+                    {% endif %}                       
+                </div>
+            </div>
+            <div class="col-start-3 -ml-40 sm:col-start-1 sm:ml-0 fade-in delay-300">           
+                {% if section.settings.image_2 != blank %}
+                    <img src="{{ section.settings.image_2 | img_url: '1200x1500' }}" class="md:hidden" loading="lazy" width="1200" height="1500" alt="{{ section.settings.image_2.alt }}" />                    
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</section>
+
+{% schema %}
+{
+    "name": "Philosophy",
+    "settings": [        
+        {
+            "type": "textarea",
+            "id": "quote",
+            "label": "Quote",
+            "default": "Quote about the importance of sustainability goes here. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ridiculus mus mauris vitae ultricies leo integer malesuada nunc vel. "
+        },
+        {
+            "type": "text",
+            "id": "title",
+            "label": "Title",
+            "default": "Our Philosophy"
+         },
+         {
+            "type": "richtext",
+            "id": "bodycopy",
+            "label": "Bodycopy",
+            "default": "<p> The only way to move forward on planet Earth is to do so sustainably; we truly believe this, and so lays the foundation for our entire concept.</p><p>Each item’s loving purpose is both with the users’ and our environment’s best interest in mind.</p>"
+         },
+         {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Image 1",
+            "info": "Recommended Image Dimensions: 300x400"
+        },             
+         {
+            "type": "image_picker",
+            "id": "image_2",
+            "label": "Image 2",
+            "info": "Recommended Image Dimensions: 1200x1500"
+        },
+        {
+            "type": "text",
+            "id": "link_text",
+            "label": "Link Text",
+            "default": "Learn About Us"
+         },
+         {
+            "type": "url",
+            "id": "link_url",
+            "label": "Link URL",
+            "default": "/"
+         },      
+         {
+            "type": "checkbox",
+            "id": "link_new_tab",
+            "label": "Open URL in a new tab?",
+            "default": false
+         }           
+    ],
+    "blocks": [
+        {
+            "type": "pillar",
+            "name": "Pillar",
+            "settings": [
+                {
+                    "type": "text",
+                    "id": "icon",
+                    "label": "Icon (.svg)",
+                    "info": "Paste in an SVG from Settings > Files"
+                },
+                {
+                    "type": "text",
+                    "id": "title",
+                    "label": "Title"
+                }
+            ]
+        }
+    ]    
+}
+{% endschema %}

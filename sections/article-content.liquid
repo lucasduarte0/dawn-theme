@@ -1,0 +1,40 @@
+<section class="article__hero" data-blog-handle="{{ blog.handle }}" data-blog-id="{{ blog.id }}">
+    <div class="bg-orange text-cream py-4 px-6 md:px-0">
+        <div class="container-full font-matter tracking-wider text-13 leading-tight">
+            <span class="text-[#1A1107] opacity-50">Now Reading:</span> 
+            <span id="article__title">{{ article.title }}</span>
+        </div>
+    </div>
+    <div class="relative overflow-hidden">
+        <div class="text-cream p-9 bg-cover bg-no-repeat bg-center min-h-[40vw] flex items-end 2xl_min:min-h-[585px] md:min-h-[115vw] md:p-5 md:-mx-5">
+            <img src="{{ article.image.src | img_url:'1920x1080', crop: 'center' }}" class="absolute top-0 left-0 w-full h-full object-cover scale-in" loading="eager" alt="{{ article.image.alt }}" data-viewport="-750" />
+        </div>        
+        {% comment %} <div class="bg-cover bg-no-repeat bg-center min-h-[40vw] 2xl_min:min-h-[585px] fade-in delay-300" style="background-image:url({{ article.image.src | img_url: '1920x1080', crop: 'center' }})"></div> {% endcomment %}
+    </div>
+</section>
+<section class="article__content pt-14 pb-24 md:py-8">
+    <div class="container-975 space-y-6 text-17 leading-[1.59] md:space-y-2">
+        <p class="font-matter text-brown text-13 mb-2 md:mb-0">{{ article.published_at | date: format: 'abbreviated_date' }}</p>
+        {% if article.tags != blank %}
+            <a href="{{ shop.url}}/blogs/{{ blog.handle }}/tagged/{{ article.tags[0] | handleize }}" class="inline-block font-italic text-24 -mb-1 lg:text-20 hover:text-orange">{{ article.tags[0] }} —</a>
+            <h1 class="block font-matterlight text-24 lg:text-20" style="margin-top:-.5rem;">{{ article.title }}</h1>
+        {% endif %}
+        <div class="space-y-8 md:space-y-4">
+            {{ article.content }}
+        </div>
+        <div class="flex justify-between pt-14 md:pt-8">
+            <p class="font-matter tracking-wider text-13 leading-tight text-brown">Written by {{ article.author | split: " " | first }}</p>
+            {% comment %} <a href="#" class="font-matter tracking-wider text-13 leading-tight text-brown pb-1 border-b border-brown hover:text-orange hover:border-orange">Share</a> {% endcomment %}
+            {% assign url = shop.url | append: request.path %}
+            {% assign share_excerpt = article.excerpt | strip_html %}
+            {% render 'share', reverse: true, url: url, title: article.title, excerpt: share_excerpt %}
+        </div>
+    </div>
+</section>
+
+{% schema %}
+{
+    "name": "Content",
+    "class": "hero"
+}
+{% endschema %}

@@ -1,0 +1,119 @@
+<section class="shop-all relative bg-cream{% if template == 'index' %} mt-[100vh] sm:mt-[75vh] py-24 md:py-10{% else %} pt-20 pb-12 md:py-8{% endif %}" data-viewport>
+    {% if template == 'index' %}
+        <img src="{{ 'wordmark-large.svg' | asset_url }}" class="wordmark w-[99%] absolute -top-2 inset-x-0 mx-auto fade-in delay-400" data-viewport="-750" alt="Bask Goods Wordmark">
+    {% endif %}
+    <div class="container">
+        <div class="grid grid-cols-3 gap-24 pb-16 border-b border-brown lg:gap-10 md:grid-cols-1 md:pb-10">
+            <div class="flex flex-col">
+                {% if section.settings.bodycopy != blank %}
+                    <p class="font-heading{% if template == 'index' %} text-24 lg:text-20{% else %} text-38 md:text-30 leading-[1.265]{% endif %} fade-in">{{ section.settings.bodycopy }}</p>
+                {% endif %}
+                {% if section.settings.link_text != blank and section.settings.link_url != blank %}
+                    <div class="mt-6 fade-in delay-300">
+                        <a href="{{ section.settings.link_url }}" class="arrow-link-wrap" {% if section.settings.link_new_tab %} target="_blank"{% endif %}>
+                            <div class="arrow-link text-brown">{{ section.settings.link_text }}</div>
+                            <svg width="35px" height="18px" viewBox="0 0 35 18" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                    <g transform="translate(-133.000000, -1134.000000)" fill="#A67C52">
+                                        <g transform="translate(133.000000, 1134.000000)">
+                                            <path d="M34.6920857,8.50390775 L34.6908541,8.50390775 C31.5550551,8.50390775 29.2481613,6.42079807 28.1519865,5.1785767 C26.5206566,3.33010883 25.6412535,1.26770283 25.6418693,0.265431917 L25.6418693,0 L24.4921174,0 L24.4921174,0.265431917 C24.4921174,2.19459109 26.8685998,6.54873625 30.6892001,8.50443861 L0,8.50390775 L0,9.49556139 L30.6873526,9.49556139 C29.4409156,10.1294128 28.2646831,11.0552393 27.2374811,12.2210163 C25.4355667,14.2621877 24.4927332,16.5395936 24.4921174,17.7340372 L24.4921174,18 L25.6412535,17.9984074 L25.6412535,17.7335064 C25.6412535,16.7312354 26.5206566,14.6688294 28.1513707,12.8208924 C29.2500088,11.5786711 31.5605975,9.49556139 34.6896224,9.49556139 L34.6920857,9.49556139 L35,9.49556139 L35,8.50390775 L34.6920857,8.50390775 Z" id="Fill-1"></path>
+                                        </g>
+                                    </g>
+                                </g>
+                            </svg>
+                        </a>
+                    </div>
+                {% endif %}   
+                {% if template == "index" %}
+                    <div class="flex-grow flex items-center justify-center md:justify-end fade-in delay-600">                
+                        <div class="glow-bubble w-[50px] h-[50px]"></div>
+                    </div>
+                {% endif %}
+            </div>
+            <div class="col-span-2 -mr-10 md:-mx-5 fade-in delay-600">
+                <div class="carousel md:flex md:flex-nowrap md:overflow-auto md:pl-5">
+                    {% for block in section.blocks %}
+                        {% assign prod = all_products[block.settings.prod] %}
+                        {% assign prod_category = prod.type %}
+                        {% if block.settings.category != blank %}
+                            {% assign prod_category = block.settings.category %}
+                        {% endif %}
+                        <div class="w-3/5 mr-10 md:mr-5 md:min-w-[66vw]">{% render 'product-card', prod: prod, category: prod_category %}</div>
+                    {% endfor %}
+                    {% comment %} <div class="w-3/5 mr-8">{% render 'product-card' %}</div>
+                    <div class="w-3/5 mr-8">{% render 'product-card' %}</div>
+                    <div class="w-3/5 mr-8">{% render 'product-card' %}</div> {% endcomment %}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% if template == 'index' %}
+    <script>
+        function setWordmarkPosition () {
+            if(document.querySelector(".wordmark") !== null){
+                var $wordmark = document.querySelector(".wordmark");
+                var wordmarkHeight = $wordmark.offsetHeight;
+                if(window.innerWidth < 767){
+                    $wordmark.style.top = (wordmarkHeight - 3)*-1 + "px";
+                } else {
+                    $wordmark.style.top = (wordmarkHeight - 20)*-1 + "px";
+                }
+            }
+        }
+        setTimeout(setWordmarkPosition, 350)
+        window.addEventListener("resize", setWordmarkPosition, true)
+    </script>
+{% endif %}
+
+{% schema %}
+{
+    "name": "Shop All",
+    "settings": [        
+        {
+            "type": "textarea",
+            "id": "bodycopy",
+            "label": "Bodycopy",
+            "default": "In a world that exalts beauty over everything yet at the cost of our planet itself, we're driven by a mission to have our cake and eat it, too. Bask creates beautiful products for a beautiful life with transparency and sustainability in the foreground, proving that luxury can exist without excess."
+        },
+        {
+            "type": "text",
+            "id": "link_text",
+            "label": "Link Text",
+            "default": "Shop All"
+         },
+         {
+            "type": "url",
+            "id": "link_url",
+            "label": "Link URL",
+            "default": "/"
+         },      
+         {
+            "type": "checkbox",
+            "id": "link_new_tab",
+            "label": "Open URL in a new tab?",
+            "default": false
+         }                                       
+    ],
+    "blocks": [
+        {
+            "type": "product",
+            "name": "Product",
+            "settings": [
+                {
+                    "type": "product",
+                    "id": "prod",
+                    "label": "Product"
+                },
+                {
+                    "type": "text",
+                    "id": "category",
+                    "label": "category",
+                    "info": "Leave blank if you'd prefer to use the Product Type."
+                }
+            ]
+        }
+    ]
+}
+{% endschema %}

@@ -1,0 +1,58 @@
+<section class="sustainability__earth bg-cream pt-16 md:pt-8 md:pb-0" data-viewport>
+    <div class="container">
+        <div class="px-16 pb-20 border-b border-brown grid grid-cols-2 md:px-0 md:grid-cols-1 md:pb-8">
+            <div class="pr-24 xl:pr-12 md:hidden">
+            </div>
+            <div class="">
+                <div class="grid grid-cols-2 gap-14 2xl:gap-10 xl:-ml-32 lg:-ml-44 md:grid-cols-1 md:gap-4 md:ml-0">
+                    <div>
+                        <img src="{{ section.settings.image | img_url: '500x700' }}" loading="lazy" width="500" height="700" class="mb-6 md:max-w-[50vw] fade-in" alt="{{ section.settings.image.alt }}">
+                    </div>      
+                    <div>
+                        {% if section.settings.title != blank %}
+                            <p class="text-[100px] font-matterlight text-brown leading-none -mt-6 mb-14 2xl:mb-6 md:text-75 fade-in delay-300">{{ section.settings.title }}</p>
+                        {% endif %}
+                        {% if section.settings.headline != blank %}
+                            <h2 class="text-18 font-matter text-brown mb-5 fade-in delay-600">{{ section.settings.headline }}</h2> 
+                        {% endif %}
+                        {% if section.settings.bodycopy != blank %}
+                            <div class="space-y-5 leading-[1.75] fade-in delay-900">{{ section.settings.bodycopy }}</div>
+                        {% endif %}
+                    </div>              
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% schema %}
+{
+    "name": "Earth",
+    "settings": [    
+        {
+            "type": "text",
+            "id": "title",
+            "label": "Title",
+            "default": "2%"
+        },            
+        {
+            "type": "text",
+            "id": "headline",
+            "label": "Headline",
+            "default": "For the Earth"
+        },
+        {
+            "type": "richtext",
+            "id": "bodycopy",
+            "label": "Bodycopy",
+            "default": "<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci.</p>"
+        },
+        {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Image",
+            "info": "Recommended Image Dimensions: 500x700"
+        }        
+    ]
+}
+{% endschema %}

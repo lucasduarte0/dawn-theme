@@ -51,8 +51,7 @@
     "slider": {
       "of": "od",
       "next_slide": "Klizno pomakni udesno",
-      "previous_slide": "Klizno pomakni ulijevo",
-      "name": "Kliznik"
+      "previous_slide": "Klizno pomakni ulijevo"
     }
   },
   "newsletter": {
@@ -74,9 +73,7 @@
     },
     "skip_to_product_info": "Preskoči do informacija o proizvodu",
     "total_reviews": "ukupan broj pregleda",
-    "star_reviews_info": "{{ rating_value }} od sljedećeg broja zvjezdica: {{ rating_max }}",
-    "collapsible_content_title": "Sadržaj koji se može sažeti",
-    "complementary_products": "Komplementarni proizvodi"
+    "star_reviews_info": "{{ rating_value }} od sljedećeg broja zvjezdica: {{ rating_max }}"
   },
   "blogs": {
     "article": {
@@ -149,9 +146,7 @@
       },
       "view_full_details": "Prikaži sve pojedinosti",
       "include_taxes": "Porez je uključen.",
-      "shipping_policy_html": "<a href=\"{{ link }}\">Poštarina </a> se obračunava prilikom završetka kupnje.",
-      "choose_options": "Odaberite opcije",
-      "choose_product_options": "Odaberite željene opcije za {{ product_name }}"
+      "shipping_policy_html": "<a href=\"{{ link }}\">Poštarina </a> se obračunava prilikom završetka kupnje."
     },
     "modal": {
       "label": "Galerija medijskih zapisa"
@@ -159,7 +154,7 @@
     "facets": {
       "apply": "Primijeni",
       "clear": "Očisti",
-      "clear_all": "Ukloni sve",
+      "clear_all": "Očisti sve",
       "from": "Od",
       "filter_and_sort": "Filtriraj i razvrstaj",
       "filter_by_label": "Filtriraj:",
@@ -184,10 +179,7 @@
         "other": "Broj proizvoda: {{ count }}",
         "few": "Broj proizvoda: {{ count }}"
       },
-      "clear_filter": "Ukloni filtar",
-      "filter_selected_accessibility": "{{ type }} (broj odabranih filtra: {{ count }})",
-      "show_more": "Prikaži više",
-      "show_less": "Prikaži manje"
+      "clear_filter": "Očisti filtar"
     }
   },
   "templates": {
@@ -219,8 +211,7 @@
         "comment": "Komentar",
         "send": "Pošalji",
         "post_success": "Hvala vam na javljanju. Odgovorit ćemo vam u najkraćem mogućem roku.",
-        "error_heading": "Prilagodite sljedeće:",
-        "title": "Obrazac za kontakt"
+        "error_heading": "Prilagodite sljedeće:"
       }
     },
     "404": {
@@ -258,8 +249,7 @@
         "product": "Proizvod",
         "price": "Cijena",
         "total": "Ukupno",
-        "quantity": "Količina",
-        "image": "Slika proizvoda"
+        "quantity": "Količina"
       },
       "login": {
         "title": "Imate li račun?",
@@ -284,7 +274,7 @@
     "collection_template": {
       "title": "Kolekcija",
       "empty": "Nije pronađen nijedan proizvod",
-      "use_fewer_filters_html": "Upotrijebi manje filtara ili <a class=\"{{ class }}\" href=\"{{ link }}\">ukloni sve</a>"
+      "use_fewer_filters_html": "Upotrijebite manje filtara ili <a class=\"{{ class }}\" href=\"{{ link }}\">očistite sve</a>"
     },
     "video": {
       "load_video": "Učitaj videozapis: {{ description }}"
@@ -297,9 +287,6 @@
       "play_slideshow": "Reproduciraj prezentaciju",
       "carousel": "Vrtuljak",
       "slide": "Slajd"
-    },
-    "page": {
-      "title": "Naslov stranice"
     }
   },
   "localization": {
@@ -386,7 +373,7 @@
     },
     "reset_password": {
       "title": "Ponovno postavljanje lozinke računa",
-      "subtext": "Unesite novu lozinku",
+      "subtext": "Unesite novu lozinku za {{ email }}",
       "password": "Lozinka",
       "password_confirm": "Potvrdi lozinku",
       "submit": "Ponovno postavi lozinku"
@@ -413,8 +400,7 @@
       "tracking_url": "Poveznica za praćenje",
       "tracking_company": "Dostavna služba",
       "tracking_number": "Broj za praćenje",
-      "subtotal": "Podzbroj",
-      "total_duties": "Carina"
+      "subtotal": "Podzbroj"
     }
   },
   "gift_cards": {

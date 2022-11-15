@@ -1,15 +1,40 @@
 {
   "sections": {
-    "main": {
-      "type": "main-list-collections",
+    "header": {
+      "type": "header-wordmark-brown",
       "settings": {
-        "title": "Collections",
-        "sort": "alphabetical",
-        "image_ratio": "square"
+      }
+    },
+    "main": {
+      "type": "list-collections-main",
+      "blocks": {
+        "6d7b5614-40cf-48fc-bdbe-117b1ca1f04c": {
+          "type": "collection",
+          "settings": {
+            "collection": "accessories",
+            "enable_title": false,
+            "title": ""
+          }
+        },
+        "b6320dd6-050f-4c16-90d5-637221d881e2": {
+          "type": "collection",
+          "settings": {
+            "collection": "shoes",
+            "enable_title": false,
+            "title": ""
+          }
+        }
+      },
+      "block_order": [
+        "6d7b5614-40cf-48fc-bdbe-117b1ca1f04c",
+        "b6320dd6-050f-4c16-90d5-637221d881e2"
+      ],
+      "settings": {
       }
     }
   },
   "order": [
+    "header",
     "main"
   ]
 }

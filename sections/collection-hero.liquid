@@ -1,0 +1,19 @@
+<section class="collection__hero" data-viewport>
+    {% capture collection_content %}
+        <div class="max-w-[680px]">
+            <h1 class="font-matterlight text-[50px] mb-4 lg:text-30">{{ collection.title }}</h1>
+            <div class="text-24 font-heading space-y-8 md:text-20 md:leading-normal md:pr-5 md:mb-6 fade-in delay-300">{{ collection.description }}</div>
+        </div>       
+    {% endcapture %}
+    <div class="collection__hero-content">
+        <div class="text-cream p-9 bg-cover bg-no-repeat bg-center min-h-[40vw] flex items-end 2xl_min:min-h-[585px] md:pt-72 fade-in delay-300" style="background-image:url({{ collection.image.src | img_url: '1920x1080', crop: 'center' }})">
+            <div class="fade-in delay-600">{{ collection_content }}</div>
+        </div>
+    </div>
+</section>
+
+{% schema %}
+{
+    "name": "Hero"
+}
+{% endschema %}

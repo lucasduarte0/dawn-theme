@@ -1,0 +1,55 @@
+<section class="full__hero w-full h-screen min-h-[700px] py-40 flex items-center justify-center relative overflow-hidden lg:min-h-[420px] sm:hidden" data-viewport>
+    <img src="{{ section.settings.image | img_url:'2400x' }}" class="absolute top-0 left-0 w-full h-full object-cover scale-in" loading="eager" alt="{{ section.settings.image.alt }}" />
+    {% if section.settings.small_image != blank %}
+        <div class="container relative absolute-center left-0 right-0 mx-auto">
+            <img src="{{ section.settings.small_image | img_url: '680x880' }}" class="max-w-[340px] mx-auto fade-in" loading="lazy" width="680" height="880" alt="{{ section.settings.small_image.alt }}">
+            {% if section.settings.title != blank %}
+                <h1 class="font-italic text-75 leading-none absolute-center left-0 right-0 mx-auto text-center text-cream fade-in delay-400">{{ section.settings.title | replace: '[', '<span class="font-matterlight">' | replace: ']', '</span>' }}</h1>
+            {% endif %}
+        </div>
+    {% endif %}
+</section>
+<section class="full__hero w-full h-[66vh] min-h-[400px] relative overflow-hidden sm_min:hidden">
+    <img src="{{ section.settings.mobile_image | img_url:'1200x' }}" class="absolute top-0 left-0 w-full h-full object-cover scale-in" loading="eager" alt="{{ section.settings.image.alt }}" data-viewport="-750" />
+    {% if section.settings.small_image != blank %}
+        <div class="container relative absolute-center left-0 right-0 mx-auto">
+            <img src="{{ section.settings.small_image | img_url: '680x880' }}" class="max-w-[50vw] mx-auto fade-in" loading="lazy" width="680" height="880" alt="{{ section.settings.small_image.alt }}">
+            {% if section.settings.title != blank %}
+                <h1 class="font-italic text-[44px] absolute-center left-0 right-0 mx-auto text-center text-cream fade-in delay-400">{{ section.settings.title | replace: '[', '<span class="font-matterlight">' | replace: ']', '</span>' }}</h1>
+            {% endif %}
+        </div>
+    {% endif %}    
+</section>
+
+{% schema %}
+{
+    "name": "Hero",
+    "settings": [        
+        {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Large Hero Image",
+            "info": "Recommended Image Dimensions: 2400x1350"
+        },
+        {
+            "type": "image_picker",
+            "id": "mobile_image",
+            "label": "Mobile Large Hero Image",
+            "info": "Recommended Image Dimensions: 1000x1350"
+        },       
+        {
+            "type": "image_picker",
+            "id": "small_image",
+            "label": "Small Hero Image",
+            "info": "Recommended Image Dimensions: 680x880"
+        }, 
+        {
+            "type": "text",
+            "id": "title",
+            "label": "Title",
+            "default": "Our [Ethos]",
+            "info": "Wrap italicized texts in brackets (i.e. [Ethos])"
+        }                            
+    ] 
+}
+{% endschema %}

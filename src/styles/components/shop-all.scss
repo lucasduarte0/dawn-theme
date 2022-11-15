@@ -1,0 +1,28 @@
+.shop-all {
+    .carousel {
+        @screen md_min {
+            -webkit-overflow-scrolling: touch;
+            -ms-overflow-style: -ms-autohiding-scrollbar; 
+            // &::-webkit-scrollbar {
+            //     display: none; 
+            // }            
+            &.flickity-enabled {
+                @apply block whitespace-nowrap overflow-x-auto;
+                .flickity-viewport {
+                    @apply overflow-x-auto cursor-default;
+                }
+            }
+        }
+        @screen md {
+            @apply flex flex-nowrap;
+        }   
+        &:after {
+            content: 'flickity';
+            display: none;
+            @screen md {
+                content: '';
+                display: none;
+            }
+        }
+    }
+}

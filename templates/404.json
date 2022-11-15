@@ -1,10 +1,14 @@
 {
   "sections": {
+    "header": {
+      "type": "header-wordmark-brown"
+    },   
     "main": {
       "type": "main-404"
     }
   },
   "order": [
+    "header",
     "main"
   ]
 }

@@ -51,8 +51,7 @@
     "slider": {
       "of": "av",
       "next_slide": "Bild till höger",
-      "previous_slide": "Bild till vänster",
-      "name": "Bild"
+      "previous_slide": "Bild till vänster"
     }
   },
   "newsletter": {
@@ -74,9 +73,7 @@
     "loading": "Laddar ...",
     "skip_to_product_info": "Gå vidare till produktinformation",
     "total_reviews": "totalt antal recensioner",
-    "star_reviews_info": "{{ rating_value }} av {{ rating_max }} stjärnor",
-    "collapsible_content_title": "Innehåll som kan döljas",
-    "complementary_products": "Kompletterande produkter"
+    "star_reviews_info": "{{ rating_value }} av {{ rating_max }} stjärnor"
   },
   "blogs": {
     "article": {
@@ -148,9 +145,7 @@
       },
       "view_full_details": "Visa alla uppgifter",
       "include_taxes": "Skatt ingår.",
-      "shipping_policy_html": "<a href=\"{{ link }}\">Frakt</a> beräknas i kassan.",
-      "choose_options": "Välj alternativ",
-      "choose_product_options": "Välj alternativ för {{ product_name }}"
+      "shipping_policy_html": "<a href=\"{{ link }}\">Frakt</a> beräknas i kassan."
     },
     "modal": {
       "label": "Mediagalleri"
@@ -158,7 +153,7 @@
     "facets": {
       "apply": "Tillämpa",
       "clear": "Rensa",
-      "clear_all": "Ta bort alla",
+      "clear_all": "Rensa alla",
       "from": "Från",
       "filter_and_sort": "Filtrera och sortera",
       "filter_by_label": "Filter:",
@@ -180,10 +175,7 @@
       "sort_button": "Sortera",
       "sort_by_label": "Sortera efter:",
       "to": "Till",
-      "clear_filter": "Ta bort filter",
-      "filter_selected_accessibility": "{{ type }} ({{ count }}) filter valda",
-      "show_more": "Visa mer",
-      "show_less": "Visa mindre"
+      "clear_filter": "Rensa filter"
     }
   },
   "templates": {
@@ -213,8 +205,7 @@
         "comment": "Kommentar",
         "send": "Skicka",
         "post_success": "Tack för att du kontaktar oss. Vi återkommer till dig så snart som möjligt.",
-        "error_heading": "Justera följande:",
-        "title": "Kontaktformulär"
+        "error_heading": "Justera följande:"
       }
     },
     "404": {
@@ -242,16 +233,15 @@
       "empty": "Din varukorg är tom",
       "cart_error": "Ett fel uppstod när du uppdaterade din varukorg. Försök igen.",
       "cart_quantity_error_html": "Du kan endast lägga till {{ quantity }} av denna artikel i din varukorg.",
-      "taxes_and_shipping_policy_at_checkout_html": "Moms och <a href=\"{{ link }}\">frakt</a> beräknas i kassan",
-      "taxes_included_but_shipping_at_checkout": "Moms ingår och frakt beräknas i kassan",
-      "taxes_included_and_shipping_policy_html": "Moms ingår. <a href=\"{{ link }}\">Frakt</a> beräknas i kassan.",
-      "taxes_and_shipping_at_checkout": "Moms och frakt beräknas i kassan",
+      "taxes_and_shipping_policy_at_checkout_html": "Skatt och <a href=\"{{ link }}\">frakt</a> beräknas i kassan",
+      "taxes_included_but_shipping_at_checkout": "Skatt ingår och frakt beräknas i kassan",
+      "taxes_included_and_shipping_policy_html": "Skatt ingår. <a href=\"{{ link }}\">Frakt</a> beräknas i kassan.",
+      "taxes_and_shipping_at_checkout": "Skatt och frakt beräknas i kassan",
       "headings": {
         "product": "Produkt",
         "price": "Pris",
         "total": "Totalt",
-        "quantity": "Kvantitet",
-        "image": "Produktbild"
+        "quantity": "Kvantitet"
       },
       "update": "Uppdatera",
       "login": {
@@ -277,7 +267,7 @@
     "collection_template": {
       "title": "Produktserie",
       "empty": "Inga produkter hittades",
-      "use_fewer_filters_html": "Använd färre filter eller <a class=\"{{ class }}\" href=\"{{ link }}\">ta bort alla</a>"
+      "use_fewer_filters_html": "Använd färre filter eller <a class=\"{{ class }}\" href=\"{{ link }}\">rensa alla</a>"
     },
     "video": {
       "load_video": "Ladda video: {{ description }}"
@@ -290,9 +280,6 @@
       "play_slideshow": "Spela bildspel",
       "carousel": "Karusell",
       "slide": "Bild"
-    },
-    "page": {
-      "title": "Sidrubrik"
     }
   },
   "localization": {
@@ -379,7 +366,7 @@
     },
     "reset_password": {
       "title": "Återställ kontolösenord",
-      "subtext": "Ange ett nytt lösenord",
+      "subtext": "Ange ett nytt lösenord för {{ email }}",
       "password": "Lösenord",
       "password_confirm": "Bekräfta lösenordet",
       "submit": "Återställ lösenord"
@@ -406,8 +393,7 @@
       "tracking_url": "Spårningslänk",
       "tracking_company": "Transportör",
       "tracking_number": "Spårningsnummer",
-      "subtotal": "Delsumma",
-      "total_duties": "Tullavgifter"
+      "subtotal": "Delsumma"
     }
   },
   "gift_cards": {

@@ -1,0 +1,9 @@
+.article {
+
+    @apply bg-cream;
+
+    #more-items img {
+        @apply aspect-[3/2] object-cover;
+    }
+    
+}

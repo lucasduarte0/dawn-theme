@@ -1,0 +1,119 @@
+<section class="hero contact__main bg-cream pt-40" data-viewport>
+    <div class="container-975 pt-20 pb-52 md:pt-0 md:pb-6">
+        {% if section.settings.image != blank %}
+            <img 
+                src="{{ section.settings.image | img_url: '1800x1200' }}" 
+                class="w-full mb-12 md:mb-6 fade-in"
+                loading="lazy" 
+                width="{{ section.settings.image.width }}" 
+                height="{{ section.settings.image.height }}" 
+                alt="{{ section.settings.image.alt }}" 
+            />                    
+        {% endif %}
+        {% if section.settings.bodycopy != blank %}
+            <div class="text-24 font-heading space-y-8 md:text-20 md:leading-normal fade-in delay-300">{{ section.settings.bodycopy }}</div>
+        {% endif %}    
+        <div class="mt-8 fade-in delay-600">
+            {% form 'contact', class: 'form space-y-6 md:space-y-5' %}
+                
+                <div>
+                    {{ form_errors | default_errors }}
+                </div>
+
+                <div class="grid grid-cols-2 gap-9 md:grid-cols-1 md:gap-5">
+              
+                    <div class="first-name">
+                        <label for="first-name" class="hidden">First name</label>
+                        <input 
+                            type="text" 
+                            name="contact[first_name]" 
+                            placeholder="First Name"
+                            id="first-name" 
+                            autocorrect="off"
+                            autocapitalize="off"
+                            class="form__input tracking-widest border border-brown placeholder:text-brown" 
+                        />
+                    </div>
+                
+                    <div class="last-name">
+                        <label for="last-name" class="hidden">Last name</label>
+                        <input 
+                            type="text" 
+                            name="contact[last_name]" 
+                            placeholder="Last Name"
+                            id="last-name" 
+                            autocorrect="off"
+                            autocapitalize="off"
+                            class="form__input tracking-widest border border-brown placeholder:text-brown" 
+                        />
+                    </div>
+
+                </div>
+              
+                <div class="phone">
+                    <label for="phone" class="hidden">Phone</label>
+                    <input 
+                        type="tel" 
+                        name="contact[phone]" 
+                        placeholder="Your Phone (Optional)"
+                        id="phone" 
+                        class="form__input tracking-widest border border-brown placeholder:text-brown" 
+                    />
+                </div>
+              
+                <div class="email">
+                    <label for="email" class="hidden">Email</label>
+                    <input 
+                        type="email" 
+                        name="contact[email]" 
+                        placeholder="Your Email"
+                        id="email" 
+                        autocorrect="off"
+                        autocapitalize="off"
+                        class="form__input tracking-widest border border-brown placeholder:text-brown" 
+                    />
+                </div>
+              
+                <div class="message">
+                  <label for="message" class="hidden">Message</label>
+                  <textarea 
+                    name="contact[body]" 
+                    placeholder="Your Message"
+                    id="message"
+                    rows="6"
+                    class="form__input tracking-widest py-4 border border-brown placeholder:text-brown" 
+                ></textarea>
+                </div>
+              
+                <div class="submit">
+                    <input 
+                        type="submit" 
+                        class="button"
+                        value="Send Message" 
+                    />
+                </div>
+              {% endform %}
+                      
+        </div>            
+    </div>
+</section>
+
+{% schema %}
+{
+    "name": "Main",
+    "settings": [        
+         {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Large Image",
+            "info": "Recommended Image Dimensions: 1800x1200"
+        },
+        {
+            "type": "richtext",
+            "id": "bodycopy",
+            "label": "Bodycopy",
+            "default": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>"
+        }         
+    ] 
+}
+{% endschema %}

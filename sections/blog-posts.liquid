@@ -1,0 +1,25 @@
+{% paginate blog.articles by 12 %}
+    <section class="blog__posts pt-10" data-viewport>
+        <div class="container ">
+            <div class="grid grid-cols-3 gap-10 pb-16 md:gap-5 md:grid-cols-1 md:pb-4 fade-in">
+                {% for article in blog.articles %}
+                    {% unless paginate.current_page == 1 and forloop.first %}
+                        {% for tag in article.tags limit: 1 %}
+                            {% assign article_tag = tag %}
+                        {% endfor %}
+                        {% render 'article-card', article: article, category: article_tag %}
+                    {% endunless %}
+                {% endfor %}
+            </div>
+            <div class="flex justify-center space-x-4 pb-12 border-b border-brown md:pb-4">
+                {{ paginate | default_pagination: next: 'Previous', previous: 'Next' }}
+            </div>
+        </div>
+    </section>
+{% endpaginate %}
+
+{% schema %}
+{
+    "name": "Posts"
+}
+{% endschema %}

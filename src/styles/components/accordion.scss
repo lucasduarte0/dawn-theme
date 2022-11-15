@@ -1,0 +1,7 @@
+.toggle-container {
+    transition: height 0.35s ease-in-out;
+    overflow: hidden;
+    &:not(.active) {
+        display: none;
+      }
+}

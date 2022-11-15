@@ -1,0 +1,17 @@
+<section class="collection__main bg-cream pt-16 md:pt-6">
+    <div class="container">
+        <div class="grid grid-cols-3 gap-10 pb-16 border-b border-brown lg:gap-10 md:grid-cols-1 md:pb-10">
+            {% for prod in collection.products %}
+                {% assign prod_category = prod.type %}           
+                {% assign delay_amt = forloop.index0 | times: 300 %}
+                <div class="collection__main-item fade-in{% unless forloop.first %} delay-{{ delay_amt }}{% endunless %}" data-viewport>{% render 'product-card', prod: prod, category: prod_category %}</div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+{% schema %}
+{
+    "name": "Main"
+}
+{% endschema %}

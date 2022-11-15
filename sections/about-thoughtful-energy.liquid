@@ -1,0 +1,43 @@
+<section class="about__thoughful-energy bg-cream" data-viewport>
+    <div class="container">
+        <div class="grid grid-cols-2 gap-24 pt-32 pb-40 border-b border-brown md:grid-cols-1 md:gap-6 md:pt-0 md:pb-10">
+            <div class="flex justify-center px-12 ml-16 -mr-44 md:order-2 md:ml-0 md:mr-0 md:grid md:grid-cols-[40px_1fr] md:gap-14 md:px-0 md:-mt-32">
+                <p class="font-heading text-24 max-w-[558px] md:col-start-2 fade-in delay-300">{{ section.settings.text }}</p>
+            </div>
+            <div class="flex justify-center relative md:justify-start md:grid md:grid-cols-[40px_1fr] md:gap-14">
+                {% if section.settings.image != blank %}
+                    <img 
+                        src="{{ section.settings.image | img_url: '300x400' }}" 
+                        class="parallax max-w-[245px] absolute left-0 right-0 mx-auto -top-24 md:static md:mt-0 md:ml-0 md:col-start-2 fade-in"
+                        data-parallax-y="-160" 
+                        data-parallax-trigger=".about__purpose"
+                        loading="lazy" 
+                        width="{{ section.settings.image.width }}" 
+                        height="{{ section.settings.image.height }}" 
+                        alt="{{ section.settings.image.alt }}" 
+                    />                    
+                {% endif %}
+            </div>            
+        </div>
+    </div>
+</section>
+
+{% schema %}
+{
+    "name": "Thoughtful Energy",
+    "settings": [        
+        {
+            "type": "textarea",
+            "id": "text",
+            "label": "Headline",
+            "default": "We pour thoughtful energy into every corner of our experience to make prudent shopping easier. Striking and timeless, just like Mother Nature herself."
+        },
+        {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Image",
+            "info": "Recommended Image Dimensions: 300x400"
+        }           
+    ]
+}
+{% endschema %}

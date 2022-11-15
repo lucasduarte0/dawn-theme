@@ -51,8 +51,7 @@
     "slider": {
       "of": "van",
       "next_slide": "Naar rechts schuiven",
-      "previous_slide": "Naar links schuiven",
-      "name": "Schuifregelaar"
+      "previous_slide": "Naar links schuiven"
     }
   },
   "newsletter": {
@@ -74,9 +73,7 @@
     "loading": "Bezig met laden...",
     "skip_to_product_info": "Ga direct naar productinformatie",
     "total_reviews": "totaal aantal recensies",
-    "star_reviews_info": "{{ rating_value }} van de {{ rating_max }} sterren",
-    "collapsible_content_title": "Inklapbare content",
-    "complementary_products": "Aanvullende producten"
+    "star_reviews_info": "{{ rating_value }} van de {{ rating_max }} sterren"
   },
   "blogs": {
     "article": {
@@ -148,9 +145,7 @@
       },
       "view_full_details": "Alle details bekijken",
       "include_taxes": "Inclusief btw.",
-      "shipping_policy_html": "<a href=\"{{ link }}\">Verzendkosten</a> worden berekend bij de checkout.",
-      "choose_options": "Opties kiezen",
-      "choose_product_options": "Opties kiezen voor {{ product_name }}"
+      "shipping_policy_html": "<a href=\"{{ link }}\">Verzendkosten</a> worden berekend bij de checkout."
     },
     "modal": {
       "label": "Mediagalerij"
@@ -158,7 +153,7 @@
     "facets": {
       "apply": "Toepassen",
       "clear": "Wissen",
-      "clear_all": "Alles verwijderen",
+      "clear_all": "Alles wissen",
       "from": "Van",
       "filter_and_sort": "Filteren en sorteren",
       "filter_by_label": "Filter:",
@@ -180,10 +175,7 @@
       "sort_button": "Sorteren",
       "sort_by_label": "Sorteer op:",
       "to": "Aan",
-      "clear_filter": "Filter verwijderen",
-      "filter_selected_accessibility": "{{ type }} ({{ count }} filters geselecteerd)",
-      "show_more": "Meer weergeven",
-      "show_less": "Minder weergeven"
+      "clear_filter": "Filters wissen"
     }
   },
   "templates": {
@@ -213,8 +205,7 @@
         "comment": "Reactie",
         "send": "Sturen",
         "post_success": "Bedankt dat je contact met ons hebt opgenomen. Je hoort zo snel mogelijk van ons.",
-        "error_heading": "Pas het volgende aan:",
-        "title": "Contactformulier"
+        "error_heading": "Pas het volgende aan:"
       }
     },
     "404": {
@@ -250,8 +241,7 @@
         "product": "Product",
         "price": "Prijs",
         "total": "Totaal",
-        "quantity": "Aantal",
-        "image": "Productafbeelding"
+        "quantity": "Aantal"
       },
       "update": "Bijwerken",
       "login": {
@@ -277,7 +267,7 @@
     "collection_template": {
       "title": "Collectie",
       "empty": "Geen producten gevonden",
-      "use_fewer_filters_html": "Minder filters gebruiken of <a class=\"{{ class }}\" href=\"{{ link }}\">alles verwijderen</a>"
+      "use_fewer_filters_html": "Minder filters gebruiken of <a class=\"{{ class }}\" href=\"{{ link }}\">alles wissen</a>"
     },
     "video": {
       "load_video": "Video laden: {{ description }}"
@@ -290,9 +280,6 @@
       "play_slideshow": "Diavoorstelling afspelen",
       "carousel": "Carrousel",
       "slide": "Dia"
-    },
-    "page": {
-      "title": "Paginatitel"
     }
   },
   "localization": {
@@ -360,7 +347,7 @@
       "order_number_link": "Bestelnummer {{ number }}",
       "date": "Datum",
       "payment_status": "Betaalstatus",
-      "fulfillment_status": "Fulfilmentstatus",
+      "fulfillment_status": "Fulfillmentstatus",
       "total": "Totaal",
       "none": "Je hebt nog geen bestellingen geplaatst."
     },
@@ -379,7 +366,7 @@
     },
     "reset_password": {
       "title": "Account-wachtwoord opnieuw instellen",
-      "subtext": "Voer een nieuw wachtwoord in",
+      "subtext": "Voer een nieuw wachtwoord in voor {{ email }}",
       "password": "Wachtwoord",
       "password_confirm": "Wachtwoord bevestigen",
       "submit": "Wachtwoord opnieuw instellen"
@@ -392,7 +379,7 @@
       "billing_address": "Factuuradres",
       "payment_status": "Betaalstatus",
       "shipping_address": "Bezorgadres",
-      "fulfillment_status": "Fulfilmentstatus",
+      "fulfillment_status": "Fulfillmentstatus",
       "discount": "Korting",
       "shipping": "Verzending",
       "tax": "Belasting",
@@ -406,8 +393,7 @@
       "tracking_url": "Volglink",
       "tracking_company": "Vervoerder",
       "tracking_number": "Trackingnummer",
-      "subtotal": "Subtotaal",
-      "total_duties": "Douanerechten"
+      "subtotal": "Subtotaal"
     }
   },
   "gift_cards": {

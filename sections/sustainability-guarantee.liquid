@@ -1,0 +1,75 @@
+<section class="bg-beige-50 py-28 md:pt-6 md:pb-10" data-viewport>
+    <div class="container">
+        <div class="px-16 grid grid-cols-2 md:px-0 md:grid-cols-1">
+            <div class="pr-24 xl:pr-12 md:pr-0 md:mb-8 fade-in">
+                {% if section.settings.image != blank %}
+                    <img src="{{ section.settings.image | img_url: '1000x1350' }}" loading="lazy" width="1000" height="1350" alt="{{ section.settings.image.alt }}" />             
+                {% endif %}
+            </div>
+            <div class="space-y-16 md:space-y-8">
+                {% if section.settings.headline_1 != blank %}        
+                    <div>
+                        <h2 class="font-matter text-18 text-brown mb-4 fade-in delay-300">{{ section.settings.headline_1 }}</h2>
+                        {% if section.settings.bodycopy_1 != blank %}
+                            <div class="font-heading text-24 space-y-8 fade-in delay-600">{{ section.settings.bodycopy_1 }}</div>
+                        {% endif %}
+                    </div>
+                {% endif %}
+                {% if section.settings.headline_2 != blank %}           
+                    <div>
+                        <h2 class="font-matter text-18 text-brown mb-4 fade-in delay-900">{{ section.settings.headline_2 }}</h2>
+                        {% if section.settings.bodycopy_2 != blank %}
+                            <div class="font-heading text-24 space-y-8 fade-in delay-1200">{{ section.settings.bodycopy_2 }}</div>
+                        {% endif %}
+                    </div>
+                {% endif %}                
+            </div>
+        </div>
+    </div>
+</section>
+
+{% schema %}
+{
+    "name": "Guarantee",
+    "settings": [        
+        {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Mobile Large Hero Image",
+            "info": "Recommended Image Dimensions: 1000x1350"
+        },    
+        {
+            "type": "header",
+            "content": "Content 1"
+        },   
+        {
+            "type": "text",
+            "id": "headline_1",
+            "label": "Headline",
+            "default": "Next Steps"
+        }, 
+        {
+            "type": "richtext",
+            "id": "bodycopy_1",
+            "label": "Bodycopy",
+            "default": "<p>Everything we use can be striking and timeless, just like mother nature itself. Form and function perseveres with great care. So let's start taking care of our things, and our planet.</p>"
+        },    
+        {
+            "type": "header",
+            "content": "Content 2"
+        },   
+        {
+            "type": "text",
+            "id": "headline_2",
+            "label": "Headline",
+            "default": "Our Guarantee"
+        }, 
+        {
+            "type": "richtext",
+            "id": "bodycopy_2",
+            "label": "Bodycopy",
+            "default": "<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut orem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut orem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>"
+        }                             
+    ] 
+}
+{% endschema %}

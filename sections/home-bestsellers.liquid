@@ -1,0 +1,50 @@
+<section class="home__bestsellers collection relative bg-cream pt-10 pb-24 md:overflow-hidden md:pt-6 md:pb-8">
+    <div class="container">
+        {% if section.settings.title != blank %}
+            <h2 class="font-matter text-18 mb-10 text-brown md:mb-8 fade-in" data-viewport="-60">{{ section.settings.title }}</h2>
+        {% endif %}
+        <div class="grid grid-cols-3 gap-10 md:gap-5 md:-ml-5 md:-mr-5 md:px-5 md:flex md:flex-nowrap md:overflow-scroll">
+            {% for block in section.blocks %}
+                {% assign prod = all_products[block.settings.prod] %}
+                {% assign prod_category = prod.type %}
+                {% if block.settings.category != blank %}
+                    {% assign prod_category = block.settings.category %}
+                {% endif %}
+                <div class="collection__main-item md:min-w-[66vw] fade-in{% unless forloop.first %} delay-{{ forloop.index0 | times: 300 }}{% endunless %}" data-viewport>{% render 'product-card', prod: prod, category: prod_category %}</div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+{% schema %}
+{
+    "name": "Quick Shop",
+    "settings": [        
+        {
+            "type": "text",
+            "id": "title",
+            "label": "Title",
+            "default": "Best Sellers"
+         }         
+    ],
+    "blocks": [
+        {
+            "type": "product",
+            "name": "Product",
+            "settings": [
+                {
+                    "type": "product",
+                    "id": "prod",
+                    "label": "Product"
+                },
+                {
+                    "type": "text",
+                    "id": "category",
+                    "label": "category",
+                    "info": "Leave blank if you'd prefer to use the Product Type."
+                }
+            ]
+        }
+    ] 
+}
+{% endschema %}

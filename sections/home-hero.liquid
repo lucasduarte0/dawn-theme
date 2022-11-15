@@ -1,0 +1,26 @@
+<section class="home__hero full__hero w-full fixed left-0 top-0 h-screen min-h-[700px] overflow-hidden lg:min-h-[420px] sm:hidden">
+    <img src="{{ section.settings.image | img_url:'2400x' }}" class="absolute top-0 left-0 w-full h-full object-cover scale-in" loading="eager" alt="{{ section.settings.image.alt }}" data-viewport="-750" />
+</section>
+<section class="home__hero full__hero w-full fixed left-0 top-0 h-[75vh] min-h-[400px] overflow-hidden sm_min:hidden">
+    <img src="{{ section.settings.mobile_image | img_url:'1200x' }}" class="absolute top-0 left-0 w-full h-full object-cover scale-in" loading="eager" alt="{{ section.settings.image.alt }}" data-viewport="-750" />
+</section>
+
+{% schema %}
+{
+    "name": "Hero",
+    "settings": [        
+        {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Hero Image",
+            "info": "Recommended Image Dimensions: 2400x1350"
+        },
+        {
+            "type": "image_picker",
+            "id": "mobile_image",
+            "label": "Mobile Hero Image",
+            "info": "Recommended Image Dimensions: 1000x1350"
+        }                                      
+    ] 
+}
+{% endschema %}

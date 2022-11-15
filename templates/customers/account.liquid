@@ -1,0 +1,57 @@
+{% section 'header-wordmark-brown' %}
+
+<div class="hero account bg-cream pt-40 md:pt-[114px]">
+  <div class="container-975 pt-20 pb-40 md:py-8 space-y-8">
+    <div class="text-center"><a href="/account/logout" class="font-matter tracking-wider text-13 leading-tight text-brown pb-1 border-b border-brown hover:text-orange hover:border-orange">Logout</a></div>
+    <h1 class="mb-5 text-[50px] font-heading text-center lg:text-30">Account</h1>
+    <p class="font-matterlight text-24 text-center md:text-20">Welcome back, {{ customer.first_name }}!</p>
+    <div class="orders space-y-8">
+      <div class="">
+        {% if customer.orders.size != 0 %}
+          {% paginate customer.orders by 10 %}
+            <div class="table-wrap">
+              <table class="w-full md:block">
+                <thead class="md:hidden">
+                  <tr class="h-[36px]">
+                    <th class="font-matter text-13 text-left">Order</th>
+                    <th class="font-matter text-13 text-left">Date</th>
+                    <th class="font-matter text-13 text-left">Payment</th>
+                    <th class="font-matter text-13 text-left">Fullfillment</th>
+                    <th class="font-matter text-13 text-right">Total</th>
+                  </tr>
+                </thead>
+                <tbody class="md:block">
+                  {% for order in customer.orders %}
+                    <tr class="h-[60px] border-t border-brown md:h-auto md:block md:py-5">
+                      <td class="order-name md:block">{{ order.name | link_to: order.customer_url }}</td>
+                      <td class="order-created md:block">{{ order.created_at | date: format: 'abbreviated_date' }}</td>
+                      <td class="order-financials md:block">{{ order.financial_status_label }}</td>
+                      <td class="order-fulfillment md:block">{{ order.fulfillment_status_label }}</td>
+                      <td class="order-price text-right md:text-left">{{ order.total_price | money_without_trailing_zeros }}</td>
+                    </tr>
+                  {% endfor %}
+                </tbody>
+              </table>
+            </div>
+            <div class="pagination">
+              <div class="my-8">
+                {{ paginate | default_pagination }}
+              </div>
+            </div>
+          {% endpaginate %}
+        {% else %}
+          <p>You haven't placed any orders yet.</p>
+        {% endif %}
+      </div>
+      <div class="">       
+        <h2 class="font-matter text-15 text-brown">Addresses</h2>
+        <div class="mb-4">
+          {{ customer.default_address | format_address }}
+        </div>
+        <a href="/account/addresses" class="font-matter tracking-wider text-13 leading-tight text-brown pb-1 border-b border-brown hover:text-orange hover:border-orange">
+          View Addresses ({{ customer.addresses_count }})
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

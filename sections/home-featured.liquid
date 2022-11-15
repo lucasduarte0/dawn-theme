@@ -1,0 +1,99 @@
+{% assign col = collections[section.settings.collection] %}
+
+<section class="home__featured relative bg-cream pt-32 md:pt-7">
+    <div class="container">
+        <div class="grid grid-cols-3 gap-24 pb-32 border-b border-brown lg:gap-10 md:pb-7 sm:grid-cols-1 sm:gap-8">
+            <div class="md_min:hidden col-span-3 sm:col-span-1 fade-in" data-viewport>
+                {% if section.settings.title != blank %}
+                    <h2 class="font-matter text-18 text-brown mb-6">{{ section.settings.title }}</h2>
+                {% endif %}
+                <div class="mb-12 md:mb-0">
+                    <h3 class="font-matterlight text-24 -mb-1">{{ col.title }}</h3>
+                    {% if section.settings.headline != blank %}
+                        <h4 class="font-italic text-24"><span class="font-heading">(</span>{{ section.settings.headline }}<span class="font-heading">)</span></h4>
+                    {% endif %}                        
+                </div> 
+            </div>
+            <div class="col-span-2 pr-36 sm:col-span-1 sm:pr-0">
+                <div class="text-17 fade-in" data-viewport>
+                    {% if section.settings.title != blank %}
+                        <h2 class="font-matter text-18 text-brown mb-6 md:hidden">{{ section.settings.title }}</h2>
+                    {% endif %}
+                    <div class="mb-12 md:hidden">
+                        <h3 class="font-matterlight text-24 -mb-1">{{ col.title }}</h3>
+                        {% if section.settings.headline != blank %}
+                            <h4 class="font-italic text-24"><span class="font-heading">(</span>{{ section.settings.headline }}<span class="font-heading">)</span></h4>
+                        {% endif %}                        
+                    </div> 
+                    {% if section.settings.image != blank %}
+                        <img src="{{ section.settings.image | img_url: '1200x1500' }}" class="fade-in delay-600" data-viewport loading="lazy" width="1200" height="1500" alt="{{ section.settings.image.alt }}" />                    
+                    {% endif %}                
+                </div>
+            </div>
+            <div class="col-start-3 -ml-40 space-y-12 sm:ml-0 sm:col-start-1 sm:pr-0 sm:space-y-5">     
+                {% if section.settings.image_2 != blank %}
+                    <img src="{{ section.settings.image_2 | img_url: '1200x1500' }}" class="sm:pb-4 sm:pr-16 fade-in delay-300" data-viewport loading="lazy" width="1200" height="1500" alt="{{ section.settings.image_2.alt }}" />                    
+                {% endif %}
+                {% if col.description %}<div class="sm:text-17 fade-in" data-viewport="-300">{{ col.description }}</div>{% endif %}
+                <div class="fade-in" data-viewport="-300">
+                    <a href="{{ col.url }}" class="arrow-link-wrap">
+                        <div class="arrow-link text-brown">{{ section.settings.link_text }}</div>
+                        <svg width="35px" height="18px" viewBox="0 0 35 18" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                            <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                <g transform="translate(-133.000000, -1134.000000)" fill="#A67C52">
+                                    <g transform="translate(133.000000, 1134.000000)">
+                                        <path d="M34.6920857,8.50390775 L34.6908541,8.50390775 C31.5550551,8.50390775 29.2481613,6.42079807 28.1519865,5.1785767 C26.5206566,3.33010883 25.6412535,1.26770283 25.6418693,0.265431917 L25.6418693,0 L24.4921174,0 L24.4921174,0.265431917 C24.4921174,2.19459109 26.8685998,6.54873625 30.6892001,8.50443861 L0,8.50390775 L0,9.49556139 L30.6873526,9.49556139 C29.4409156,10.1294128 28.2646831,11.0552393 27.2374811,12.2210163 C25.4355667,14.2621877 24.4927332,16.5395936 24.4921174,17.7340372 L24.4921174,18 L25.6412535,17.9984074 L25.6412535,17.7335064 C25.6412535,16.7312354 26.5206566,14.6688294 28.1513707,12.8208924 C29.2500088,11.5786711 31.5605975,9.49556139 34.6896224,9.49556139 L34.6920857,9.49556139 L35,9.49556139 L35,8.50390775 L34.6920857,8.50390775 Z" id="Fill-1"></path>
+                                    </g>
+                                </g>
+                            </g>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% schema %}
+{
+    "name": "Featured",
+    "settings": [        
+        {
+            "type": "collection",
+            "id": "collection",
+            "label": "Collection"        
+         },  
+        {
+            "type": "text",
+            "id": "title",
+            "label": "Title",
+            "default": "Featured Collection"
+         },
+         {
+            "type": "text",
+            "id": "headline",
+            "label": "Headline",
+            "default": "F/W — 2020 Collection"
+         },             
+         {
+            "type": "text",
+            "id": "link_text",
+            "label": "Link Text",
+            "default": "Shop Collection",
+            "info": "URL is the collection URL set above."
+         },            
+         {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Image 1",
+            "info": "Recommended Image Dimensions: 1200x1500"
+        },             
+         {
+            "type": "image_picker",
+            "id": "image_2",
+            "label": "Image 2",
+            "info": "Recommended Image Dimensions: 1200x1500"
+        }        
+    ]  
+}
+{% endschema %}

@@ -1,0 +1,8 @@
+body:not(.touchscreen) #cursor {
+    @apply w-12 h-12 fixed top-8 left-8 z-[99999999999] glow-bubble;  
+    pointer-events: none;
+    transform: translate(calc(-50% + 24px), -50%);
+    &.hover {
+        transform: translate(calc(-50% + 24px), -50%) scale(.8);
+    }
+}

@@ -1,0 +1,12 @@
+.dropdown {
+    &__alt {
+        @apply inline-flex border-b border-brown mb-6 pr-6 relative;
+        &:after {
+            content: "ˇ";
+            @apply absolute top-[2px] right-0;
+        }
+        select {
+            @apply appearance-none border-0 outline-none rounded-none bg-transparent font-matter text-13 ml-6;
+        }
+    }
+}

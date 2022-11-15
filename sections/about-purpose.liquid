@@ -1,0 +1,89 @@
+<section class="about__purpose bg-brown text-cream py-10 md:py-7" data-viewport>
+    <div class="container">
+        <div class="grid grid-cols-2 gap-24 md:grid-cols-1 md:gap-6">
+            <div class="">
+                {% if section.settings.image != blank %}
+                    <img 
+                        src="{{ section.settings.image | img_url: '1200x1500' }}" 
+                        class="h-full object-cover fade-in"
+                        loading="lazy" 
+                        width="{{ section.settings.image.width }}" 
+                        height="{{ section.settings.image.height }}" 
+                        alt="{{ section.settings.image.alt }}" 
+                    />                    
+                {% endif %}
+            </div>
+            <div class="pt-24 md:pt-0 fade-in delay-300">        
+                {% if section.settings.text != blank %}
+                    <p class="text-24 font-heading space-y-8 mb-16 md:mb-6 md:text-20 md:leading-normal">{{ section.settings.text }}</p>
+                {% endif %}   
+                <div class="space-y-10 mb-48 sm:order-1 fade-in md_min:delay-900">
+                    {% for block in section.blocks %}     
+                        <div class="grid grid-cols-3 gap-14 pt-5 border-t border-cream items-start md:grid-cols-[40px_1fr] md:gap-5">
+                            <div class="mt-2 flex items-center md:items-start">
+                                {% if block.settings.icon != blank %}
+                                    <img src="{{ block.settings.icon }}" class="mr-5 max-w-[45px]" loading="lazy" width="40" height="40" alt="{{ block.settings.icon.alt }}" />             
+                                {% endif %}
+                                {% if block.settings.title != blank %}
+                                    <p class="font-matter text-15 md:hidden">{{ block.settings.title }}</p>
+                                {% endif %}                                
+                            </div>
+                            <div class="col-span-2 md:col-span-1">
+                                {% if block.settings.title != blank %}
+                                    <p class="font-matter text-15 md_min:hidden md:mb-4 md:mt-2">{{ block.settings.title }}</p>
+                                {% endif %}      
+                                {% if block.settings.description != blank %}
+                                    <p class="text-17 leading-[1.59] text-cream">{{ block.settings.description }}</p>
+                                {% endif %}    
+                            </div>
+                        </div>
+                    {% endfor %}                                       
+                </div>          
+            </div>
+        </div>
+    </div>
+</section>
+
+{% schema %}
+{
+    "name": "Purpose",
+    "settings": [        
+         {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Image 1",
+            "info": "Recommended Image Dimensions: 1200x1500"
+        },   
+        {
+            "type": "textarea",
+            "id": "text",
+            "label": "Headline",
+            "default": "Each item's loving purpose is both with the users' and our environment's best interest in mind."
+        }      
+    ],
+    "blocks": [
+        {
+            "type": "pillar",
+            "name": "Pillar",
+            "settings": [
+                {
+                    "type": "text",
+                    "id": "icon",
+                    "label": "Icon (.svg)",
+                    "info": "Paste in an SVG from Settings > Files"
+                },
+                {
+                    "type": "text",
+                    "id": "title",
+                    "label": "Title"
+                },
+                {
+                    "type": "textarea",
+                    "id": "description",
+                    "label": "Description"
+                }                
+            ]
+        }
+    ]    
+}
+{% endschema %}

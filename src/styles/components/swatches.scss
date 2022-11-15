@@ -1,0 +1,16 @@
+.swatch {
+
+    &__wrap {
+        @apply w-[26px] h-[26px] p-[3px] mr-3 border border-transparent rounded-full cursor-pointer;
+        
+        &.active {
+            @apply border-black;
+        }
+
+        input {
+            @apply cursor-pointer;
+        }
+
+    }
+
+}

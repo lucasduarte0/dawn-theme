@@ -1,0 +1,16 @@
+.size {
+
+    &__button {
+        @apply font-matter text-13 p-[7px] min-w-[55px] mr-3 mb-3 text-center border border-black cursor-pointer;
+        
+        &.active {
+            @apply bg-black text-cream;
+        }
+
+        input {
+            @apply cursor-pointer;
+        }
+
+    }
+
+}

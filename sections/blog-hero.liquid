@@ -1,0 +1,52 @@
+{% paginate blog.articles by 12 %}
+    {% if paginate.current_page == 1 %}
+        <section class="blog__hero" data-viewport>
+            <div class="container flex justify-center md:px-0">
+                <ul class="py-10 flex justify-center space-x-16 md:flex-row md:justify-start md:space-x-8 md:overflow-scroll md:w-full md:py-5 md:px-5 fade-in">
+                    {% for tag in blog.all_tags %}
+                        <li class="text-18 font-matter text-brown md:whitespace-nowrap"><a href="{{ shop.url}}/blogs/{{ blog.handle }}/tagged/{{ tag | handleize }}" class="hover:text-orange">{{ tag | strip }}</a></li>
+                    {% endfor %}        
+                </ul>
+            </div>
+            <div class="container md:px-0">
+                {% for article in blog.articles limit:1 %}
+                    {% capture article_content %}
+                        <p class="font-matter text-13 mb-2">{{ article.published_at | date: format: 'abbreviated_date' }}</p>
+                        <div>
+                            {% if article.tags != blank %}
+                                <a href="{{ shop.url}}/blogs/{{ blog.handle }}/tagged/{{ article.tags[0] | handleize }}" class="block font-italic text-24 -mb-1 lg:text-20 hover:text-orange">{{ article.tags[0] }} —</a>
+                            {% endif %}
+                            <h1><a href="{{ article.url }}" class="block font-matterlight text-24 mb-9 lg:text-20 md:mb-5 hover:text-orange">{{ article.title }}</a></h1>
+                            <a href="{{ article.url }}" class="arrow-link-wrap">
+                                <div class="arrow-link">Read More</div>
+                                <svg width="35px" height="18px" viewBox="0 0 35 18" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                    <g stroke="none" stroke-width="1" fill="#FBF1DC" fill-rule="evenodd">
+                                        <g transform="translate(-133.000000, -1134.000000)" fill="#FBF1DC">
+                                            <g transform="translate(133.000000, 1134.000000)">
+                                                <path d="M34.6920857,8.50390775 L34.6908541,8.50390775 C31.5550551,8.50390775 29.2481613,6.42079807 28.1519865,5.1785767 C26.5206566,3.33010883 25.6412535,1.26770283 25.6418693,0.265431917 L25.6418693,0 L24.4921174,0 L24.4921174,0.265431917 C24.4921174,2.19459109 26.8685998,6.54873625 30.6892001,8.50443861 L0,8.50390775 L0,9.49556139 L30.6873526,9.49556139 C29.4409156,10.1294128 28.2646831,11.0552393 27.2374811,12.2210163 C25.4355667,14.2621877 24.4927332,16.5395936 24.4921174,17.7340372 L24.4921174,18 L25.6412535,17.9984074 L25.6412535,17.7335064 C25.6412535,16.7312354 26.5206566,14.6688294 28.1513707,12.8208924 C29.2500088,11.5786711 31.5605975,9.49556139 34.6896224,9.49556139 L34.6920857,9.49556139 L35,9.49556139 L35,8.50390775 L34.6920857,8.50390775 Z" id="Fill-1" fill="#FBF1DC"></path>
+                                            </g>
+                                        </g>
+                                    </g>
+                                </svg>
+                            </a>
+                        </div>       
+                    {% endcapture %}
+                    <div class="blog__hero-article relative overflow-hidden md:p-5">
+                        <div class="text-cream p-9 bg-cover bg-no-repeat bg-center min-h-[40vw] flex items-end 2xl_min:min-h-[585px] md:min-h-[115vw] md:p-5 md:-mx-5">
+                            <img src="{{ article.image.src | img_url:'1920x1080', crop: 'center' }}" class="absolute top-0 left-0 w-full h-full object-cover scale-in" loading="eager" alt="{{ article.image.alt }}" data-viewport="-750" />
+                            <div class="fade-in delay-300 relative" data-viewport="-750">{{ article_content }}</div>
+                        </div>
+                        {% comment %} <div class="md_min:hidden mt-5 fade-in delay-300">{{ article_content }}</div> {% endcomment %}
+                    </div>
+                {% endfor %}
+            </div>
+        </section>
+    {% endif %}
+{% endpaginate %}
+
+{% schema %}
+{
+    "name": "Hero",
+    "class": "hero"
+}
+{% endschema %}

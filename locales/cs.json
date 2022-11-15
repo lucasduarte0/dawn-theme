@@ -51,8 +51,7 @@
     "slider": {
       "of": "z",
       "next_slide": "Snímek vpravo",
-      "previous_slide": "Snímek vlevo",
-      "name": "Posuvník"
+      "previous_slide": "Snímek vlevo"
     }
   },
   "newsletter": {
@@ -74,9 +73,7 @@
     },
     "skip_to_product_info": "Přejít na informace o produktu",
     "total_reviews": "celkový počet recenzí",
-    "star_reviews_info": "{{ rating_value }} z {{ rating_max }} hvězdiček",
-    "collapsible_content_title": "Sbalitelný obsah",
-    "complementary_products": "Doplňkové produkty"
+    "star_reviews_info": "{{ rating_value }} z {{ rating_max }} hvězdiček"
   },
   "blogs": {
     "article": {
@@ -150,9 +147,7 @@
       },
       "view_full_details": "Zobrazit veškeré podrobnosti",
       "include_taxes": "Včetně daní.",
-      "shipping_policy_html": "<a href=\"{{ link }}\">Poštovné</a> se vypočítá na pokladně.",
-      "choose_options": "Výběr možností",
-      "choose_product_options": "Zvolte možnosti pro: {{ product_name }}"
+      "shipping_policy_html": "<a href=\"{{ link }}\">Poštovné</a> se vypočítá na pokladně."
     },
     "modal": {
       "label": "Galerie multimédií"
@@ -160,7 +155,7 @@
     "facets": {
       "apply": "Použít",
       "clear": "Vymazat",
-      "clear_all": "Odebrat vše",
+      "clear_all": "Vymazat vše",
       "from": "Od",
       "filter_and_sort": "Filtrování a řazení",
       "filter_by_label": "Filtrovat:",
@@ -188,10 +183,7 @@
         "few": "Počet produktů: {{ count }}",
         "many": "Počet produktů: {{ count }}"
       },
-      "clear_filter": "Odebrat filtr",
-      "filter_selected_accessibility": "{{ type }} (počet vybraných filtrů: {{ count }})",
-      "show_more": "Zobrazit více",
-      "show_less": "Zobrazit méně"
+      "clear_filter": "Vymazat filtr"
     }
   },
   "templates": {
@@ -225,8 +217,7 @@
         "comment": "Komentář",
         "send": "Odeslat",
         "post_success": "Děkujeme, že jste nás kontaktovali. Ozveme se vám co možná nejdříve.",
-        "error_heading": "Upravte prosím následující informace:",
-        "title": "Kontaktní formulář"
+        "error_heading": "Upravte prosím následující informace:"
       }
     },
     "404": {
@@ -265,8 +256,7 @@
         "product": "Produkt",
         "price": "Cena",
         "total": "Celkem",
-        "quantity": "Množství",
-        "image": "Obrázek produktu"
+        "quantity": "Množství"
       },
       "login": {
         "title": "Máte účet?",
@@ -291,7 +281,7 @@
     "collection_template": {
       "title": "Kolekce",
       "empty": "Nenalezeny žádné produkty",
-      "use_fewer_filters_html": "Můžete použít méně filtrů nebo <a class=\"{{ class }}\" href=\"{{ link }}\">všechny odebrat</a>"
+      "use_fewer_filters_html": "Můžete použít méně filtrů nebo <a class=\"{{ class }}\" href=\"{{ link }}\">vymazat vše</a>."
     },
     "video": {
       "load_video": "Načíst video: {{ description }}"
@@ -304,9 +294,6 @@
       "play_slideshow": "Přehrát prezentaci",
       "carousel": "Karusel",
       "slide": "Snímek"
-    },
-    "page": {
-      "title": "Název stránky"
     }
   },
   "localization": {
@@ -393,7 +380,7 @@
     },
     "reset_password": {
       "title": "Resetujte heslo účtu",
-      "subtext": "Zadejte nové heslo",
+      "subtext": "Zadejte nové heslo pro {{ email }}",
       "password": "Heslo",
       "password_confirm": "Potvrdit heslo",
       "submit": "Resetovat heslo"
@@ -420,8 +407,7 @@
       "tracking_url": "Odkaz pro sledování",
       "tracking_company": "Dopravce",
       "tracking_number": "Číslo pro sledování",
-      "subtotal": "Mezisoučet",
-      "total_duties": "Cla"
+      "subtotal": "Mezisoučet"
     }
   },
   "gift_cards": {

@@ -1,0 +1,52 @@
+{
+  "name": "bask-goods",
+  "version": "1.0.0",
+  "description": "Bask Goods Shopify Theme w/ Webpack",
+  "main": "theme.js",
+  "author": "Brice Christian <bricechristian93@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/core": "^7.16.5",
+    "@babel/preset-env": "^7.16.5",
+    "@shopify/theme-addresses": "^1.0.0",
+    "autoprefixer": "^10.4.0",
+    "babel-loader": "^8.2.3",
+    "css-loader": "^6.5.1",
+    "css-minimizer-webpack-plugin": "^3.3.0",
+    "disable-scroll": "^0.6.0",
+    "flickity": "^2.2.2",
+    "flickity-fade": "^1.0.0",
+    "flickity-imagesloaded": "^2.0.0",
+    "gsap": "^3.9.0",
+    "headspace": "^0.1.1",
+    "is-mobile": "^3.0.0",
+    "mini-css-extract-plugin": "^2.4.5",
+    "normalize-wheel": "^1.0.1",
+    "postcss": "^8.4.5",
+    "postcss-loader": "^6.2.1",
+    "postcss-pxtorem": "^6.0.0",
+    "pre-commit": "^1.2.2",
+    "sass": "^1.45.0",
+    "sass-loader": "^12.4.0",
+    "scrollmagic": "^2.0.8",
+    "scrollmagic-plugin-gsap": "^1.0.4",
+    "sticky-sidebar-v2": "^1.1.1",
+    "tailwindcss": "^3.0.7",
+    "terser-webpack-plugin": "^5.3.0",
+    "vanilla-js-dropdown": "^2.2.0",
+    "webpack": "^5.65.0",
+    "webpack-cli": "^4.9.1",
+    "webpack-shell-plugin-next": "^2.2.2",
+    "wheel": "^1.0.0"
+  },
+  "pre-commit": [
+    "build",
+    "add-all"
+  ],
+  "scripts": {
+    "start": "webpack --mode=development --watch --progress",
+    "build": "webpack --mode=production --progress",
+    "add-all": "git add ."
+  },
+  "dependencies": {}
+}

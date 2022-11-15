@@ -1,0 +1,105 @@
+
+<div class="hero  bg-cream pt-40">
+    <div class="container-975 pt-20 pb-40 md:py-8 space-y-8">
+      {% if cart.item_count > 0 %}
+        <form action="{{ routes.cart_url }}" method="post" novalidate>
+          <div class="cart__utility flex justify-between gap-5 mb-5 md:flex-col md:items-center">
+            <div class="">
+              <a href="/collections/all" class="font-matter tracking-wider text-13 leading-tight text-brown pb-1 border-b border-brown hover:text-orange hover:border-orange">
+                Continue Shopping
+              </a>
+            </div>
+            <div class="text-right font-matter tracking-wider text-13 flex items-center justify-end space-x-2">
+              <span>Have an account? </span>
+              <a href="/account/login" class="font-matter tracking-wider text-13 leading-tight text-brown pb-1 border-b border-brown hover:text-orange hover:border-orange">
+                Login
+              </a>
+            </div>
+          </div>
+          <div class="cart__header flex items-center">
+            <h2 class="mb-5 text-[50px] font-heading lg:text-30">Cart – {{ cart.item_count }} {{ cart.item_count | pluralize: 'item', 'items' }}</h2>
+          </div>
+          <div class="flex flex-wrap">
+            <div class="w-full grid grid-cols-4 gap-10 md:grid-cols-1">
+              <div class="cart__items grid gap-10 col-span-3 md:col-span-1">
+                {% for item in cart.items %}
+                  <div class="cart__item">
+                    <div class="grid grid-cols-[105px_1fr] gap-10">
+                      <div>
+                        {% if item.image != blank %}
+                          <a href="{{ item.url }}" class="block aspect-w-1 aspect-h-1">
+                            <img
+                              src="{{ item.image | img_url: '105x', scale: 2 }}"
+                              width="{{ item.image.width }}"
+                              height="{{ item.image.height }}"
+                              alt="{{ item.image.alt | escape }}"
+                              class="max-w-[105px]"
+                              loading="lazy">
+                          </a>
+                        {% endif %}
+                      </div>
+                      <div>
+                        <div class="col-span-3">
+                          <div class="flex flex-wrap">
+                            <div class="w-full flex-grow">
+                              <div class="item__title mr-2 md:mr-6">
+                                <a href="{{ item.url }}"class="font-matterlight text-24 tracking-[.05em] inline-block mb-1 md:text-20 hover:text-orange">{{ item.product.title }} — <span class="item__price font-italic">{{ item.line_price | money_without_trailing_zeros }}</span></a>
+                              </div>
+                              {% unless item.product.has_only_default_variant %}
+                                <ul>
+                                  {% for option in item.options_with_values %}
+                                    <li class="font-matter text-13">{{ option.name }}: {{ option.value }}</li>
+                                  {% endfor %}
+                                </ul>
+                              {% endunless %}
+                              <div class="item__remove mt-2">
+                                <a href="{{ item.url_to_remove }}" class="font-matter tracking-wider text-13 leading-tight text-brown pb-1 border-b border-brown hover:text-orange hover:border-orange">Remove</a>
+                              </div>                              
+                            </div>
+                          </div>
+                        </div>
+                        {% comment %} <div class="col-span-2">
+                            <div class="item__qty">
+                              <div class="counter flex items-center space-x-2">
+                                <button type="button" class="minus"> - </button>
+                                <input type="text" name="updates[]" value="{{ item.quantity }}" class="count form__input min-h-0 w-auto tracking-widest border border-brown max-w-[40px] p-2 text-center">
+                                <button type="button" class="plus"> + </button>
+                              </div>
+                            </div>
+
+                          </div>                         {% endcomment %}
+                        {% comment %} <div class="col-span-1">
+                          <div class="item__price font-matter text-13">
+                            {{ item.line_price | money_without_trailing_zeros }}
+                          </div>
+                        </div> {% endcomment %}
+                      </div>
+                    </div>
+                  </div>
+                {% endfor %}
+              </div>
+              <div class="cart__subtotal">
+                <div class="sticky top-32 text-right md:text-left">
+                  {% comment %} <div class="mb-2 font-matter text-13">Subtotal <span class="ml-6"></span></div> {% endcomment %}
+                  <div class="inline-block"><a href="/checkout" class="button">Checkout — {{ cart.total_price | money_without_trailing_zeros }}</a></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
+      {% else %}
+      <div class="my-32 text-center">
+        <h2 class="font-italic text-24 mb-8">Your cart is empty</h2>
+        <a href="/collections/" class="button">
+          Shop All
+        </a>
+      </div>
+      {% endif %}
+    </div>
+</div>
+  
+  {% schema %}
+    {
+      "name": "Main"
+    }
+  {% endschema %}

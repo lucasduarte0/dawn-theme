@@ -1,0 +1,28 @@
+<div class="instagram{% if template == 'index' %} pt-12{% endif %} pb-20 bg-cream relative md:pb-8" data-viewport>
+    <div class="container md:px-0">
+        <div class="text-center {% if template == 'index' %}border-t border-brown py-12 md:py-4 md:mx-5{% else %} pb-12 md:pb-4{% endif %}">
+            <h2 class="text-18 font-matter text-brown fade-in" data-viewport>{{ section.settings.title }}</h2>
+        </div>
+        <div class="grid grid-cols-5 gap-10 md:gap-5 md:flex md:flex-nowrap md:px-5 md:overflow-auto">
+            <a href="https://instagram.com/p/{{ shop.metafields.bask.instagram_post_5 | split: '~' | first }}" target="_blank" class="md:min-w-[37vw] fade-in hover:opacity-60"><img src="{{ "insta-1.jpg" | asset_url }}"></a>
+            <a href="https://instagram.com/p/{{ shop.metafields.bask.instagram_post_4 | split: '~' | first }}" target="_blank" class="md:min-w-[37vw] fade-in delay-300 hover:opacity-60"><img src="{{ "insta-2.jpg" | asset_url }}"></a>
+            <a href="https://instagram.com/p/{{ shop.metafields.bask.instagram_post_3 | split: '~' | first }}" target="_blank" class="md:min-w-[37vw] fade-in delay-600 hover:opacity-60"><img src="{{ "insta-3.jpg" | asset_url }}"></a>
+            <a href="https://instagram.com/p/{{ shop.metafields.bask.instagram_post_2 | split: '~' | first }}" target="_blank" class="md:min-w-[37vw] fade-in delay-900 hover:opacity-60"><img src="{{ "insta-4.jpg" | asset_url }}"></a>
+            <a href="https://instagram.com/p/{{ shop.metafields.bask.instagram_post_1 | split: '~' | first }}" target="_blank" class="md:min-w-[37vw] fade-in delay-1200 hover:opacity-60"><img src="{{ "insta-5.jpg" | asset_url }}"></a>
+        </div>
+    </div>
+</div>
+
+{% schema %}
+{
+  "name": "Instagram",
+  "settings": [
+      {
+          "type": "richtext",
+          "id": "title",
+          "label": "Title",
+          "default": "<p>Follow along <a href='https://instagram.com/instagram' target='_blank'>@instagram</a></p>"
+      }
+  ]
+}
+{% endschema %}

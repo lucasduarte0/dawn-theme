@@ -51,8 +51,7 @@
     "slider": {
       "of": "/",
       "next_slide": "Liu'uta oikealle",
-      "previous_slide": "Liu'uta vasemmalle",
-      "name": "Liukusäädin"
+      "previous_slide": "Liu'uta vasemmalle"
     }
   },
   "newsletter": {
@@ -74,9 +73,7 @@
     "loading": "Ladataan...",
     "skip_to_product_info": "Siirry tuotetietoihin",
     "total_reviews": "arvosteluja yhteensä",
-    "star_reviews_info": "{{ rating_value }}/{{ rating_max }} tähteä",
-    "collapsible_content_title": "Pienenettävä sisältö",
-    "complementary_products": "Täydentävät tuotteet"
+    "star_reviews_info": "{{ rating_value }}/{{ rating_max }} tähteä"
   },
   "blogs": {
     "article": {
@@ -148,9 +145,7 @@
       },
       "view_full_details": "Näytä kaikki tiedot",
       "include_taxes": "Sisältää veron.",
-      "shipping_policy_html": "<a href=\"{{ link }}\">Toimituskulut</a> lasketaan kassalla.",
-      "choose_options": "Valitse vaihtoehdot",
-      "choose_product_options": "Valitse vaihtoehtoja tuotteelle {{ product_name }}"
+      "shipping_policy_html": "<a href=\"{{ link }}\">Toimituskulut</a> lasketaan kassalla."
     },
     "modal": {
       "label": "Mediagalleria"
@@ -158,7 +153,7 @@
     "facets": {
       "apply": "Käytä",
       "clear": "Tyhjennä",
-      "clear_all": "Poista kaikki",
+      "clear_all": "Tyhjennä kaikki",
       "from": "Alkaen",
       "filter_and_sort": "Suodatus ja lajittelu",
       "filter_by_label": "Suodatin:",
@@ -180,10 +175,7 @@
       "sort_button": "Lajittele",
       "sort_by_label": "Lajittelu:",
       "to": "Asti",
-      "clear_filter": "Poista suodatin",
-      "filter_selected_accessibility": "{{ type }} ({{ count }} suodatinta valittu)",
-      "show_more": "Näytä enemmän",
-      "show_less": "Näytä vähemmän"
+      "clear_filter": "Tyhjennä suodatin"
     }
   },
   "templates": {
@@ -213,8 +205,7 @@
         "comment": "Kommentti",
         "send": "Lähetä",
         "post_success": "Kiitos, että otit yhteyttä. Palaamme asiaan mahdollisimman pian.",
-        "error_heading": "Mukauta seuraavat:",
-        "title": "Yhteydenottolomake"
+        "error_heading": "Mukauta seuraavat:"
       }
     },
     "404": {
@@ -238,7 +229,7 @@
       "subtotal": "Välisumma",
       "new_subtotal": "Uusi välisumma",
       "note": "Tilauksen erityisohjeet",
-      "checkout": "Kassa",
+      "checkout": "Maksu kassalle",
       "empty": "Ostoskorisi on tyhjä",
       "cart_error": "Ostoskorisi päivityksessä tapahtui virhe. Yritä uudelleen.",
       "cart_quantity_error_html": "Voit lisätä ostoskoriisi vain {{ quantity }} kappaletta tätä tuotetta.",
@@ -250,8 +241,7 @@
         "product": "Tuote",
         "price": "Hinta",
         "total": "Yhteensä",
-        "quantity": "Määrä",
-        "image": "Tuotekuva"
+        "quantity": "Määrä"
       },
       "update": "Päivitä",
       "login": {
@@ -264,8 +254,8 @@
     },
     "featured_blog": {
       "view_all": "Näytä kaikki",
-      "onboarding_title": "Blogipostaus",
-      "onboarding_content": "Anna asiakkaillesi yhteenveto blogipostauksestasi"
+      "onboarding_title": "Blogijulkaisu",
+      "onboarding_content": "Anna asiakkaillesi yhteenveto blogijulkaisustasi"
     },
     "featured_collection": {
       "view_all": "Näytä kaikki",
@@ -277,7 +267,7 @@
     "collection_template": {
       "title": "Kokoelma",
       "empty": "Tuotteita ei löytynyt",
-      "use_fewer_filters_html": "Käytä vähemmän suodattimia tai <a class=\"{{ class }}\" href=\"{{ link }}\">poista kaikki</a>"
+      "use_fewer_filters_html": "Käytä vähemmän suodattimia tai <a class=\"{{ class }}\" href=\"{{ link }}\">tyhjennä kaikki</a>"
     },
     "video": {
       "load_video": "Lataa video: {{ description }}"
@@ -290,9 +280,6 @@
       "play_slideshow": "Toista diaesitys",
       "carousel": "Karuselli",
       "slide": "Dia"
-    },
-    "page": {
-      "title": "Sivun otsikko"
     }
   },
   "localization": {
@@ -379,7 +366,7 @@
     },
     "reset_password": {
       "title": "Palauta tilin salasana",
-      "subtext": "Syötä uusi salasana",
+      "subtext": "Anna uusi salasana tilille {{ email }}",
       "password": "Salasana",
       "password_confirm": "Vahvista salasana",
       "submit": "Nollaa salasana"
@@ -404,10 +391,9 @@
       "fulfilled_at_html": "Jaeltu {{ date }}",
       "track_shipment": "Seuraa lähetystä",
       "tracking_url": "Seurantalinkki",
-      "tracking_company": "Kuljetuspalvelu",
+      "tracking_company": "Kuljetusliike",
       "tracking_number": "Seurantanumero",
-      "subtotal": "Välisumma",
-      "total_duties": "Tullit"
+      "subtotal": "Välisumma"
     }
   },
   "gift_cards": {

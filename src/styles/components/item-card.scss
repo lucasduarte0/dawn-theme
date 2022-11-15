@@ -1,0 +1,15 @@
+.item__card {
+    @apply relative block;
+    &-hover,
+    &-hover-text {
+        @apply invisible flex justify-center items-center font-matter text-white w-[90%] h-[80%] absolute-center left-0 right-0 mx-auto mt-4 transition-smooth;
+    }
+    &-hover {
+        filter: blur(60px);
+        background-color: rgba(221,155,0, 0.8);
+    }
+    &:hover &-hover,
+    &:hover &-hover-text {
+        @apply visible;
+    }
+}

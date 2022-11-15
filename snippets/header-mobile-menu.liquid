@@ -1,0 +1,32 @@
+<div class="header__mobile-menu w-full h-full fixed top-0 left-0 left-0 pt-4 md_min:hidden">
+    <div class="container max-h-[80vh] h-full overflow-auto landscape:md:max-h-[57vh]">
+        <ul class="">
+            {% for link in linklists.main-menu.links %}
+                <li class="relative md:mb-2">
+                    <a href="{{ link.url }}" class="header__link font-matter text-13{% if link.links != blank %} has-submenu md:hidden{% endif %} md:text-30 md:font-heading md:normal-case md:tracking-[0em]">{{ link.title }}</a>
+                    {% if link.links != blank %}
+                        <ul class="header__submenu md:hidden absolute left-0 grid grid-cols-5 gap-8 mt-6 pb-6">
+                            {% for child_link in link.links %}
+                                <li>
+                                    <a href="{{ child_link.url }}" class="block hover:opacity-60">
+                                        <img src="{{ child_link.object.featured_image | img_url: '400x600', crop: 'center' }}" class="w-full mb-2 aspect-[3/4]" />
+                                        <div><span class="font-italic">{{ child_link.title }} </span>—</div>
+                                    </a> 
+                                </li>    
+                            {% endfor %}
+                        </ul>
+                        <span class="header__link toggle-trigger font-matter text-13{% if link.links != blank %} has-submenu{% endif %} md:text-30 md:font-heading md:normal-case md:tracking-[0em]" data-container="mobile-menu-toggle-{{ forloop.index }}">{{ link.title }}</span>
+                        <ul id="mobile-menu-toggle-{{ forloop.index }}" class="header__submenu toggle-container md_min:hidden max-h-0">
+                            {% for child_link in link.links %}
+                                <li><a href="{{ child_link.url }}"class="font-matter text-13">{{ child_link.title }}</a></li>    
+                            {% endfor %}
+                        </ul>                                    
+                    {% endif %}
+                </li>
+            {% endfor %}
+            <li class="md_min:hidden mt-2"><a href="/account" class="header__link font-matter text-13">Account</a></li>
+            <li class="md_min:hidden mt-3"><a href="#" class="header-search-link header__link font-matter text-13">Search</a></li>                        
+            <li class="md_min:hidden mt-5"><a href="#" class="bag-count header__link font-matter text-13 hover:text-orange" onclick="window.showCart(); return false;">{{ cart.item_count }}</a></li>
+        </ul>
+    </div>
+</div>

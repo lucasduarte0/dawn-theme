@@ -1,0 +1,43 @@
+{% section 'header-wordmark-brown' %}
+
+<div class="hero access bg-cream pt-40 md:pt-[114px]">
+  <div class="container-700 pt-20 pb-40 md:py-8 space-y-8 text-center">
+    <h1 class="mb-5 text-[50px] font-heading mb-8 lg:text-30">
+      Welcome back
+    </h1>
+    <div class="mt-5" data-login-form>
+      {% form 'customer_login', class: "form space-y-6 md:space-y-5" %}
+        {{ form.errors | default_errors }}
+        <p class="success hidden" data-reset-success>Password recovery sent!</p>
+        <input type="email" class="form__input tracking-widest border border-brown placeholder:text-brown" name="customer[email]" placeholder="Email" autofocus>
+        {% if form.password_needed %}
+          <input type="password" name="customer[password]" class="form__input tracking-widest border border-brown placeholder:text-brown" placeholder="Password">
+        {% endif %}
+        <button class="button">
+          Login
+        </button>
+        <div class="flex flex-wrap items-center justify-center space-x-4 mt-6">
+          {% if form.password_needed %}
+            <a href="#recover" class="font-matter tracking-wider text-13 leading-tight text-brown pb-1 border-b border-brown hover:text-orange hover:border-orange" data-recover-toggle>Recover Password</a>
+          {% endif %}
+          <a href="/account/register" class="font-matter tracking-wider text-13 leading-tight text-brown pb-1 border-b border-brown hover:text-orange hover:border-orange">Create Account</a>
+        </div>
+      {% endform %}
+    </div>
+    <div class="mt-5 hidden" data-recover-form>
+      {% form 'recover_customer_password', class: "form space-y-6 md:space-y-5" %}
+        {{ form.errors | default_errors }}
+        {% if form.posted_successfully? %}
+          <span class="hidden" data-form-state></span>
+        {% endif %}
+        <input type="email" name="email" placeholder="Email" class="form__input tracking-widest border border-brown placeholder:text-brown">
+        <button class="button">
+          Recover
+        </button>
+      {% endform %}
+      <div class="actions mt-6">
+        <button data-recover-toggle class="font-matter tracking-wider text-13 leading-tight text-brown pb-1 border-b border-brown hover:text-orange hover:border-orange">Cancel</button>
+      </div>  
+    </div>
+  </div>
+</div>

@@ -1,0 +1,154 @@
+{
+  "sections": {
+    "header": {
+      "type": "header-wordmark",
+      "settings": {
+      }
+    },
+    "hero": {
+      "type": "hero",
+      "settings": {
+        "image": "shopify:\/\/shop_images\/sustainabilitity-hero.jpg",
+        "mobile_image": "shopify:\/\/shop_images\/sustainabilitity-mobile-hero.jpg",
+        "small_image": "shopify:\/\/shop_images\/ethos_d0f0ee8e-e779-4124-b1af-3e59537931be.jpg",
+        "title": "Our [Ethos]"
+      }
+    },
+    "objects": {
+      "type": "sustainability-objects",
+      "settings": {
+        "image": "shopify:\/\/shop_images\/objects-1.jpg",
+        "image_2": "shopify:\/\/shop_images\/objects-2.jpg",
+        "title": "Fifty-million straws are discarded each year in the US alone.",
+        "bodycopy": "<p> The only way to move forward on planet Earth is to do so sustainably; we truly believe this, and so lays the foundation for our entire concept.<\/p><p>Each item’s loving purpose is both with the users’ and our environment’s best interest in mind.<\/p>",
+        "image_3": "shopify:\/\/shop_images\/objects-3.jpg",
+        "headline_2": "The beauty in small, daily items is not mundane. Everything we use on a regular basis should align with a doctrine of ethos that honors our planet and its limited resources. It’s ok to start small.",
+        "image_4": "shopify:\/\/shop_images\/objects-4.jpg"
+      }
+    },
+    "process": {
+      "type": "sustainability-process",
+      "blocks": {
+        "37b6fc3d-d266-4cf0-b933-f040499f8099": {
+          "type": "snapshot",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/process-1.jpg",
+            "title": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam"
+          }
+        },
+        "37569e1f-4595-4062-90e4-89d0524eb4a2": {
+          "type": "snapshot",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/process-2.jpg",
+            "title": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam"
+          }
+        },
+        "66495402-fcfe-41dc-8395-f97eef942231": {
+          "type": "snapshot",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/process-3.jpg",
+            "title": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam"
+          }
+        },
+        "66495402-fcfe-41dc-8395-f97eef942222": {
+          "type": "snapshot",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/process-4.jpg",
+            "title": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam"
+          }
+        },
+        "66495402-fcfe-41dc-8395-f97eef942226": {
+          "type": "snapshot",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/ethos.jpg",
+            "title": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam"
+          }
+        }
+      },
+      "block_order": [
+        "37b6fc3d-d266-4cf0-b933-f040499f8099",
+        "37569e1f-4595-4062-90e4-89d0524eb4a2",
+        "66495402-fcfe-41dc-8395-f97eef942231",
+        "66495402-fcfe-41dc-8395-f97eef942222",
+        "66495402-fcfe-41dc-8395-f97eef942226"
+      ],
+      "settings": {
+        "title": "Our [Process]",
+        "bodycopy": "<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim.<\/p>",
+        "snapshot_title": "Thoughtful Snapshots"
+      }
+    },
+    "guarantee": {
+      "type": "sustainability-guarantee",
+      "settings": {
+        "image": "shopify:\/\/shop_images\/guarantee.jpg",
+        "headline_1": "Next Steps",
+        "bodycopy_1": "<p>Everything we use can be striking and timeless, just like mother nature itself. Form and function perseveres with great care. So let's start taking care of our things, and our planet.<\/p>",
+        "headline_2": "Our Guarantee",
+        "bodycopy_2": "<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut orem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut orem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.<\/p>"
+      }
+    },
+    "earth": {
+      "type": "sustainability-earth",
+      "settings": {
+        "title": "2%",
+        "headline": "For the Earth",
+        "bodycopy": "<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci.<\/p>",
+        "image": "shopify:\/\/shop_images\/earth.jpg"
+      }
+    },
+    "shop_all": {
+      "type": "shop-all",
+      "blocks": {
+        "37b6fc3d-d266-4cf0-b933-f040499f8091": {
+          "type": "product",
+          "settings": {
+            "prod": "chakra-healing-necklace",
+            "category": "Product Category"
+          }
+        },
+        "37569e1f-4595-4062-90e4-89d0524eb4a7": {
+          "type": "product",
+          "settings": {
+            "prod": "damp-smoke",
+            "category": ""
+          }
+        },
+        "66495402-fcfe-41dc-8395-f97eef942239": {
+          "type": "product",
+          "settings": {
+            "prod": "empty-water",
+            "category": ""
+          }
+        }
+      },
+      "block_order": [
+        "37b6fc3d-d266-4cf0-b933-f040499f8091",
+        "37569e1f-4595-4062-90e4-89d0524eb4a7",
+        "66495402-fcfe-41dc-8395-f97eef942239"
+      ],
+      "settings": {
+        "bodycopy": "Bask in our goods.",
+        "link_text": "Shop All",
+        "link_url": "\/",
+        "link_new_tab": false
+      }
+    },
+    "instagram": {
+      "type": "instagram",
+      "settings": {
+        "title": "<p>Follow along <a href='https:\/\/instagram.com\/baskgoods' target='_blank'>@baskgoods<\/a><\/p>"
+      }
+    }
+  },
+  "order": [
+    "header",
+    "hero",
+    "objects",
+    "process",
+    "guarantee",
+    "earth",
+    "shop_all",
+    "instagram"
+  ]
+}
