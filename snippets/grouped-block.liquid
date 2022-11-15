@@ -1,0 +1,270 @@
+{% if product.metafields.c_f['Grouped Product'] %}
+{%- assign handle_metafields =  product.metafields.c_f['Grouped Product'] -%}
+
+{%- assign str_1 = handle_metafields | split:'[p_1]' | last | split: '[/p_1]' | first -%}
+{%- assign str_2 = handle_metafields | split:'[p_2]' | last | split: '[/p_2]' | first -%}
+{%- assign str_3 = handle_metafields | split:'[p_3]' | last | split: '[/p_3]' | first -%}
+
+{%- assign pro_1 = all_products[str_1] -%}
+{%- assign pro_2 = all_products[str_2] -%}
+{%- assign pro_3 = all_products[str_3] -%}
+
+<div class="grouped-content">
+    <div class="scroll-content">
+		{% if pro_1 != blank %}
+		<div class="grouped-product">
+			<div class="column column-1">
+                <div class="thumb">
+                    <a class="product-img" href="{{ pro_1.url | within: collections.all }}" title="{{ pro_1.title }}">
+                        <img src="{{ pro_1.featured_image.src | img_url: '160x' }}"  alt="{{ pro_1.title | escape }}" />
+                    </a>
+                    
+                    {% unless pro_1.available %}
+                    <div class="product-label">
+                        <strong class="label sold-out-label" {% if settings.enable_multilang %}data-translate="products.product.sold_out"{% endif %}>
+                            {{ 'products.product.sold_out' | t }}
+                        </strong>
+                    </div>
+                    {% endunless %}
+                </div>
+                
+                <div class="caption">
+                    <div class="product-vendor">
+                        {{ pro_1.vendor | link_to_vendor }}
+                    </div>
+                    
+                    <a class="product-title" href="{{ pro_1.url | within: collection }}">
+                        {% include 'multilang' with pro_1.title %}
+                    </a>
+                </div>
+			</div>
+			
+			<div class="column column-2">
+				<div class="grouped-actions">			
+					{% if pro_1.available %} 
+					<div class="form-group">
+						<select data-select-change-variant>
+							{% for variant in pro_1.variants %}
+							<option data-price="{{ variant.price }}"{% unless variant.available %} class="sold-out" disabled{% endunless %} value="{{ variant.id }}"{% if variant.image != null %} data-img="{{ variant.image.src | product_img_url: '200x' }}"{% endif %}>
+								{{ variant.title }}
+							</option>
+							{% endfor %}
+						</select>
+
+						<span class="icon-dropdown">
+						    <i class="fa fa-angle-down"></i>
+						</span>
+					</div>			
+					{% endif %}
+
+					{% if pro_1.available %}
+					<div class="qty-group">
+						<a href="#" data-minus-quantity class="minus button"></a>
+						
+						<input type="hidden" name="id" value="{{ pro_1.variants[0].id  }}" /> 
+						
+						<input type="text" name="quantity" value="0" min="0" data-id="{{ pro_1.variants[0].id }}">
+						
+						<a href="#" data-plus-quantity class="plus button"></a>
+					</div>
+					{% endif %}
+				</div>  
+
+				<div class="grouped-prices">
+					<div class="price-box">
+						{% if pro_1.compare_at_price_min > pro_1.price_min %}
+						<div class="price-sale">
+							<span class="old-price">
+								{{ pro_1.compare_at_price_min | money }}
+							</span>
+							<span class="special-price" data-price-change>
+								{{ pro_1.price_min | money }}
+							</span>
+						</div>
+
+						{% else %}
+
+						<div class="price-regular">               
+							<span data-price-change>
+								{{ pro_1.price_min | money }}
+							</span>
+						</div>
+						{% endif %}
+					</div>
+				</div>    
+			</div>
+		</div>
+		{% endif %}
+	
+		{% if pro_2 != blank %}
+		<div class="grouped-product">
+			<div class="column column-1">
+                <div class="thumb">
+                    <a class="product-img" href="{{ pro_2.url | within: collections.all }}" title="{{ pro_2.title }}">
+                        <img src="{{ pro_2.featured_image.src | img_url: '160x' }}"  alt="{{ pro_2.title | escape }}" />
+                    </a>
+                    
+                    {% unless pro_2.available %}
+                    <div class="product-label">
+                        <strong class="label sold-out-label" {% if settings.enable_multilang %}data-translate="products.product.sold_out"{% endif %}>
+                            {{ 'products.product.sold_out' | t }}
+                        </strong>
+                    </div>
+                    {% endunless %}
+                </div>
+                
+                <div class="caption">
+                    <div class="product-vendor">
+                        {{ pro_2.vendor | link_to_vendor }}
+                    </div>
+                    
+                    <a class="product-title" href="{{ pro_2.url | within: collection }}">
+                        {% include 'multilang' with pro_2.title %}
+                    </a>
+                </div>
+			</div>
+			
+			<div class="column column-2">
+				<div class="grouped-actions">
+					{% if pro_2.available %} 
+					<div class="form-group">
+						<select data-select-change-variant>
+							{% for variant in pro_2.variants %}
+							<option data-price="{{ variant.price }}"{% unless variant.available %} class="sold-out" disabled{% endunless %} value="{{ variant.id }}"{% if variant.image != null %} data-img="{{ variant.image.src | product_img_url: '200x' }}"{% endif %}>
+								{{ variant.title }}
+							</option>
+							{% endfor %}
+						</select>
+
+						<span class="icon-dropdown">
+							<i class="fa fa-angle-down"></i>
+						</span>
+					</div>		            
+					{% endif %}
+
+					{% if pro_2.available %}
+					<div class="qty-group">
+						<a href="#" data-minus-quantity class="minus button"></a>
+						
+						<input type="hidden" name="id" value="{{ pro_2.variants[0].id  }}" /> 
+						
+						<input type="text" name="quantity" value="0" min="0" data-id="{{ pro_2.variants[0].id }}">
+						
+						<a href="#" data-plus-quantity class="plus button"></a>
+					</div>
+					{% endif %}
+				</div>
+
+				<div class="grouped-prices">
+					<div class="price-box">
+						{% if pro_2.compare_at_price_min > pro_2.price_min %}
+						<div class="price-sale">
+                            <span class="old-price">
+                                {{ pro_2.compare_at_price_min | money }}
+                            </span>
+                            <span class="special-price" data-price-change>
+                                {{ pro_2.price_min | money }}
+                            </span>
+						</div>
+
+						{% else %}
+
+						<div class="price-regular">               
+							<span data-price-change>
+								{{ pro_2.price_min | money }}
+							</span>
+						</div>
+						{% endif %}
+					</div>
+				</div>      
+			</div>
+		</div>
+		{% endif %}
+	
+		{% if pro_3 != blank %}
+		<div class="grouped-product">
+			<div class="column column-1">
+                <div class="thumb">
+                    <a class="product-img" href="{{ pro_3.url | within: collections.all }}" title="{{ pro_3.title }}">
+                        <img src="{{ pro_3.featured_image.src | img_url: '160x' }}"  alt="{{ pro_3.title | escape }}" />
+                    </a>
+                    
+                    {% unless pro_3.available %}
+                    <div class="product-label">
+                        <strong class="label sold-out-label" {% if settings.enable_multilang %}data-translate="products.product.sold_out"{% endif %}>
+                            {{ 'products.product.sold_out' | t }}
+                        </strong>
+                    </div>
+                    {% endunless %}
+                </div>
+                
+                <div class="caption">
+                    <div class="product-vendor">
+                        {{ pro_3.vendor | link_to_vendor }}
+                    </div>
+                    
+                    <a class="product-title" href="{{ pro_3.url | within: collection }}">
+                        {% include 'multilang' with pro_3.title %}
+                    </a>
+                </div>
+			</div>
+			
+			<div class="column column-2">
+				<div class="grouped-actions">
+					{% if pro_3.available %} 
+					<div class="form-group">
+						<select data-select-change-variant>
+							{% for variant in pro_3.variants %}
+							<option data-price="{{ variant.price }}"{% unless variant.available %} class="sold-out" disabled{% endunless %} value="{{ variant.id }}"{% if variant.image != null %} data-img="{{ variant.image.src | product_img_url: '200x' }}"{% endif %}>
+								{{ variant.title }}
+							</option>
+							{% endfor %}
+						</select>
+
+						<span class="icon-dropdown">
+							<i class="fa fa-angle-down"></i>
+						</span>
+					</div>           
+					{% endif %}
+
+					{% if pro_3.available %}
+					<div class="qty-group">
+						<a href="#" data-minus-quantity class="minus button"></a>
+						
+						<input type="hidden" name="id" value="{{ pro_3.variants[0].id  }}" /> 
+						
+						<input type="text" name="quantity" value="0" min="0" data-id="{{ pro_3.variants[0].id }}">
+						
+						<a href="#" data-plus-quantity class="plus button"></a>
+					</div>
+					{% endif %}
+				</div>
+
+				<div class="grouped-prices">
+					<div class="price-box">
+						{% if pro_3.compare_at_price_min > pro_3.price_min %}
+						<div class="price-sale">
+							<span class="old-price">
+								{{ pro_3.compare_at_price_min | money }}
+							</span>
+							<span class="special-price" data-price-change>
+								{{ pro_3.price_min | money }}
+							</span>
+						</div>
+
+						{% else %}
+
+						<div class="price-regular">              
+							<span data-price-change>
+								{{ pro_3.price_min | money }}
+							</span>
+						</div>
+						{% endif %}
+					</div>
+				</div>
+			</div>
+		</div>
+		{% endif %}
+	</div>  
+</div>
+{% endif %}

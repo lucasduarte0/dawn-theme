@@ -1,123 +1,143 @@
-<ul class="site-nav list--inline {{ nav_alignment }}" id="SiteNav">
-  {% for link in linklists[section.settings.main_linklist].links %}
-  {%- assign child_list_handle = link.title | handleize -%}
+{% comment %}
+List out your main-menu linklist (default)
+More info on linklists:
+- http://docs.shopify.com/themes/liquid-variables/linklists
+{% endcomment %}
 
-  {% comment %}
-  Check if third-level nav exists on each parent link.
-  {% endcomment %}
-  {%- assign three_level_nav = false -%}
-  {% if link.links != blank %}
-  {% if link.levels == 2 %}
-  {%- assign three_level_nav = true -%}
-  {% endif %}
-  {% endif %}
+<ul class="site-nav">
+    {% if section.settings.horizontal_linklist != blank %}
+    {% assign menu = linklists[section.settings.horizontal_linklist].links %}
+    {% else %}
+    {% assign menu = linklists.main-menu.links %}
+    {% endif %}
 
-  {% if link.links != blank %}
-  <li class="site-nav--has-dropdown {% if three_level_nav %} site-nav--has-centered-dropdown {% else %}count_li {% endif %}{% if link.active %} site-nav--active{% endif %}" aria-haspopup="true" aria-controls="SiteNavLabel-{{ child_list_handle }}">
-    <a href="{{ link.url }}" class="site-nav__link site-nav__link--main"{% if link.active %} aria-current="page"{% endif %} aria-expanded="false">
-      {{ link.title }}
-      {% include 'icon-chevron-down' %}
-    </a>
+    {% for link in menu %}
+    
+    {% assign i = forloop.index | downcase %}
+    {% assign cat = link.title | handleize %}  
 
-    <div class="site-nav__dropdown{% if three_level_nav %} site-nav__dropdown--centered{% endif %}" id="SiteNavLabel-{{ child_list_handle }}">
-      {% if three_level_nav %}
-      <div class="site-nav__childlist">
-        <ul class="site-nav__childlist-grid">
-          {% if link.links != blank %}
+    {% if section.settings.display_megamenu %}
+    
+    {% assign is_megamenu = false %}
+    
+    {% for block in section.blocks %}
+    
+    {% for i in (1..4) %}
+    
+    {% capture cap_megamenu_item %}megamenu_items_{{ i }}{% endcapture %} 
+    
+    {% capture cap_banner_first_style %}banner_first_style_{{ i }}{% endcapture %}
+    {% capture cap_link_banner_first_style %}link_banner_first_style_{{ i }}{% endcapture %}
+    
+    {% capture cap_banner_second_style %}banner_second_style_{{ i }}{% endcapture %}
+    {% capture cap_link_banner_second_style %}link_banner_second_style_{{ i }}{% endcapture %}
+    
+    {% capture cap_banner_third_style %}banner_third_style_{{ i }}{% endcapture %}
+    {% capture cap_link_banner_third_style %}link_banner_third_style_{{ i }}{% endcapture %}
+    
+    {% if block.settings[cap_megamenu_item] != blank %}
+        {% assign megamenu_item = block.settings[cap_megamenu_item] | handleize %}
+    
+        {% if megamenu_item == cat %}
+            {% assign is_megamenu = true %}  
+            {% assign block_style = block.type %}
+    
+            {%- assign title_featured_product = block.settings.title_featured_product -%}
+            {%- assign featured_product = block.settings.featured_product -%}  
+            {%- assign product = all_products[featured_product] -%}
+    
+            {%- assign banner_first_style = block.settings[cap_banner_first_style] -%}
+            {%- assign link_banner_first_style = block.settings[cap_link_banner_first_style] -%}
+    
+            {%- assign banner_second_style = block.settings[cap_banner_second_style] -%}
+            {%- assign link_banner_second_style = block.settings[cap_link_banner_second_style] -%}
+    
+            {%- assign banner_third_style = block.settings[cap_banner_third_style] -%}
+            {%- assign link_banner_third_style = block.settings[cap_link_banner_third_style] -%}
+        {% endif %}  
+    {% endif %}
+    {% endfor %}
+    
+    {% endfor %}
+    
+    {% endif %} 
+    
+    
+    {% if section.settings.enable_sale %}
+        {% assign sale_item = section.settings.sale_item | split:"," | strip | downcase | handle %}
+        {% assign sale = link.title | downcase | handle  %}
+    {% endif %}
+    
+    {% if section.settings.enable_new %}
+        {% assign new_item = section.settings.new_item | split:"," | strip | downcase | handle %}
+        {% assign new = link.title | downcase | handle  %}
+    {% endif %}
+    
+    {% if section.settings.enable_hot %}
+        {% assign hot_item = section.settings.hot_item | split:"," | strip | downcase | handle %}
+        {% assign hot = link.title | downcase | handle  %}
+    {% endif %}
 
-          {% for childlink in link.links limit:5%}
-          {% assign collection = childlink.object %}
-          <li class="site-nav__childlist-item count-column {% if childlink.links != blank %} left {% elsif collection.image %}center {% endif %}">
-            {% if childlink.links != blank %}
-            <a href="{{ childlink.url }}" class="site-nav__link site-nav__child-link site-nav__child-link--parent"{% if childlink.active %} aria-current="page"{% endif %}>
-              {{ childlink.title | escape }}
-            </a>
-            {% else %}
-            <a href="{{ childlink.url }}" class="{% if collection.image %}hide {% endif %}site-nav__link site-nav__child-link site-nav__child-link--parent"{% if childlink.active %} aria-current="page"{% endif %}>
-              {{ childlink.title | escape }}
-            </a>
-            {% endif%}
-            {% if childlink.links != blank %}
-            <ul>
-              {% for grandchildlink in childlink.links %}
-              <li>
-                <a href="{{ grandchildlink.url }}" class="site-nav__link site-nav__child-link"{% if grandchildlink.active %} aria-current="page"{% endif %}>
-                  {{ grandchildlink.title | escape }}
-                </a>
-              </li>
-              {% endfor %}
-            </ul>
-            {% else %}
-            {% assign collection = childlink.object %}
-            {% if childlink.type == 'collection_link' %}
-            {% if collection.image %}
-            <div class="coll_image">
-              <a class="collection-link-menu" href="{{ childlink.url }}">
-                <div class="collection-grid-item__overlay">
-                  <img src="{{ collection | img_url: '500x' }}"  alt="{{ collection.title | escape }}"/>
-                </div>
-                <div class="collection-grid-item__title-wrapper">
-                  <h3 class="collection-grid-item__title">
+    <li class="menu-lv-1 item{% if linklists[link.handle] != empty %} dropdown{% if is_megamenu %} mega-menu{% else %} no-mega-menu{% endif %}{% endif %}">
+        <a class="{%if linklists[link.handle] != empty %}menu__moblie {% endif %}{% if link.active %}current{% endif %}"  href="{{ link.url }}">
+            {% include 'multilang' with link.title %}
+            
+            {% if linklists[link.handle] != empty %}
+            <span class="icon-dropdown" data-toggle-menu-mb>
+                <i class="fa fa-angle-right" aria-hidden="true"></i>
+            </span>
+            {% endif %}
+            
+            {% if sale_item contains sale %}
+            <label class="icon-label icon_sale">
+                {% include 'multilang' with section.settings.lb_sale %}
+            </label>
+            {% endif %}
+            
+            {% if new_item contains new %}
+            <label class="icon-label icon_new">
+                {% include 'multilang' with section.settings.lb_new %}
+            </label>
+            {% endif %}
+            
+            {% if hot_item contains hot %}
+            <label class="icon-label icon_hot">
+                {% include 'multilang' with section.settings.lb_hot %}
+            </label>
+            {% endif %}            
+        </a> 	    
 
-                    {{ childlink.title }}
-
-                  </h3>
-                  {% if settings.show_view_all %}
-                  <div class="text-center coll_all">
-                    <span class="btn_all btn">{{ settings.btn_text }}</span>
-                  </div>
-                  {% endif %}
-
-                </div>
-              </a>
+        {% if linklists[link.handle] != empty %}
+        <div class="sub-menu-mobile menu-mb-translate">
+            <div class="menu-mb-title">
+                <span class="icon-dropdown">
+                <i class="fa fa-angle-left" aria-hidden="true"></i>
+                </span>
+                {% include 'multilang' with link.title %}
             </div>
+        
+        {% comment %}
+        Check if menu item is Mega menu
+        {% endcomment %}
+        
+            {% assign link_child = link.handle %}
+            
+            {% if section.settings.display_megamenu and is_megamenu %}  
+            <div class="site-nav-dropdown {{ block_style }}">
+                <div class="container">
+                    {% include 'mega-menu' with link_child %}
+                </div>        
+            </div>
+
             {% else %}
-            test
+            
+            {% if linklists[link.handle] != empty %}
+            {% include 'dropdown-menu' with link_child %}
             {% endif %}
+            
             {% endif %}
-            {% endif %}
-
-          </li>
-          {% endfor %}
-
-          {% endif %}
-        </ul>
-      </div>
-
-      {% else %}
-      <ul>
-        {% for childlink in link.links %}
-        <li {% if childlink.active %}class="site-nav--active"{% endif %}>
-          <a href="{{ childlink.url }}" class="site-nav__link site-nav__child-link{% if forloop.last %} site-nav__link--last{% endif %}"{% if childlink.active %} aria-current="page"{% endif %}>
-            {{ childlink.title | escape }}
-          </a>
-        </li>
-        {% endfor %}
-      </ul>
-      {% endif %}
-    </div>
-
-
-
-
-  </li>
-  {% else %}
-  <li{% if link.active %} class="site-nav--active"{% endif %}>
-    <a href="{{ link.url }}" class="site-nav__link site-nav__link--main"{% if link.active %} aria-current="page"{% endif %}>{{ link.title }}</a>
-  </li>
-  {% endif %}
-  {% endfor %}
-  {% comment %}
-  {% if shop.customer_accounts_enabled %}
-  {% if customer %}
-  <li>
-    <a href="/account" class="site-nav__link site-nav__link--main">{{ 'layout.customer.account' | t }}</a>
-  </li>
-  {% else %}
-  <li>
-    <a href="/account/login" class="site-nav__link site-nav__link--main"></a>
-  </li>
-  {% endif %}
-  {% endif %}
-  {% endcomment %}
+        </div>    
+        {% endif %}
+    </li>
+    {% endfor %}
 </ul>

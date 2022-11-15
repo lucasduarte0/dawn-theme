@@ -1,99 +1,85 @@
-{% paginate search.results by 12 %}
+{% assign grid_results = true %}
 
-<div class="page-width">
-  {% if search.results_count == 0 or search.performed == false %}
-  <div class="empty-page-content text-center">
-    <h1 class="h2">{{ 'general.search.title' | t }}</h1>
-    {% else %}
-    <div class="section-header text-center">
-      <h1 class="h2">{{ 'general.search.results_with_count' | t: terms: search.terms, count: search.results_count }}</h1>
-      {% endif %}
-      <div class="grid">
-        <div class="grid__item medium-up--two-fifths medium-up--push-three-tenths">
-          <form action="/search" method="get" role="search" class="search">
-            <div class="input-group">
-              {% if settings.search_result == 'only_product'%}
-              <input type="hidden" name="type" value="product">
-              {% endif %}
-              <input type="input"
-                     id="SearchInput"
-                     class="input-group__field search__input"
-                     name="q"
-                     value="{{ search.terms | escape }}"
-                     placeholder="{{ 'general.search.placeholder' | t }}"
-                     aria-label="{{ 'general.search.placeholder' | t }}"
-                     autofocus>
-              <span class="input-group__btn">
-                <button class="btn search__submit" type="submit">{{ 'general.search.submit' | t }}</button>
-              </span>
-            </div>
-          </form>
-        </div>
-      </div>
-
-      {% if search.performed and search.results_count == 0 %}
-      <hr class="hr--small hr--invisible">
-      <p>{{ 'general.search.no_results_html' | t: terms: search.terms }}</p>
-      {% endif %}
-    </div>
-  </div>
-  <div class="page-width">
-
+<div class="search-page collection-template" data-search-page>
+  <div class="container">    
     {% if search.performed %}
 
-    {% if settings.search_result == 'everything' %}
-    {% if search.results_count > 0 %}
-    <hr>
-    {% endif %}
-    <div class="list-view-items">
-      {% for item in search.results %}
-      <a href="{{ item.url }}" class="list-view-item">
-        {% if item.object_type == 'product' %}
-        {% assign product = item %}
-        {% unless product.price == 0 and settings.search_free_page %}
-        {% include 'product-card-list', product: item %}
-        {% endunless %}
-        {% else %}
-        {% if item.image %}
-        <div class="list-view-item__image-column">
-          <div class="list-view-item__image-wrapper">
-            <img class="list-view-item__image" src="{{ item.image.src | img_url: '600x600' }}" alt="{{ item.image.alt | escape }}">
-          </div>
-        </div>
-        {% endif %}
+    {% comment %}
+    Avoid accessing search.results before the opening paginate tag.
+    If you do, the pagination of results will be broken.
+    {% endcomment %}
 
-        <div class="list-view-item__title-column">
-          <div class="list-view-item__title">{{ item.title }}</div>
-          <div class="">
-            {% if item.published_at %}{{ item.published_at | date: "%b %d, %Y" }} &#8212; {% endif %}
-            {{ item.content | strip_html | truncate: 200 }}
-          </div>
-        </div>
-        {% endif %}
-      </a>
-      {% endfor %}
-    </div>
+    {% paginate search.results by 15 %}
+
+    {% comment %}
+    We don't have any results to show. Feel free to show off featured products
+    or suggested searches here.
+    {% endcomment %}
+
+    {% if search.results_count == 0 %}
+    <header class="page-header">
+      <h2>
+        {% include 'multilang' with settings.search_1 %}
+        <strong> &nbsp;"{{ search.terms }}"&nbsp; </strong>
+        {% include 'multilang' with settings.search_2 %}
+      </h2>
+    </header>
+
     {% else %}
-    <div class="product_all">
-      <div class="grid grid--uniform grid--view-items">
-        {%- assign max_height = 250 -%}
-        {% for item in search.results %}
-        {% if item.object_type == 'product' %}
-        {% assign product = item %}
-        {% unless product.price == 0 and settings.search_free_page %}
-        <div class="grid__item small--one-half medium-up--one-quarter">        
-          {% include 'product-card-grid', max_height: max_height %}          
-        </div>
-        {% endunless %} 
-        {% endif %}
+    
+    <header class="page-header">
+      <h2>
+        {% include 'multilang' with settings.search_3 %}
+        <strong> &nbsp;"{{ search.terms }}"&nbsp; </strong>
+        {% include 'multilang' with settings.search_4 %}
+      </h2>
+    </header>
+
+    {% comment %}
+    Each result template, based on the grid_layout variable above
+    {% endcomment %}
+
+    <div class="block-row col-main">
+      {% if grid_results == false %}
+      <div class="product-collection products-list product-search row">      
+        {% for product in search.results %}
+        <div class="grid-item col-12{% if settings.product_image_border%} grid-item-border{% endif %}">
+          {% include 'search-result' %}
+        </div>        
         {% endfor %}
       </div>
 
+      {% else %}
+
+      <div class="products-grid product-search row product-collection">      
+        {% for product in search.results %}
+        <div class="grid-item col-6 col-md-4 col-lg-3 col5{% if settings.product_image_border%} grid-item-border{% endif %}">
+          {% include 'search-result-grid' %}
+        </div>
+        {% endfor %}
+      </div>
+      {% endif %}
     </div>
     {% endif %}
+
     {% if paginate.pages > 1 %}
-    {% include 'pagination' %}
+    <div class="padding">
+      {% include 'pagination-page' %}
+    </div>
     {% endif %}
+    {% endpaginate %}
+
+    {% else %}
+
+    {% comment %}
+    If search.performed is false, someone either accessed the page without
+    the q parameter, or it was blank.
+    Be sure to show a search form here, along with anything else you want to showcase.
+    {% endcomment %}
+
+    <header class="page-header">
+      <h2 {% if settings.enable_multilang %}data-translate="general.search.title"{%endif%}>{{ 'general.search.title' | t }}</h2>
+    </header>
     {% endif %}
   </div>
-  {% endpaginate %}
+</div>

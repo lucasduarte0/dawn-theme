@@ -1,5 +1,29 @@
-{% comment %}
-  The contents of the collection.liquid template can be found in /sections/collection-template.liquid
-{% endcomment %}
+{% if settings.category_layout == "default" %} 
 
-{% section 'collection-template' %}
+{% include 'collection-default' %}
+
+{% elsif settings.category_layout == "right_sidebar" %}
+
+{% include 'collection-right-sidebar' %}
+
+{% elsif settings.category_layout == "full_with" %}
+
+{% include 'collection-fullwidth' %}
+
+{% elsif settings.category_layout == "with_banner" %}
+
+{% include 'collection-with-banner' %}
+
+{% elsif settings.category_layout == "mansory" %}
+
+{% include 'collection-mansory' %}
+
+{% elsif settings.category_layout == "express_order" %}
+
+{% include 'collection-express-order' %}
+
+{% elsif settings.category_layout == "no_sidebar" %}
+
+{% include 'collection-no-sidebar' %}
+
+{% endif %}
