@@ -1726,7 +1726,7 @@
           "name": "Kompletterande produkter",
           "settings": {
             "paragraph": {
-              "content": "Lägg till appen Search & Discovery för att välja tilläggsprodukter. [Mer information](https://help.shopify.com/manual/online-store/search-and-discovery/product-recommendations)"
+              "content": "Lägg till appen Search & Discovery för att välja tilläggsprodukter. [Mer information](https://shopify.dev/themes/product-merchandising/recommendations)"
             },
             "heading": {
               "label": "Rubrik"
@@ -1763,95 +1763,6 @@
             },
             "enable_quick_add": {
               "label": "Aktivera knapp för snabb tilläggning"
-            }
-          }
-        },
-        "icon_with_text": {
-          "name": "Ikon med text",
-          "settings": {
-            "layout": {
-              "label": "Layout",
-              "options__1": {
-                "label": "Liggande"
-              },
-              "options__2": {
-                "label": "Stående"
-              }
-            },
-            "content": {
-              "label": "Innehåll",
-              "info": "Välj en ikon eller lägg till en bild för varje kolumn eller rad."
-            },
-            "heading": {
-              "info": "Lämna rubriketiketten tom för att dölja ikonkolumnen."
-            },
-            "icon_1": {
-              "label": "Första ikon"
-            },
-            "image_1": {
-              "label": "Första bild"
-            },
-            "heading_1": {
-              "label": "Första rubrik"
-            },
-            "icon_2": {
-              "label": "Andra ikon"
-            },
-            "image_2": {
-              "label": "Andra bild"
-            },
-            "heading_2": {
-              "label": "Andra rubrik"
-            },
-            "icon_3": {
-              "label": "Tredje ikon"
-            },
-            "image_3": {
-              "label": "Tredje bild"
-            },
-            "heading_3": {
-              "label": "Tredje rubrik"
-            }
-          }
-        },
-        "sku": {
-          "name": "Lagerhållningsenhet",
-          "settings": {
-            "text_style": {
-              "label": "Textstil",
-              "options__1": {
-                "label": "Brödtext"
-              },
-              "options__2": {
-                "label": "Underrubrik"
-              },
-              "options__3": {
-                "label": "Stora bokstäver"
-              }
-            }
-          }
-        },
-        "inventory": {
-          "name": "Lagerstatus",
-          "settings": {
-            "text_style": {
-              "label": "Textstil",
-              "options__1": {
-                "label": "Brödtext"
-              },
-              "options__2": {
-                "label": "Underrubrik"
-              },
-              "options__3": {
-                "label": "Stora bokstäver"
-              }
-            },
-            "inventory_threshold": {
-              "label": "Tröskel för låg lagernivå",
-              "info": "Välj 0 för att alltid visa i lager om tillgängligt."
-            },
-            "show_inventory_quantity": {
-              "label": "Visa inventering"
             }
           }
         }
@@ -1918,19 +1829,6 @@
           },
           "options__2": {
             "label": "Höger"
-          }
-        },
-        "image_zoom": {
-          "label": "Bildzoom",
-          "info": "Klicka och svep över för att öppna lightbox på mobilen.",
-          "options__1": {
-            "label": "Öppna lightbox"
-          },
-          "options__2": {
-            "label": "Klicka och svep över"
-          },
-          "options__3": {
-            "label": "Ingen zoom"
           }
         }
       }
@@ -2426,23 +2324,6 @@
           "settings": {
             "paragraph": {
               "content": "Lägg till en produktbedömningsapp för att visa ett betyg. [Mer information](https://help.shopify.com/manual/online-store/themes/theme-structure/theme-features#featured-product-rating)"
-            }
-          }
-        },
-        "sku": {
-          "name": "Lagerhållningsenhet",
-          "settings": {
-            "text_style": {
-              "label": "Textstil",
-              "options__1": {
-                "label": "Brödtext"
-              },
-              "options__2": {
-                "label": "Underrubrik"
-              },
-              "options__3": {
-                "label": "Stora bokstäver"
-              }
             }
           }
         }

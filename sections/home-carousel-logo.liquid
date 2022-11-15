@@ -1,0 +1,101 @@
+{{ 'custom-card-list.css' | asset_url | stylesheet_tag }}
+
+{%- capture flickity_options -%}
+{
+  "prevNextButtons": true,
+  "pageDots": false,
+  "contain": true,
+  "cellAlign": "left",
+  "groupCells": true,
+  "arrowShape": {"x0": 20, "x1": 60, "y1": 40, "x2": 60, "y2": 35, "x3": 25}
+}
+{%- endcapture -%}
+<div class="featured-collection-slider page-width">
+    {%- assign product_limit = section.settings.product_count -%}
+        <div class="products-carousel js-flickity" data-flickity='{{ flickity_options }}'>
+          {% for block in section.blocks %}
+          {% assign item = block.settings %}
+              <div class="carousel-cell">
+                <div  style="height: 100px;width: 100%">
+                    <img style="height: 100%;" src="{{item.image | img_url:'grande'}}"/>
+                </div>
+            </div>
+          {% endfor %}
+        </div>
+</div>
+
+    <style>
+        .featured-collection-slider{
+          padding-left: 55px;
+          padding-right: 55px;
+          max-width: 1200px;
+          margin: 0 auto;
+        }
+        .featured-collection-slider .carousel-cell{
+          width:25%;
+          padding: 0 15px;
+          display: block;
+        }
+        .flickity-button:disabled{
+          pointer-events: all!important;
+        }
+        @media screen and (max-width: 920px){
+          .featured-collection-slider{
+            padding-left: 15px;
+            padding-right: 15px;
+          }
+          .featured-collection-slider .carousel-cell{
+            width:50%;
+          }
+        }
+        @media screen and (max-width: 767px){
+          .featured-collection-slider .carousel-cell{
+            width:100%;
+          }
+        }
+        </style>
+{% schema %}
+{
+    "name":"Carousel Logo",
+    "tag":"section",
+    "settings":[
+        {
+            "type": "text",
+            "id": "title",
+            "label": "Heading",
+            "default": "Featured Collection"
+        },
+         {
+            "type": "collection",
+            "id":"feature-collection",
+            "label":"Collection"
+        },
+        {
+            "type": "range",
+            "id": "product_count",
+            "min": 4,
+            "max": 12,
+            "label": "Number of products to display",
+            "default": 4
+          }
+    ],
+    "blocks":[
+    {
+        "type":"image",
+        "name":"Select image",
+        "settings":[
+            {
+            "type": "image_picker",
+            "id":"image",
+            "label":"select image"
+            }
+        ]
+    }
+  ],
+    "presets": [
+    {
+        "name":"Carousel Logo"
+    }
+   ]
+}
+{% endschema %}

@@ -7,7 +7,9 @@
     <meta name="theme-color" content="">
     <link rel="canonical" href="{{ canonical_url }}">
     <link rel="preconnect" href="https://cdn.shopify.com" crossorigin>
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    {{ 'bootstrap.min.css' | asset_url | stylesheet_tag }}
+    {{ 'bootstrap.min.js' | asset_url | script_tag }}
     {%- if settings.favicon != blank -%}
       <link rel="icon" type="image/png" href="{{ settings.favicon | image_url: width: 32, height: 32 }}">
     {%- endif -%}
@@ -250,7 +252,6 @@
     <main id="MainContent" class="content-for-layout focus-none" role="main" tabindex="-1">
       {{ content_for_layout }}
     </main>
-
     {% section 'footer' %}
 
     <ul hidden>
@@ -277,7 +278,6 @@
         addToCart: `{{ 'products.product.add_to_cart' | t }}`,
         soldOut: `{{ 'products.product.sold_out' | t }}`,
         unavailable: `{{ 'products.product.unavailable' | t }}`,
-        unavailable_with_option: `{{ 'products.product.value_unavailable' | t: option_value: '[value]' }}`,
       }
 
       window.accessibilityStrings = {
@@ -291,5 +291,7 @@
     {%- if settings.predictive_search_enabled -%}
       <script src="{{ 'predictive-search.js' | asset_url }}" defer="defer"></script>
     {%- endif -%}
+    <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
+    <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
   </body>
 </html>

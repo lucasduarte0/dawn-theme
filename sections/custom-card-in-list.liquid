@@ -1,0 +1,66 @@
+{% style %}
+.card{
+    height:500px;
+    width:400px;
+    position: relative;
+    transition: all 1s;
+    -moz-transition: all 1s;
+    -webkit-transition: all 1s;
+    overflow: hidden;
+  }
+  img{
+    height:500px;
+    width:400px;
+   position:absolute;
+   z-index: -1;
+  }
+  .text1{
+    position: absolute;
+    bottom: -50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #fff;
+    width: 100%;
+    height: 50px;
+    border:1px solid #000;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    font-weight: 600;
+    font-size: 18px;
+    text-transform: uppercase;
+  }
+  .text2{
+    position: absolute;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    width: 100%;
+    height: 50px;  
+    right: 0;
+    opacity: 0;
+  }
+  .card .text1{
+  opacity: 0;
+  }
+  .card:hover .text1{
+    bottom: 0;
+    transition: all 1s;
+    opacity: 1;
+  }
+  .card:hover .text2{
+    right: 30px;
+    transition: all 1s;
+    opacity: 1;
+  }
+  
+{% endstyle %}
+
+<div style="display: flex;flex-direction: row;">
+    <div class="card">
+        <img src="https://nld.mediacdn.vn/thumb_w/540/2020/5/29/doi-hoa-tim-8-15907313395592061395682.png"/>
+        <div class="text1">thanh</div>
+        <div class="text2">thanh</div>
+      </div>
+  </div>

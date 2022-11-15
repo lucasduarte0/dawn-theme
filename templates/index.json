@@ -21,7 +21,7 @@
           "type": "buttons",
           "settings": {
             "button_label_1": "Shop all",
-            "button_link_1": "shopify://collections/all",
+            "button_link_1": "shopify:\/\/collections\/all",
             "button_style_secondary_1": true,
             "button_label_2": "",
             "button_link_2": "",
@@ -35,10 +35,11 @@
         "button"
       ],
       "settings": {
+        "image": "shopify:\/\/shop_images\/slideshow-1.jpg",
         "image_overlay_opacity": 40,
         "image_height": "large",
         "adapt_height_first_image": false,
-        "desktop_content_position": "bottom-center",
+        "desktop_content_position": "middle-left",
         "show_text_box": false,
         "desktop_content_alignment": "center",
         "color_scheme": "background-1",
@@ -47,165 +48,271 @@
         "show_text_below": false
       }
     },
-    "rich_text": {
-      "type": "rich-text",
+    "1663472030ebf9b680": {
+      "type": "custom-liquid",
+      "settings": {
+        "custom_liquid": "",
+        "color_scheme": "background-1",
+        "padding_top": 16,
+        "padding_bottom": 20
+      }
+    },
+    "16633195513d9c280f": {
+      "type": "home-list-collection",
       "blocks": {
-        "heading": {
+        "a90deecb-b698-438e-b3e3-6aeb354a0f96": {
+          "type": "image",
+          "settings": {
+            "img_background": "shopify:\/\/shop_images\/734b2998912644580aa156309a89cf85_1.png",
+            "title": "title demo",
+            "url_click": ""
+          }
+        },
+        "f77e89d6-48f8-4f97-b53d-8ca83f1d2c40": {
+          "type": "image",
+          "settings": {
+            "img_background": "shopify:\/\/shop_images\/slider1.webp",
+            "title": "title demo",
+            "url_click": ""
+          }
+        },
+        "74829fe6-3f95-4b52-bcd3-a37a35a8b504": {
+          "type": "image",
+          "settings": {
+            "img_background": "shopify:\/\/shop_images\/734b2998912644580aa156309a89cf85_1.png",
+            "title": "title demo",
+            "url_click": ""
+          }
+        }
+      },
+      "block_order": [
+        "a90deecb-b698-438e-b3e3-6aeb354a0f96",
+        "f77e89d6-48f8-4f97-b53d-8ca83f1d2c40",
+        "74829fe6-3f95-4b52-bcd3-a37a35a8b504"
+      ],
+      "settings": {
+        "columns_num": 3
+      }
+    },
+    "16633953582e72a343": {
+      "type": "home-text-and-line",
+      "settings": {
+        "title": "NEW ARRIVALS",
+        "text_button": "VIEW ALL",
+        "text_link": ""
+      }
+    },
+    "1663472089a7ecbbd9": {
+      "type": "custom-liquid",
+      "settings": {
+        "custom_liquid": "",
+        "color_scheme": "background-1",
+        "padding_top": 16,
+        "padding_bottom": 16
+      }
+    },
+    "166340930657485ffa": {
+      "type": "custom-card-list",
+      "settings": {
+        "feature-collection": "frontpage"
+      }
+    },
+    "16634233521ef3f94e": {
+      "type": "image-banner",
+      "blocks": {
+        "16634233519689192a-0": {
           "type": "heading",
           "settings": {
-            "heading": "<p>Talk about your brand</p>",
+            "heading": "Image banner",
             "heading_size": "h1"
           }
         },
-        "text": {
+        "16634233519689192a-1": {
           "type": "text",
           "settings": {
-            "text": "<p>Share information about your brand with your customers. Describe a product, make announcements, or welcome customers to your store.<\/p>"
+            "text": "Give customers details about the banner image(s) or content on the template.",
+            "text_style": "body"
+          }
+        },
+        "1903fecb-5335-4c6c-9074-92877ac6c8b9": {
+          "type": "buttons",
+          "settings": {
+            "button_label_1": "Button label",
+            "button_link_1": "",
+            "button_style_secondary_1": false,
+            "button_label_2": "Button label",
+            "button_link_2": "",
+            "button_style_secondary_2": true
           }
         }
       },
       "block_order": [
-        "heading",
-        "text"
+        "16634233519689192a-0",
+        "16634233519689192a-1",
+        "1903fecb-5335-4c6c-9074-92877ac6c8b9"
       ],
       "settings": {
+        "image_overlay_opacity": 30,
+        "image_height": "medium",
+        "adapt_height_first_image": false,
+        "desktop_content_position": "middle-right",
+        "show_text_box": false,
+        "desktop_content_alignment": "center",
         "color_scheme": "background-1",
-        "full_width": true,
-        "padding_top": 40,
-        "padding_bottom": 0
+        "mobile_content_alignment": "center",
+        "stack_images_on_mobile": true,
+        "show_text_below": true
       }
     },
-    "featured_collection": {
-      "type": "featured-collection",
+    "16634246758f1976c7": {
+      "type": "home-carousel",
       "settings": {
-        "title": "Featured products",
-        "heading_size": "h2",
-        "collection": "all",
-        "products_to_show": 8,
-        "columns_desktop": 4,
+        "title": "Featured Collection",
+        "feature-collection": "bags-1",
+        "product_count": 8
+      }
+    },
+    "166347867535fbf39b": {
+      "type": "custom-liquid",
+      "settings": {
+        "custom_liquid": "",
         "color_scheme": "background-1",
-        "show_view_all": false,
-        "swipe_on_mobile": false,
-        "image_ratio": "adapt",
-        "show_secondary_image": true,
-        "show_vendor": false,
-        "show_rating": false,
-        "columns_mobile": "2",
         "padding_top": 28,
-        "padding_bottom": 36
+        "padding_bottom": 28
       }
     },
-    "collage": {
-      "type": "collage",
+    "1663473442f2d35223": {
+      "type": "home-feature-on-ella",
       "blocks": {
-        "collection-0": {
-          "type": "collection",
+        "cbc70125-42e5-4585-aa52-7f88648bd14f": {
+          "type": "image",
           "settings": {
-            "collection": ""
+            "img_background": "shopify:\/\/shop_images\/beige_1100x_1100x_d8941c67-8f25-4820-8973-209550bc06b5.webp",
+            "title": "TITLE DEMO",
+            "url_click": ""
           }
         },
-        "product": {
-          "type": "product",
+        "d3b48ab4-7163-4c0c-a9a6-63ae0937c8b4": {
+          "type": "image",
           "settings": {
-            "product": "",
-            "second_image": false
+            "img_background": "shopify:\/\/shop_images\/mlouye-helix-sand-banner-mobile-l1_720x_720x_d968f35a-e316-431d-bc4a-5d58ed2ebf88.webp",
+            "title": "TITLE DEMO",
+            "url_click": ""
           }
         },
-        "collection-1": {
-          "type": "collection",
+        "c78ae400-9cff-4fc7-90c3-66ca6d867635": {
+          "type": "image",
           "settings": {
-            "collection": ""
+            "img_background": "shopify:\/\/shop_images\/734b2998912644580aa156309a89cf85_1.png",
+            "title": "TITLE DEMO",
+            "url_click": ""
           }
         }
       },
       "block_order": [
-        "collection-0",
-        "product",
-        "collection-1"
+        "cbc70125-42e5-4585-aa52-7f88648bd14f",
+        "d3b48ab4-7163-4c0c-a9a6-63ae0937c8b4",
+        "c78ae400-9cff-4fc7-90c3-66ca6d867635"
       ],
       "settings": {
-        "heading": "Multimedia collage",
-        "heading_size": "h2",
-        "desktop_layout": "left",
-        "mobile_layout": "collage",
-        "color_scheme": "background-1",
-        "padding_top": 36,
-        "padding_bottom": 36
+        "columns_num": 3
       }
     },
-    "video": {
-      "type": "video",
+    "1663478636938686ba": {
+      "type": "custom-liquid",
       "settings": {
-        "heading": "",
-        "video_url": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
-        "heading_size": "h1",
-        "description": "",
-        "full_width": false,
+        "custom_liquid": "",
         "color_scheme": "background-1",
-        "padding_top": 36,
-        "padding_bottom": 36
+        "padding_top": 16,
+        "padding_bottom": 12
       }
     },
-    "multicolumn": {
-      "type": "multicolumn",
+    "1663475233f9bea8f5": {
+      "type": "home-carousel-logo",
       "blocks": {
-        "column1": {
-          "type": "column",
+        "1d553f96-b230-4441-bbed-a7c41b907545": {
+          "type": "image",
           "settings": {
-            "title": "Column",
-            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.<\/p>",
-            "link_label": "",
-            "link": ""
+            "image": "shopify:\/\/shop_images\/logo-7.webp"
           }
         },
-        "column2": {
-          "type": "column",
+        "d3d6c194-087d-46d5-a851-db4423ccc1f3": {
+          "type": "image",
           "settings": {
-            "title": "Column",
-            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.<\/p>",
-            "link_label": "",
-            "link": ""
+            "image": "shopify:\/\/shop_images\/logo-6.webp"
           }
         },
-        "column3": {
-          "type": "column",
+        "7a4bc3c9-3515-4886-a06f-40ad2fc4f130": {
+          "type": "image",
           "settings": {
-            "title": "Column",
-            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.<\/p>",
-            "link_label": "",
-            "link": ""
+            "image": "shopify:\/\/shop_images\/logo-5.webp"
+          }
+        },
+        "5639629f-500b-43fd-a7d2-bf2d2329c45e": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/logo-4.webp"
+          }
+        },
+        "86793cbc-1444-4604-815d-fff6640ce175": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/logo-3.webp"
+          }
+        },
+        "ddc9f9db-af17-49da-b031-896955a9dcc1": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/logo-2.webp"
+          }
+        },
+        "ec01cf6e-6b96-45bf-9d66-e5e786cc0c90": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/logo-1.webp"
           }
         }
       },
       "block_order": [
-        "column1",
-        "column2",
-        "column3"
+        "1d553f96-b230-4441-bbed-a7c41b907545",
+        "d3d6c194-087d-46d5-a851-db4423ccc1f3",
+        "7a4bc3c9-3515-4886-a06f-40ad2fc4f130",
+        "5639629f-500b-43fd-a7d2-bf2d2329c45e",
+        "86793cbc-1444-4604-815d-fff6640ce175",
+        "ddc9f9db-af17-49da-b031-896955a9dcc1",
+        "ec01cf6e-6b96-45bf-9d66-e5e786cc0c90"
       ],
       "settings": {
-        "title": "",
-        "heading_size": "h1",
-        "image_width": "third",
-        "image_ratio": "adapt",
-        "columns_desktop": 3,
-        "column_alignment": "center",
-        "background_style": "none",
-        "button_label": "",
-        "button_link": "",
-        "swipe_on_mobile": false,
-        "color_scheme": "background-1",
-        "columns_mobile": "1",
-        "padding_top": 36,
-        "padding_bottom": 36
+        "title": "Featured Collection",
+        "feature-collection": "",
+        "product_count": 4
+      }
+    },
+    "1663478713683b9cbb": {
+      "type": "home-carousel-img",
+      "settings": {
+        "title": "Featured Collection",
+        "content": "Phasellus lorem malesuada ligula pulvinar commodo maecenas",
+        "text_button": "View gallery",
+        "link_button": "",
+        "feature-collection": "shoes",
+        "product_count": 8
       }
     }
   },
   "order": [
     "image_banner",
-    "rich_text",
-    "featured_collection",
-    "collage",
-    "video",
-    "multicolumn"
+    "1663472030ebf9b680",
+    "16633195513d9c280f",
+    "16633953582e72a343",
+    "1663472089a7ecbbd9",
+    "166340930657485ffa",
+    "16634233521ef3f94e",
+    "16634246758f1976c7",
+    "166347867535fbf39b",
+    "1663473442f2d35223",
+    "1663478636938686ba",
+    "1663475233f9bea8f5",
+    "1663478713683b9cbb"
   ]
 }

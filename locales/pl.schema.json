@@ -1726,7 +1726,7 @@
           "name": "Produkty uzupełniające",
           "settings": {
             "paragraph": {
-              "content": "Aby wybrać produkty uzupełniające, dodaj aplikację Search & Discovery. [Dowiedz się więcej](https://help.shopify.com/manual/online-store/search-and-discovery/product-recommendations)"
+              "content": "Aby wybrać produkty uzupełniające, dodaj aplikację Search & Discovery. [Dowiedz się więcej](https://shopify.dev/themes/product-merchandising/recommendations)"
             },
             "heading": {
               "label": "Nagłówek"
@@ -1763,95 +1763,6 @@
             },
             "enable_quick_add": {
               "label": "Włącz przycisk szybkiego dodawania"
-            }
-          }
-        },
-        "icon_with_text": {
-          "name": "Ikona z tekstem",
-          "settings": {
-            "layout": {
-              "label": "Układ",
-              "options__1": {
-                "label": "W poziomie"
-              },
-              "options__2": {
-                "label": "W pionie"
-              }
-            },
-            "content": {
-              "label": "Zawartość",
-              "info": "Wybierz ikonę lub dodaj obraz dla każdej kolumny lub wiersza."
-            },
-            "heading": {
-              "info": "Pozostaw etykietę nagłówka pustą, aby ukryć kolumnę ikony."
-            },
-            "icon_1": {
-              "label": "Pierwsza ikona"
-            },
-            "image_1": {
-              "label": "Pierwszy obraz"
-            },
-            "heading_1": {
-              "label": "Pierwszy nagłówek"
-            },
-            "icon_2": {
-              "label": "Druga ikona"
-            },
-            "image_2": {
-              "label": "Drugi obraz"
-            },
-            "heading_2": {
-              "label": "Drugi nagłówek"
-            },
-            "icon_3": {
-              "label": "Trzecia ikona"
-            },
-            "image_3": {
-              "label": "Trzeci obraz"
-            },
-            "heading_3": {
-              "label": "Trzeci nagłówek"
-            }
-          }
-        },
-        "sku": {
-          "name": "SKU",
-          "settings": {
-            "text_style": {
-              "label": "Styl tekstu",
-              "options__1": {
-                "label": "Tekst podstawowy"
-              },
-              "options__2": {
-                "label": "Podtytuł"
-              },
-              "options__3": {
-                "label": "Duże litery"
-              }
-            }
-          }
-        },
-        "inventory": {
-          "name": "Status zapasów",
-          "settings": {
-            "text_style": {
-              "label": "Styl tekstu",
-              "options__1": {
-                "label": "Tekst podstawowy"
-              },
-              "options__2": {
-                "label": "Podtytuł"
-              },
-              "options__3": {
-                "label": "Duże litery"
-              }
-            },
-            "inventory_threshold": {
-              "label": "Niski próg zapasów",
-              "info": "Wybierz 0, aby zawsze pokazywać w magazynie, jeśli jest dostępny."
-            },
-            "show_inventory_quantity": {
-              "label": "Pokaż ilość zapasów"
             }
           }
         }
@@ -1918,19 +1829,6 @@
           },
           "options__2": {
             "label": "Prawa strona"
-          }
-        },
-        "image_zoom": {
-          "label": "Powiększenie obrazu",
-          "info": "Kliknij i najedź kursorem na wartości domyślne, aby otworzyć lightbox na urządzeniu mobilnym.",
-          "options__1": {
-            "label": "Otwórz lightbox"
-          },
-          "options__2": {
-            "label": "Kliknij i najedź kursorem"
-          },
-          "options__3": {
-            "label": "Bez powiększenia"
           }
         }
       }
@@ -2428,23 +2326,6 @@
               "content": "Aby wyświetlić ocenę, dodaj aplikację do oceny produktów. [Dowiedz się więcej](https://help.shopify.com/manual/online-store/themes/theme-structure/theme-features#featured-product-rating)"
             }
           }
-        },
-        "sku": {
-          "name": "SKU",
-          "settings": {
-            "text_style": {
-              "label": "Styl tekstu",
-              "options__1": {
-                "label": "Tekst podstawowy"
-              },
-              "options__2": {
-                "label": "Podtytuł"
-              },
-              "options__3": {
-                "label": "Duże litery"
-              }
-            }
-          }
         }
       },
       "settings": {
@@ -2486,10 +2367,10 @@
           "content": "Dla każdej subskrypcji e-maili tworzone jest konto klienta. [Dowiedz się więcej](https://help.shopify.com/manual/customers)"
         },
         "image": {
-          "label": "Obraz tła"
+          "label": "Zdjęcie tła"
         },
         "show_background_image": {
-          "label": "Wyświetl obraz tła"
+          "label": "Wyświetl zdjęcie tła"
         },
         "show_text_box": {
           "label": "Pokaż kontener na komputerze"

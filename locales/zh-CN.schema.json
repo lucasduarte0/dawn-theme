@@ -889,7 +889,7 @@
           "info": "当勾选时，覆盖图像横幅高度设置。"
         },
         "show_text_box": {
-          "label": "在台式设备上显示容器"
+          "label": "在台式机上显示容器"
         },
         "image_overlay_opacity": {
           "label": "图片叠加不透明度"
@@ -1052,7 +1052,7 @@
           "options__2": {
             "label": "第二张图片"
           },
-          "label": "台式设备图片放置",
+          "label": "台式机图片放置",
           "info": "图片优先是默认的移动布局。"
         },
         "desktop_image_width": {
@@ -1065,7 +1065,7 @@
           "options__3": {
             "label": "大"
           },
-          "label": "台式设备图片宽度",
+          "label": "台式机图片宽度",
           "info": "图片会针对移动设备进行自动优化。"
         },
         "desktop_content_alignment": {
@@ -1075,7 +1075,7 @@
           "options__3": {
             "label": "右"
           },
-          "label": "台式设备内容对齐方式",
+          "label": "台式机内容对齐方式",
           "options__2": {
             "label": "居中"
           }
@@ -1090,7 +1090,7 @@
           "options__3": {
             "label": "底部"
           },
-          "label": "台式设备内容位置"
+          "label": "台式机内容位置"
         },
         "content_layout": {
           "options__1": {
@@ -1726,7 +1726,7 @@
           "name": "互补产品",
           "settings": {
             "paragraph": {
-              "content": "若要选择互补产品，请添加 Search & Discovery 应用。[了解详细信息](https://help.shopify.com/manual/online-store/search-and-discovery/product-recommendations)"
+              "content": "若要选择互补产品，请添加 Search & Discovery 应用。[了解详细信息](https://shopify.dev/themes/product-merchandising/recommendations)"
             },
             "heading": {
               "label": "标题"
@@ -1763,95 +1763,6 @@
             },
             "enable_quick_add": {
               "label": "启用快速添加按钮"
-            }
-          }
-        },
-        "icon_with_text": {
-          "name": "带文本的图标",
-          "settings": {
-            "layout": {
-              "label": "布局",
-              "options__1": {
-                "label": "水平"
-              },
-              "options__2": {
-                "label": "垂直"
-              }
-            },
-            "content": {
-              "label": "内容",
-              "info": "选择图标或为每列或每行添加图片。"
-            },
-            "heading": {
-              "info": "将标题标签留空可隐藏图标列。"
-            },
-            "icon_1": {
-              "label": "第一个图标"
-            },
-            "image_1": {
-              "label": "第一张图片"
-            },
-            "heading_1": {
-              "label": "第一个标题"
-            },
-            "icon_2": {
-              "label": "第二个图标"
-            },
-            "image_2": {
-              "label": "第二张图片"
-            },
-            "heading_2": {
-              "label": "第二个标题"
-            },
-            "icon_3": {
-              "label": "第三个图标"
-            },
-            "image_3": {
-              "label": "第三张图片"
-            },
-            "heading_3": {
-              "label": "第三个标题"
-            }
-          }
-        },
-        "sku": {
-          "name": "SKU",
-          "settings": {
-            "text_style": {
-              "label": "文本样式",
-              "options__1": {
-                "label": "正文"
-              },
-              "options__2": {
-                "label": "副标题"
-              },
-              "options__3": {
-                "label": "大写"
-              }
-            }
-          }
-        },
-        "inventory": {
-          "name": "库存状态",
-          "settings": {
-            "text_style": {
-              "label": "文本样式",
-              "options__1": {
-                "label": "正文"
-              },
-              "options__2": {
-                "label": "副标题"
-              },
-              "options__3": {
-                "label": "大写"
-              }
-            },
-            "inventory_threshold": {
-              "label": "低库存阈值",
-              "info": "选择 0 即可始终在产品可售时显示“有货”。"
-            },
-            "show_inventory_quantity": {
-              "label": "显示库存计数"
             }
           }
         }
@@ -1918,19 +1829,6 @@
           },
           "options__2": {
             "label": "右"
-          }
-        },
-        "image_zoom": {
-          "label": "图片缩放",
-          "info": "在移动设备上打开灯箱的点击和悬停默认设置。",
-          "options__1": {
-            "label": "打开灯箱"
-          },
-          "options__2": {
-            "label": "点击和悬停"
-          },
-          "options__3": {
-            "label": "无缩放"
           }
         }
       }
@@ -2428,23 +2326,6 @@
               "content": "若要显示评分，请添加产品评分应用。[了解详细信息](https://help.shopify.com/manual/online-store/themes/theme-structure/theme-features#featured-product-rating)"
             }
           }
-        },
-        "sku": {
-          "name": "SKU",
-          "settings": {
-            "text_style": {
-              "label": "文本样式",
-              "options__1": {
-                "label": "正文"
-              },
-              "options__2": {
-                "label": "副标题"
-              },
-              "options__3": {
-                "label": "大写"
-              }
-            }
-          }
         }
       },
       "settings": {
@@ -2492,7 +2373,7 @@
           "label": "显示背景图片"
         },
         "show_text_box": {
-          "label": "在台式设备上显示容器"
+          "label": "在台式机上显示容器"
         },
         "image_overlay_opacity": {
           "label": "图片叠加不透明度"
@@ -2693,7 +2574,7 @@
               "label": "使用轮廓按钮样式"
             },
             "box_align": {
-              "label": "台式设备内容位置",
+              "label": "台式机内容位置",
               "options__1": {
                 "label": "左上方"
               },
@@ -2724,10 +2605,10 @@
               "info": "位置会针对移动设备进行自动优化。"
             },
             "show_text_box": {
-              "label": "在台式设备上显示容器"
+              "label": "在台式机上显示容器"
             },
             "text_alignment": {
-              "label": "台式设备内容对齐方式",
+              "label": "台式机内容对齐方式",
               "option_1": {
                 "label": "左"
               },

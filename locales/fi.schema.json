@@ -1725,7 +1725,7 @@
           "name": "Täydentävät tuotteet",
           "settings": {
             "paragraph": {
-              "content": "Lisää Search & Discovery -sovellus, jotta voit valita täydentäviä tuotteita. [Lisätietoja](https://help.shopify.com/manual/online-store/search-and-discovery/product-recommendations)"
+              "content": "Lisää Search & Discovery -sovellus, jotta voit valita täydentäviä tuotteita. [Lisätietoja](https://shopify.dev/themes/product-merchandising/recommendations)"
             },
             "heading": {
               "label": "Otsikko"
@@ -1762,95 +1762,6 @@
             },
             "enable_quick_add": {
               "label": "Ota pikalisäyspainike käyttöön"
-            }
-          }
-        },
-        "icon_with_text": {
-          "name": "Kuvake johon liittyy teksti",
-          "settings": {
-            "layout": {
-              "label": "Asettelu",
-              "options__1": {
-                "label": "Vaaka"
-              },
-              "options__2": {
-                "label": "Pysty"
-              }
-            },
-            "content": {
-              "label": "Sisältö",
-              "info": "Valitse kuvake tai lisää kuva jokaiselle sarakkeelle tai riville."
-            },
-            "heading": {
-              "info": "Piilota kuvakkeen sarake jättämällä sarakkeen teksti tyhjäksi."
-            },
-            "icon_1": {
-              "label": "Ensimmäinen kuvake"
-            },
-            "image_1": {
-              "label": "Ensimmäinen kuva"
-            },
-            "heading_1": {
-              "label": "Ensimmäinen otsikko"
-            },
-            "icon_2": {
-              "label": "Toinen kuvake"
-            },
-            "image_2": {
-              "label": "Toinen kuva"
-            },
-            "heading_2": {
-              "label": "Toinen otsikko"
-            },
-            "icon_3": {
-              "label": "Kolmas kuvake"
-            },
-            "image_3": {
-              "label": "Kolmas kuva"
-            },
-            "heading_3": {
-              "label": "Kolmas otsikko"
-            }
-          }
-        },
-        "sku": {
-          "name": "SKU-koodi",
-          "settings": {
-            "text_style": {
-              "label": "Tekstityyli",
-              "options__1": {
-                "label": "Leipäteksti"
-              },
-              "options__2": {
-                "label": "Alaotsikko"
-              },
-              "options__3": {
-                "label": "Isot kirjaimet"
-              }
-            }
-          }
-        },
-        "inventory": {
-          "name": "Varaston tila",
-          "settings": {
-            "text_style": {
-              "label": "Tekstityyli",
-              "options__1": {
-                "label": "Leipäteksti"
-              },
-              "options__2": {
-                "label": "Alaotsikko"
-              },
-              "options__3": {
-                "label": "Isot kirjaimet"
-              }
-            },
-            "inventory_threshold": {
-              "label": "Vähäisen varaston kynnysarvo",
-              "info": "Valitse 0, jos haluat näyttää aina varastossa, jos saatavilla."
-            },
-            "show_inventory_quantity": {
-              "label": "Näytä varastomäärä"
             }
           }
         }
@@ -1917,19 +1828,6 @@
           },
           "options__2": {
             "label": "Oikea"
-          }
-        },
-        "image_zoom": {
-          "label": "Kuvan zoomaus",
-          "info": "Avaa lightbox-ikkuna mobiililaitteessa napsauttamalla oletusarvoja ja viemällä osoitin niiden päälle.",
-          "options__1": {
-            "label": "Avaa lightbox-ikkuna"
-          },
-          "options__2": {
-            "label": "Napsauta ja vie osoitin päälle"
-          },
-          "options__3": {
-            "label": "Ei zoomausta"
           }
         }
       },
@@ -2426,23 +2324,6 @@
           "settings": {
             "paragraph": {
               "content": "Näytä luokitus lisäämällä tuotearviointisovellus. [Lisätietoja](https://help.shopify.com/manual/online-store/themes/theme-structure/theme-features#featured-product-rating)"
-            }
-          }
-        },
-        "sku": {
-          "name": "SKU-koodi",
-          "settings": {
-            "text_style": {
-              "label": "Tekstityyli",
-              "options__1": {
-                "label": "Leipäteksti"
-              },
-              "options__2": {
-                "label": "Alaotsikko"
-              },
-              "options__3": {
-                "label": "Isot kirjaimet"
-              }
             }
           }
         }

@@ -1,6 +1,8 @@
 {{ 'component-article-card.css' | asset_url | stylesheet_tag }}
 {{ 'component-card.css' | asset_url | stylesheet_tag }}
 {{ 'section-main-blog.css' | asset_url | stylesheet_tag }}
+{{ 'custom-blog.css' | asset_url | stylesheet_tag }}
+{{ 'common.css' | asset_url | stylesheet_tag }}
 
 {%- style -%}
   .section-{{ section.id }}-padding {
@@ -19,23 +21,84 @@
 {%- paginate blog.articles by 6 -%}
   <div class="main-blog page-width section-{{ section.id }}-padding">
     <h1 class="title--primary">{{ blog.title | escape }}</h1>
-
-    <div class="blog-articles {% if section.settings.layout == 'collage' %}blog-articles--collage{% endif %}">
-      {%- for article in blog.articles -%}
-        <div class="blog-articles__article article">
-          {%- render 'article-card',
-            article: article,
-            media_height: section.settings.image_height,
-            media_aspect_ratio: article.image.aspect_ratio,
-            show_image: section.settings.show_image,
-            show_date: section.settings.show_date,
-            show_author: section.settings.show_author,
-            show_excerpt: true 
-          -%}
+    {% render 'breadcrumbs' %}
+    <div class="blog-container mt_50">
+      <div style="width:100%">
+        <p style="font-weight: 600; font-size:16px">CATEGORIES</p>
+        <div>
+          {% for link in linklists[section.settings.menu].links %}
+            <div>
+              <a style="text-transform:uppercase" class="text_link">{{link.title}}</a>
+            </div>
+          {% endfor %}
         </div>
-      {%- endfor -%}
+        <div class="mt_40">
+          <p style="font-weight: 600; font-size:16px">RECENT ARTICLES</p>
+          {% for article in blog.articles %}
+            <div>
+              <a class="font_600 text_link" style="margin-bottom: 0px;">{{article.title}}</a>
+              <p style="color:#999; font-size:14px">{{ article.published_at | date:'%d %B %Y'}}</p>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+      <div style="width:100%;">
+          {%- for article in blog.articles -%}
+            {% if forloop.index == 1 %}
+            <div>
+              <h2 class="card__heading{% if show_excerpt %} h2{% endif %}">
+                <a href="{{ article.url }}" class="full-unstyled-link">
+                  {{ article.title | truncate: 50 | escape }}
+                </a>
+              </h2>
+              <div style="font-sie:14px; line-height:20px; margin-top:15px;margin-bottom:25px">{{article.content}}</div>
+              <div style="font-size:14px; margin-bottom:10px">
+               <span style="color:#999; margin-right:10px">
+                {{ article.published_at | date:'%B %d %Y'}}
+               </span>
+               <span style="color:#000 ; margin-right:10px">
+                <span style="color:#999">by</span> {{ article.author | escape}}
+               </span>
+               <span style="color:#999 ">
+                /  {{ article.comments_count | escape}}
+                Comments
+               </span>
+              </div>
+            </div>
+              <img style="width: 100%;" src="{{ article.image.src | image_url: width: 533 }}">
+              {% else %}
+              <div style="grid-template-columns: 4fr 5fr;display:grid ;grid-gap:30px; margin-top: 30px;">
+                {% if article.image.src != blank %}
+                  <img class="image_small" src="{{ article.image.src | image_url: width: 533 }}">
+                {% else %}
+                  {{ 'image' | placeholder_svg_tag: "image_small" }}
+                {% endif %}
+                
+                <div>
+                  <h2 class="card__heading{% if show_excerpt %} h2{% endif %}">
+                    <a href="{{ article.url }}" class="full-unstyled-link">
+                      {{ article.title | truncate: 50 | escape }}
+                    </a>
+                  </h2>
+                  <div style="font-sie:14px; line-height:20px; margin-top:15px;margin-bottom:25px">{{article.content}}</div>
+                  <div style="font-size:14px; margin-bottom:10px">
+                   <span style="color:#999; margin-right:10px">
+                    {{ article.published_at | date:'%B %d %Y'}}
+                   </span>
+                   <span style="color:#000 ; margin-right:10px">
+                    <span style="color:#999">by</span> {{ article.author | escape}}
+                   </span>
+                   <span style="color:#999 ">
+                    /  {{ article.comments_count | escape}}
+                    Comments
+                   </span>
+                  </div>
+                </div>
+              </div>
+            {% endif %}
+          {%- endfor -%}
+      </div>
     </div>
-
     {%- if paginate.pages > 1 -%}
       {%- render 'pagination', paginate: paginate -%}
     {%- endif -%}
@@ -48,6 +111,17 @@
   "tag": "section",
   "class": "section",
   "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "default": "CATEGORIES",
+      "label": "title"
+    },
+    {
+      "type":"link_list",
+      "id":"menu",
+      "label":"menu_left"
+    },
     {
       "type": "header",
       "content": "t:sections.main-blog.settings.header.content"

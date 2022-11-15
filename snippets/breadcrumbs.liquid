@@ -1,0 +1,96 @@
+{% style %}
+    .custom-a,
+    .custom-text,
+    .custom-icon-left{
+        color:#999 !important;
+        margin: 0 2px;
+    }
+    .custom-a:hover{
+        color:#000 !important;
+    },
+{% endstyle %}
+{% unless template == 'index' or template == 'cart' or template == 'list-collections' %}
+
+<nav class="breadcrumb" role="navigation" aria-label="breadcrumbs">
+
+  <a href="/" title="Home" class="custom-a" >Home</a>
+
+  {% if template contains 'page' %}
+
+    <span aria-hidden="true" class="custom-icon-left">&rsaquo;</span>
+
+    <span class="custom-text">{{ page.title }}</span>
+
+  {% elsif template contains 'product' %}
+
+    {% if collection.url %}
+
+      <span aria-hidden="true" class="custom-icon-left">&rsaquo;</span>
+
+      {{ collection.title | link_to: collection.url }}
+
+    {% endif %}
+
+    <span aria-hidden="true">&rsaquo;</span>
+
+    <span class="custom-text">{{ product.title }}</span>
+
+  {% elsif template contains 'collection' and collection.handle %}
+
+    <span aria-hidden="true" class="custom-icon-left">&rsaquo;</span>
+
+    {% if current_tags %}
+
+      {% capture url %}/collections/{{ collection.handle }}{% endcapture %}
+
+      {{ collection.title | link_to: url }}
+
+      <span aria-hidden="true" class="custom-icon-left">&rsaquo;</span>
+
+      <span class="custom-text">{{ current_tags | join: " + " }}</span>
+
+    {% else %}
+
+      <span class="custom-text">{{ collection.title }}</span>
+
+    {% endif %}
+
+  {% elsif template == 'blog' %}
+
+    <span aria-hidden="true" class="custom-icon-left">&rsaquo;</span>
+
+    {% if current_tags %}
+
+      {{ blog.title | link_to: blog.url }}
+
+      <span aria-hidden="true" class="custom-icon-left">&rsaquo;</span>
+
+      <span class="custom-text">{{ current_tags | join: " + " }}</span>
+
+    {% else %}
+
+    <span class="custom-text">{{ blog.title }}</span>
+
+    {% endif %}
+
+  {% elsif template == 'article' %}
+
+    <span aria-hidden="true" class="custom-icon-left">&rsaquo;</span>
+
+    {{ blog.title | link_to: blog.url }}
+
+    <span aria-hidden="true" class="custom-icon-left">&rsaquo;</span>
+
+    <span class="custom-text">{{ article.title }}</span>
+
+  {% else %}
+
+   <span aria-hidden="true" class="custom-icon-left">&rsaquo;</span>
+
+   <span class="custom-text">{{ page_title }}</span>
+
+  {% endif %}
+
+</nav>
+
+{% endunless %} 

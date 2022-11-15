@@ -1725,7 +1725,7 @@
           "name": "Ergänzende Produkte",
           "settings": {
             "paragraph": {
-              "content": "Um ergänzende Produkte auszuwählen, füge die Search & Discovery-App hinzu. [Mehr Informationen](https://help.shopify.com/manual/online-store/search-and-discovery/product-recommendations)"
+              "content": "Um ergänzende Produkte auszuwählen, füge die Search & Discovery-App hinzu. [Mehr Informationen](https://shopify.dev/themes/product-merchandising/recommendations)"
             },
             "heading": {
               "label": "Überschrift"
@@ -1762,95 +1762,6 @@
             },
             "enable_quick_add": {
               "label": "Schaltfläche zum schnellen Hinzufügen aktivieren"
-            }
-          }
-        },
-        "icon_with_text": {
-          "name": "Symbol mit Text",
-          "settings": {
-            "layout": {
-              "label": "Layout",
-              "options__1": {
-                "label": "Horizontal"
-              },
-              "options__2": {
-                "label": "Vertikal"
-              }
-            },
-            "content": {
-              "label": "Inhalt",
-              "info": "Wähle ein Symbol oder füge ein Bild für jede Spalte oder Zeile hinzu."
-            },
-            "heading": {
-              "info": "Lasse die Überschrift leer, um die Symbolspalte auszublenden."
-            },
-            "icon_1": {
-              "label": "Erstes Symbol"
-            },
-            "image_1": {
-              "label": "Erstes Bild"
-            },
-            "heading_1": {
-              "label": "Erste Überschrift"
-            },
-            "icon_2": {
-              "label": "Zweites Symbol"
-            },
-            "image_2": {
-              "label": "Zweites Bild"
-            },
-            "heading_2": {
-              "label": "Zweite Überschrift"
-            },
-            "icon_3": {
-              "label": "Drittes Symbol"
-            },
-            "image_3": {
-              "label": "Drittes Bild"
-            },
-            "heading_3": {
-              "label": "Dritte Überschrift"
-            }
-          }
-        },
-        "sku": {
-          "name": "SKU",
-          "settings": {
-            "text_style": {
-              "label": "Textstil",
-              "options__1": {
-                "label": "Nachricht"
-              },
-              "options__2": {
-                "label": "Untertitel"
-              },
-              "options__3": {
-                "label": "Großbuchstaben"
-              }
-            }
-          }
-        },
-        "inventory": {
-          "name": "Inventarstatus",
-          "settings": {
-            "text_style": {
-              "label": "Textstil",
-              "options__1": {
-                "label": "Nachricht"
-              },
-              "options__2": {
-                "label": "Untertitel"
-              },
-              "options__3": {
-                "label": "Großbuchstaben"
-              }
-            },
-            "inventory_threshold": {
-              "label": "Geringer Inventarschwellenwert",
-              "info": "Wähle 0 aus, um immer den Lagerbestand anzuzeigen, falls verfügbar."
-            },
-            "show_inventory_quantity": {
-              "label": "Inventar anzeigen"
             }
           }
         }
@@ -1917,19 +1828,6 @@
           },
           "options__2": {
             "label": "Rechts"
-          }
-        },
-        "image_zoom": {
-          "label": "Bildzoom",
-          "info": "Klicke auf und fahre mit der Maus über \"Standards\", um Lightbox auf deinem Mobilgerät zu öffnen.",
-          "options__1": {
-            "label": "Lightbox öffnen"
-          },
-          "options__2": {
-            "label": "Klicken und mit der Maus darüber fahren"
-          },
-          "options__3": {
-            "label": "Nicht zoomen"
           }
         }
       },
@@ -2426,23 +2324,6 @@
           "settings": {
             "paragraph": {
               "content": "Um eine Bewertung anzuzeigen, musst du eine Produktbewertungs-App hinzufügen. [Mehr Informationen](https://help.shopify.com/manual/online-store/themes/theme-structure/theme-features#featured-product-rating)"
-            }
-          }
-        },
-        "sku": {
-          "name": "SKU",
-          "settings": {
-            "text_style": {
-              "label": "Textstil",
-              "options__1": {
-                "label": "Nachricht"
-              },
-              "options__2": {
-                "label": "Untertitel"
-              },
-              "options__3": {
-                "label": "Großbuchstaben"
-              }
             }
           }
         }

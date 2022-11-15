@@ -18,6 +18,7 @@
 {% endcomment %}
 
 {{ 'component-rating.css' | asset_url | stylesheet_tag }}
+{{ 'custom-card-list.css' | asset_url | stylesheet_tag }}
 
 {%- if card_product and card_product != empty -%}
   {%- liquid
@@ -31,7 +32,7 @@
       assign ratio = 1
     endif
   -%}
-  <div class="card-wrapper product-card-wrapper underline-links-hover">
+  <!-- <div class="card-wrapper product-card-wrapper underline-links-hover">
     <div
       class="
         card
@@ -237,6 +238,7 @@
                       <svg
                         aria-hidden="true"
                         focusable="false"
+                        role="presentation"
                         class="spinner"
                         viewBox="0 0 66 66"
                         xmlns="http://www.w3.org/2000/svg"
@@ -263,6 +265,7 @@
                     <svg
                       aria-hidden="true"
                       focusable="false"
+                      role="presentation"
                       class="spinner"
                       viewBox="0 0 66 66"
                       xmlns="http://www.w3.org/2000/svg"
@@ -313,7 +316,58 @@
         </div>
       </div>
     </div>
-  </div>
+  </div> -->
+  <div  class="custom-card">
+    <div class="wrap-img">
+       <a href="{{card_product.url}}"><img  class="img-card" src="{{card_product.featured_media.preview_image | img_url: 'large'}}"/></a>
+        <div class="text-button">add to card</div>
+        <div class="icon-group">
+           <div>
+            <a class="child-icon" href="#">
+                <i class="fa-regular fa-heart"></i>
+            </a>
+           </div>
+            <a class="child-icon" href="#">
+                <i class="fa-regular fa-eye"></i>
+            </a>
+        </div>
+    </div>
+    <div class="wrap-content">
+        <div class="tags">
+            {{card_product.tags}}
+        </div>
+        <div style="font-size:14px; "><a href="{{card_product.url}}" class="custom-a">{{card_product.title}}</a></div>
+    <div style="font-size:18px; font-weight:600;color:#fb5f1f">Rs. {{card_product.price}}</div>
+    <div style="display: flex; text-align: center; justify-content: center;">
+        <div style="margin:5px;height: 32px;width:32px;border-radius:16px; display:flex; justify-content:center; align-items:center;border:1px solid #000">
+            <div style="background:#000;width: 26px;height:26px; border-radius:13px;color:transparent;">T</div>
+        </div>
+        <div style="margin:5px;height: 32px;width:32px;border-radius:16px; display:flex; justify-content:center; align-items:center;border:1px solid #000">
+            <div style="width: 26px;height:26px; border-radius:13px;color:transparent;background: #fb5f1f;">T</div>
+        </div>
+        <a href="#" style="margin:5px;height: 32px;width:32px;border-radius:16px; display:flex; justify-content:center; align-items:center;border:1px solid #000; text-decoration: none;">
+            <div style="background:white;width: 26px;height:26px; border-radius:13px;color:transparent;">T</div>
+        </a>
+    </div>
+    </div>
+</div>
+<div class="card__badge {{ settings.badge_position }}">
+  {%- if card_product.available == false -%}
+    <span
+      id="Badge-{{ section_id }}-{{ card_product.id }}"
+      class="badge badge--bottom-left color-{{ settings.sold_out_badge_color_scheme }}"
+    >
+      {{- 'products.product.sold_out' | t -}}
+    </span>
+  {%- elsif card_product.compare_at_price > card_product.price and card_product.available -%}
+    <span
+      id="Badge-{{ section_id }}-{{ card_product.id }}"
+      class="badge badge--bottom-left color-{{ settings.sale_badge_color_scheme }}"
+    >
+      {{- 'products.product.on_sale' | t -}}
+    </span>
+  {%- endif -%}
+</div>
 {%- else -%}
   <div class="product-card-wrapper card-wrapper underline-links-hover">
     <div
@@ -361,3 +415,6 @@
     </div>
   </div>
 {%- endif -%}
+<script>
+
+</script>

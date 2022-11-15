@@ -1726,7 +1726,7 @@
           "name": "สินค้าเสริม",
           "settings": {
             "paragraph": {
-              "content": "หากต้องการเลือกสินค้าเสริม ให้เพิ่มแอปค้นหาและการค้นพบ [ดูข้อมูลเพิ่มเติม](https://help.shopify.com/manual/online-store/search-and-discovery/product-recommendations)"
+              "content": "หากต้องการเลือกสินค้าเสริม ให้เพิ่มแอปค้นหาและการค้นพบ [ดูข้อมูลเพิ่มเติม](https://shopify.dev/themes/product-merchandising/recommendations)"
             },
             "heading": {
               "label": "หัวเรื่อง"
@@ -1763,95 +1763,6 @@
             },
             "enable_quick_add": {
               "label": "เปิดใช้งานปุ่มซื้อด่วน"
-            }
-          }
-        },
-        "icon_with_text": {
-          "name": "ไอคอนที่มีข้อความ",
-          "settings": {
-            "layout": {
-              "label": "เลย์เอาต์",
-              "options__1": {
-                "label": "แนวนอน"
-              },
-              "options__2": {
-                "label": "แนวตั้ง"
-              }
-            },
-            "content": {
-              "label": "เนื้อหา",
-              "info": "เลือกไอคอนหรือเพิ่มรูปภาพให้แต่ละคอลัมน์หรือแต่ละแถว"
-            },
-            "heading": {
-              "info": "เว้นว่างป้ายส่วนหัวไว้เพื่อซ่อนคอลัมน์ไอคอน"
-            },
-            "icon_1": {
-              "label": "ไอคอนแรก"
-            },
-            "image_1": {
-              "label": "รูปภาพแรก"
-            },
-            "heading_1": {
-              "label": "ส่วนหัวแรก"
-            },
-            "icon_2": {
-              "label": "ไอคอนที่สอง"
-            },
-            "image_2": {
-              "label": "รูปภาพที่สอง"
-            },
-            "heading_2": {
-              "label": "ส่วนหัวที่สอง"
-            },
-            "icon_3": {
-              "label": "ไอคอนที่สาม"
-            },
-            "image_3": {
-              "label": "รูปภาพที่สาม"
-            },
-            "heading_3": {
-              "label": "ส่วนหัวที่สาม"
-            }
-          }
-        },
-        "sku": {
-          "name": "SKU",
-          "settings": {
-            "text_style": {
-              "label": "รูปแบบข้อความ",
-              "options__1": {
-                "label": "เนื้อหา"
-              },
-              "options__2": {
-                "label": "หัวเรื่องย่อย"
-              },
-              "options__3": {
-                "label": "ตัวพิมพ์ใหญ่"
-              }
-            }
-          }
-        },
-        "inventory": {
-          "name": "สถานะสินค้าคงคลัง",
-          "settings": {
-            "text_style": {
-              "label": "รูปแบบข้อความ",
-              "options__1": {
-                "label": "เนื้อหา"
-              },
-              "options__2": {
-                "label": "หัวเรื่องย่อย"
-              },
-              "options__3": {
-                "label": "ตัวพิมพ์ใหญ่"
-              }
-            },
-            "inventory_threshold": {
-              "label": "เกณฑ์สินค้าคงคลังต่ำ",
-              "info": "เลือกเป็น 0 เพื่อแสดงว่ามีสินค้าตลอดเวลา หากมีสินค้า"
-            },
-            "show_inventory_quantity": {
-              "label": "แสดงจำนวนสินค้าคงคลัง"
             }
           }
         }
@@ -1918,19 +1829,6 @@
           },
           "options__2": {
             "label": "ขวา"
-          }
-        },
-        "image_zoom": {
-          "label": "การซูมรูปภาพ",
-          "info": "ตัวเลือก “คลิกและเลื่อนเมาส์” จะเปิด Lightbox บนอุปกรณ์เคลื่อนที่โดยค่าเริ่มต้น",
-          "options__1": {
-            "label": "เปิด Lightbox"
-          },
-          "options__2": {
-            "label": "คลิกและเลื่อนเมาส์"
-          },
-          "options__3": {
-            "label": "ไม่มีการซูม"
           }
         }
       }
@@ -2426,23 +2324,6 @@
           "settings": {
             "paragraph": {
               "content": "หากต้องการแสดงคะแนน ให้เพิ่มแอปการให้คะแนนสินค้า [ดูข้อมูลเพิ่มเติม](https://help.shopify.com/manual/online-store/themes/theme-structure/theme-features#featured-product-rating)"
-            }
-          }
-        },
-        "sku": {
-          "name": "SKU",
-          "settings": {
-            "text_style": {
-              "label": "รูปแบบข้อความ",
-              "options__1": {
-                "label": "เนื้อหา"
-              },
-              "options__2": {
-                "label": "หัวเรื่องย่อย"
-              },
-              "options__3": {
-                "label": "ตัวพิมพ์ใหญ่"
-              }
             }
           }
         }

@@ -1726,7 +1726,7 @@
           "name": "Aanvullende producten",
           "settings": {
             "paragraph": {
-              "content": "Als je aanvullende producten wilt selecteren, voeg je de Search en Zichtbaarheid-app toe. [Meer informatie](https://help.shopify.com/manual/online-store/search-and-discovery/product-recommendations)"
+              "content": "Als je aanvullende producten wilt selecteren, voeg je de Search en Zichtbaarheid-app toe. [Meer informatie](https://shopify.dev/themes/product-merchandising/recommendations)"
             },
             "heading": {
               "label": "Koptekst"
@@ -1763,95 +1763,6 @@
             },
             "enable_quick_add": {
               "label": "Knop 'Snel toevoegen' inschakelen"
-            }
-          }
-        },
-        "icon_with_text": {
-          "name": "Pictogram met tekst",
-          "settings": {
-            "layout": {
-              "label": "Opmaak",
-              "options__1": {
-                "label": "Horizontaal"
-              },
-              "options__2": {
-                "label": "Verticaal"
-              }
-            },
-            "content": {
-              "label": "Inhoud",
-              "info": "Kies een pictogram of voeg een afbeelding toe voor elke kolom of rij."
-            },
-            "heading": {
-              "info": "Laat het opschriftlabel leeg om de kolom met pictogrammen te verbergen."
-            },
-            "icon_1": {
-              "label": "Eerste pictogram"
-            },
-            "image_1": {
-              "label": "Eerste afbeelding"
-            },
-            "heading_1": {
-              "label": "Eerste opschrift"
-            },
-            "icon_2": {
-              "label": "Tweede pictogram"
-            },
-            "image_2": {
-              "label": "Tweede afbeelding"
-            },
-            "heading_2": {
-              "label": "Tweede opschrift"
-            },
-            "icon_3": {
-              "label": "Derde pictogram"
-            },
-            "image_3": {
-              "label": "Derde afbeelding"
-            },
-            "heading_3": {
-              "label": "Derde opschrift"
-            }
-          }
-        },
-        "sku": {
-          "name": "SKU",
-          "settings": {
-            "text_style": {
-              "label": "Tekststijl",
-              "options__1": {
-                "label": "Hoofdtekst"
-              },
-              "options__2": {
-                "label": "Ondertitel"
-              },
-              "options__3": {
-                "label": "Hoofdletters"
-              }
-            }
-          }
-        },
-        "inventory": {
-          "name": "Voorraadstatus",
-          "settings": {
-            "text_style": {
-              "label": "Tekststijl",
-              "options__1": {
-                "label": "Hoofdtekst"
-              },
-              "options__2": {
-                "label": "Ondertitel"
-              },
-              "options__3": {
-                "label": "Hoofdletters"
-              }
-            },
-            "inventory_threshold": {
-              "label": "Drempelwaarde lage voorraad",
-              "info": "Kies 0 als je altijd 'Op voorraad' wilt weergeven als er voorraad beschikbaar is."
-            },
-            "show_inventory_quantity": {
-              "label": "Voorraadhoeveelheid weergeven"
             }
           }
         }
@@ -1918,19 +1829,6 @@
           },
           "options__2": {
             "label": "Rechts"
-          }
-        },
-        "image_zoom": {
-          "label": "Inzoomen op afbeelding",
-          "info": "Standaarden voor klikken en aanwijzen om Lightbox te openen op mobiel.",
-          "options__1": {
-            "label": "Lightbox openen"
-          },
-          "options__2": {
-            "label": "Klikken en aanwijzen"
-          },
-          "options__3": {
-            "label": "Geen zoom"
           }
         }
       }
@@ -2426,23 +2324,6 @@
           "settings": {
             "paragraph": {
               "content": "Voeg een app toe voor productbeoordelingen om deze weer te geven. [Meer informatie](https://help.shopify.com/manual/online-store/themes/theme-structure/theme-features#featured-product-rating)"
-            }
-          }
-        },
-        "sku": {
-          "name": "SKU",
-          "settings": {
-            "text_style": {
-              "label": "Tekststijl",
-              "options__1": {
-                "label": "Hoofdtekst"
-              },
-              "options__2": {
-                "label": "Ondertitel"
-              },
-              "options__3": {
-                "label": "Hoofdletters"
-              }
             }
           }
         }

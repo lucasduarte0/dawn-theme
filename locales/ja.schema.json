@@ -1726,7 +1726,7 @@
           "name": "付属商品",
           "settings": {
             "paragraph": {
-              "content": "補完する商品を選択するには、Search & Discoveryアプリを追加してください。[詳しくはこちら](https://help.shopify.com/manual/online-store/search-and-discovery/product-recommendations)"
+              "content": "補完する商品を選択するには、Search & Discoveryアプリを追加してください。[詳しくはこちら](https://shopify.dev/themes/product-merchandising/recommendations)"
             },
             "heading": {
               "label": "見出し"
@@ -1763,95 +1763,6 @@
             },
             "enable_quick_add": {
               "label": "「クイック追加」ボタンを有効にする"
-            }
-          }
-        },
-        "icon_with_text": {
-          "name": "テキスト付きアイコン",
-          "settings": {
-            "layout": {
-              "label": "レイアウト",
-              "options__1": {
-                "label": "水平"
-              },
-              "options__2": {
-                "label": "垂直"
-              }
-            },
-            "content": {
-              "label": "コンテンツ",
-              "info": "アイコンを選択するか、列または行ごとに画像を追加します。"
-            },
-            "heading": {
-              "info": "アイコンの列を非表示にするには、見出しラベルを空白にします。"
-            },
-            "icon_1": {
-              "label": "最初のアイコン"
-            },
-            "image_1": {
-              "label": "最初の画像"
-            },
-            "heading_1": {
-              "label": "最初の見出し"
-            },
-            "icon_2": {
-              "label": "2番目のアイコン"
-            },
-            "image_2": {
-              "label": "2番目の画像"
-            },
-            "heading_2": {
-              "label": "2番目の見出し"
-            },
-            "icon_3": {
-              "label": "3番目のアイコン"
-            },
-            "image_3": {
-              "label": "3番目の画像"
-            },
-            "heading_3": {
-              "label": "3番目の見出し"
-            }
-          }
-        },
-        "sku": {
-          "name": "SKU",
-          "settings": {
-            "text_style": {
-              "label": "テキストスタイル",
-              "options__1": {
-                "label": "本文"
-              },
-              "options__2": {
-                "label": "サブタイトル"
-              },
-              "options__3": {
-                "label": "大文字"
-              }
-            }
-          }
-        },
-        "inventory": {
-          "name": "在庫ステータス",
-          "settings": {
-            "text_style": {
-              "label": "テキストスタイル",
-              "options__1": {
-                "label": "本文"
-              },
-              "options__2": {
-                "label": "サブタイトル"
-              },
-              "options__3": {
-                "label": "大文字"
-              }
-            },
-            "inventory_threshold": {
-              "label": "低在庫基準値",
-              "info": "0を選択すると、在庫がある場合は常に表示されます。"
-            },
-            "show_inventory_quantity": {
-              "label": "在庫数を表示"
             }
           }
         }
@@ -1918,19 +1829,6 @@
           },
           "options__2": {
             "label": "右"
-          }
-        },
-        "image_zoom": {
-          "label": "画像ズーム",
-          "info": "デフォルト設定では、クリックしてカーソルを合わせると、モバイルのLightboxが開きます。",
-          "options__1": {
-            "label": "Lightboxを開く"
-          },
-          "options__2": {
-            "label": "クリックしてカーソルを合わせる"
-          },
-          "options__3": {
-            "label": "ズームなし"
           }
         }
       }
@@ -2426,23 +2324,6 @@
           "settings": {
             "paragraph": {
               "content": "評価を表示するには、商品評価アプリを追加します。[詳しくはこちら](https://help.shopify.com/manual/online-store/themes/theme-structure/theme-features#featured-product-rating)"
-            }
-          }
-        },
-        "sku": {
-          "name": "SKU",
-          "settings": {
-            "text_style": {
-              "label": "テキストスタイル",
-              "options__1": {
-                "label": "本文"
-              },
-              "options__2": {
-                "label": "サブタイトル"
-              },
-              "options__3": {
-                "label": "大文字"
-              }
             }
           }
         }

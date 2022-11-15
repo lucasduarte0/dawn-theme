@@ -1726,7 +1726,7 @@
           "name": "Produtos complementares",
           "settings": {
             "paragraph": {
-              "content": "Para selecionar produtos complementares, adicione a aplicação Search & Discovery. [Saber mais](https://help.shopify.com/manual/online-store/search-and-discovery/product-recommendations)"
+              "content": "Para selecionar produtos complementares, adicione a aplicação Search & Discovery. [Saber mais](https://shopify.dev/themes/product-merchandising/recommendations)"
             },
             "heading": {
               "label": "Título"
@@ -1763,95 +1763,6 @@
             },
             "enable_quick_add": {
               "label": "Ativar botão para adicionar rapidamente"
-            }
-          }
-        },
-        "icon_with_text": {
-          "name": "Ícone com texto",
-          "settings": {
-            "layout": {
-              "label": "Esquema",
-              "options__1": {
-                "label": "Horizontal"
-              },
-              "options__2": {
-                "label": "Vertical"
-              }
-            },
-            "content": {
-              "label": "Conteúdo",
-              "info": "Escolha um ícone ou adicione uma imagem para cada coluna ou linha."
-            },
-            "heading": {
-              "info": "Deixe a etiqueta do título em branco para ocultar a coluna do ícone."
-            },
-            "icon_1": {
-              "label": "Primeiro ícone"
-            },
-            "image_1": {
-              "label": "Primeira imagem"
-            },
-            "heading_1": {
-              "label": "Primeiro título"
-            },
-            "icon_2": {
-              "label": "Segundo ícone"
-            },
-            "image_2": {
-              "label": "Segunda imagem"
-            },
-            "heading_2": {
-              "label": "Segundo título"
-            },
-            "icon_3": {
-              "label": "Terceiro ícone"
-            },
-            "image_3": {
-              "label": "Terceira imagem"
-            },
-            "heading_3": {
-              "label": "Terceiro título"
-            }
-          }
-        },
-        "sku": {
-          "name": "SKU",
-          "settings": {
-            "text_style": {
-              "label": "Estilo de texto",
-              "options__1": {
-                "label": "Corpo"
-              },
-              "options__2": {
-                "label": "Legenda"
-              },
-              "options__3": {
-                "label": "Maiúsculas"
-              }
-            }
-          }
-        },
-        "inventory": {
-          "name": "Estado do inventário",
-          "settings": {
-            "text_style": {
-              "label": "Estilo de texto",
-              "options__1": {
-                "label": "Corpo"
-              },
-              "options__2": {
-                "label": "Legenda"
-              },
-              "options__3": {
-                "label": "Maiúsculas"
-              }
-            },
-            "inventory_threshold": {
-              "label": "Limite do inventário baixo",
-              "info": "Escolha 0 para mostrar sempre em stock, se disponível."
-            },
-            "show_inventory_quantity": {
-              "label": "Mostrar contagem de inventário"
             }
           }
         }
@@ -1918,19 +1829,6 @@
           },
           "options__2": {
             "label": "Direita"
-          }
-        },
-        "image_zoom": {
-          "label": "Zoom da imagem",
-          "info": "Clique e passe o cursor para abrir a janela modal (lightbox) no telemóvel.",
-          "options__1": {
-            "label": "Abrir janela modal (lightbox)"
-          },
-          "options__2": {
-            "label": "Clicar e passar o cursor"
-          },
-          "options__3": {
-            "label": "Sem zoom"
           }
         }
       }
@@ -2426,23 +2324,6 @@
           "settings": {
             "paragraph": {
               "content": "Para mostrar uma classificação, adicione uma aplicação de classificação de produto. [Saber mais](https://help.shopify.com/manual/online-store/themes/theme-structure/theme-features#featured-product-rating)"
-            }
-          }
-        },
-        "sku": {
-          "name": "SKU",
-          "settings": {
-            "text_style": {
-              "label": "Estilo de texto",
-              "options__1": {
-                "label": "Corpo"
-              },
-              "options__2": {
-                "label": "Legenda"
-              },
-              "options__3": {
-                "label": "Maiúsculas"
-              }
             }
           }
         }

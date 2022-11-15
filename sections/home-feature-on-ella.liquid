@@ -1,0 +1,168 @@
+{{ 'common.css' | asset_url | stylesheet_tag }}
+{% style %}
+.card-container{
+    display: grid;
+    grid-gap:30px
+}
+.card-child-container{
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+}
+.row-1{
+    grid-template-columns:1fr ;
+}
+.row-2{
+    grid-template-columns:1fr 1fr ;
+}
+.row-3{
+    grid-template-columns:1fr 1fr 1fr;
+}
+.row-4{
+    grid-template-columns:1fr 1fr 1fr 1fr;
+}
+.custom-img{
+    width:100%;
+    position:absolute;
+    z-index:-1;
+    height:100%;
+    transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    -webkit-transition: all 0.3s;
+}
+.custom-title{
+    color:#fff;
+    font-size:32px;
+    font-weight:600;
+    text-decoration: none
+}
+.card-child-container:hover img{
+    -ms-transform: scale(1.1); /* IE 9 */
+    -webkit-transform: scale(1.1); /* Safari 3-8 */
+    transform: scale(1.1); 
+    transition: transform 0.5s ease;
+}
+.card-child-container .custom-title:hover{
+    text-decoration: underline
+}
+.text-link{
+    text-decoration: none;
+    color:#000;
+}
+.text-link:hover{
+    text-decoration: underline;
+}
+.custom-button{
+    text-transform: uppercase;
+    background:#000;
+    padding: 10px 50px; 
+    color:#fff; 
+    margin-top: 20px;
+}
+.custom-button:hover{
+    background:#fff;
+    color:#000; 
+    border:1px solid #000
+}
+.container-row-3{
+    grid-template-columns: 1fr 1fr 1fr;
+}
+.height-row-3{
+    height:450px;
+}
+@media screen and (max-width:1200px) {
+}
+@media screen and (max-width:992px) {
+    .height-row-3{
+        height: 400px;
+        }
+}
+@media screen and (max-width:768px) {
+    .height-row-3{
+        height: 300px;
+        }
+}
+@media screen and (max-width:576px) {
+    .container-row-3{
+        grid-template-columns: 1fr;
+    }
+    .height-row-3{
+        min-height: 600px;
+        }
+}
+{% endstyle %}
+
+<div class="page-width" style="height:100%">
+    <!-- <div class="card-container row-{{section.settings.columns_num}}"> -->
+        <div class="card-container container-row-3">
+        {% for block in section.blocks %}
+            {% assign item = block.settings %} 
+            <div>
+                <div class="card-child-container height-row-3">
+                    {% if item.img_background != blank %}
+                        <img src="{{item.img_background | img_url: 'medium'}}" loading="lazy" class="custom-img"/>
+                    {% else %}
+                        {{ 'image' | placeholder_svg_tag: 'custom-img' }} 
+                    {% endif %}
+                    <div class="custom-title">{{item.title}}</div>
+                </div>
+                <div style="display: flex;justify-content:center;align-items:center;flex-direction: column;">
+                    <a href="#" style="font-size: 20px;font-weight:600; margin-top:20px" class="text-link">Lorem De Dorus</a>
+                    <div style="text-align: center;">
+                        Nullam aliquet vestibulum augue non varius. Cras cosmo congue an melitos. Dui del ante le maliquam. Praesent murna de tellus laoreet cosmopolis.
+                    </div>
+                    <div class="custom-button">Shop now</div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+
+{% schema %}
+{
+    "name":"Feature On Ella",
+    "tag":"section",
+    "settings":[
+        {
+            "type":"range",
+            "id":"columns_num",
+            "default":1,
+            "min":1,
+            "max":4,
+            "label":"check columns"
+        }
+    ],
+    "blocks":[
+        {
+            "type":"image",
+            "name":"image block",
+            "settings":[
+                {
+                    "type":"image_picker",
+                    "id":"img_background",
+                    "label":"img background"
+                },
+                {
+                    "type":"text",
+                    "id":"title",
+                    "default":"TITLE DEMO",
+                    "label":"img background"
+                },
+                {
+                    "type":"url",
+                    "id":"url_click",
+                    "label":"img background"
+                }
+               
+            ]
+        }
+    ],
+   "presets": [
+    {
+        "name":"Feature On Ella"
+    }
+   ]
+}
+{% endschema %}

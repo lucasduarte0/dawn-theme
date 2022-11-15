@@ -1,0 +1,138 @@
+{{ 'common.css' | asset_url | stylesheet_tag }}
+{% style %}
+.card-container{
+    display: grid;
+    grid-gap:30px
+}
+.card-child-container-1{
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+}
+.row-1{
+    grid-template-columns:1fr ;
+}
+.row-2{
+    grid-template-columns:1fr 1fr ;
+}
+.row-3{
+    grid-template-columns:1fr 1fr 1fr;
+}
+.row-4{
+    grid-template-columns:1fr 1fr 1fr 1fr;
+}
+.custom-img{
+    width:100%;
+    position:absolute;
+    z-index:-1;
+    height:100%;
+    transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    -webkit-transition: all 0.3s;
+}
+.custom-title{
+    color:#fff;
+    font-size:16px;
+    font-weight:600;
+    text-decoration: none
+}
+.card-child-container-1:hover img{
+    -ms-transform: scale(1.1); /* IE 9 */
+    -webkit-transform: scale(1.1); /* Safari 3-8 */
+    transform: scale(1.1); 
+    transition: transform 0.5s ease;
+}
+.card-child-container-1 .custom-title:hover{
+    text-decoration: underline
+}
+.container-row-3{
+    grid-template-columns: 1fr 1fr 1fr;
+}
+.height-row-3{
+    height: 200px;
+    }
+@media screen and (max-width:992px) {
+    .height-row-3{
+        height: 150px;
+        }
+}
+@media screen and (max-width:768px) {
+    .height-row-3{
+        height: 100px;
+        }
+}
+@media screen and (max-width:576px) {
+    .container-row-3{
+        grid-template-columns: 1fr;
+    }
+    .height-row-3{
+        height: 220px;
+        }
+}
+{% endstyle %}
+
+<div class="page-width" style="height:100%">
+    <!-- <div class="card-container row-{{section.settings.columns_num}}"> -->
+        <div class="card-container container-row-3">
+        {% for block in section.blocks %}
+            {% assign item = block.settings %}
+            <div class="card-child-container-1 height-row-3">
+                {% if item.img_background != blank %}
+                    <img src="{{item.img_background | img_url: 'medium'}}" loading="lazy" class="custom-img"/>
+                {% else %}
+                    {{ 'image' | placeholder_svg_tag: 'custom-img' }} 
+                {% endif %}
+                <div class="custom-title">{{item.title}}</div>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+
+{% schema %}
+{
+    "name":"home-list-collection",
+    "tag":"section",
+    "settings":[
+        {
+            "type":"range",
+            "id":"columns_num",
+            "default":1,
+            "min":1,
+            "max":4,
+            "label":"check columns"
+        }
+    ],
+    "blocks":[
+        {
+            "type":"image",
+            "name":"image block",
+            "settings":[
+                {
+                    "type":"image_picker",
+                    "id":"img_background",
+                    "label":"img background"
+                },
+                {
+                    "type":"text",
+                    "id":"title",
+                    "default":"TITLE DEMO",
+                    "label":"img background"
+                },
+                {
+                    "type":"url",
+                    "id":"url_click",
+                    "label":"img background"
+                }
+               
+            ]
+        }
+    ],
+   "presets": [
+    {
+        "name":"home list collection"
+    }
+   ]
+}
+{% endschema %}

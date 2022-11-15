@@ -1726,7 +1726,7 @@
           "name": "Doplňkové produkty",
           "settings": {
             "paragraph": {
-              "content": "Pokud chcete vybrat doplňkové produkty, přidejte si aplikaci Search & Discovery. [Zjistit více](https://help.shopify.com/manual/online-store/search-and-discovery/product-recommendations)"
+              "content": "Pokud chcete vybrat doplňkové produkty, přidejte si aplikaci Search & Discovery. [Zjistit více](https://shopify.dev/themes/product-merchandising/recommendations)"
             },
             "heading": {
               "label": "Nadpis"
@@ -1763,95 +1763,6 @@
             },
             "enable_quick_add": {
               "label": "Povolit tlačítko Rychlé přidání"
-            }
-          }
-        },
-        "icon_with_text": {
-          "name": "Ikona s textem",
-          "settings": {
-            "layout": {
-              "label": "Rozvržení",
-              "options__1": {
-                "label": "Vodorovně"
-              },
-              "options__2": {
-                "label": "Svisle"
-              }
-            },
-            "content": {
-              "label": "Obsah",
-              "info": "Zvolte ikonu nebo přidejte obrázek pro každý sloupec nebo řádek."
-            },
-            "heading": {
-              "info": "Pokud chcete sloupec s ikonami skrýt, nechejte popisek záhlaví prázdný."
-            },
-            "icon_1": {
-              "label": "První ikona"
-            },
-            "image_1": {
-              "label": "První obrázek"
-            },
-            "heading_1": {
-              "label": "První nadpis"
-            },
-            "icon_2": {
-              "label": "Druhá ikona"
-            },
-            "image_2": {
-              "label": "Druhý obrázek"
-            },
-            "heading_2": {
-              "label": "Druhý nadpis"
-            },
-            "icon_3": {
-              "label": "Třetí ikona"
-            },
-            "image_3": {
-              "label": "Třetí obrázek"
-            },
-            "heading_3": {
-              "label": "Třetí nadpis"
-            }
-          }
-        },
-        "sku": {
-          "name": "SKU",
-          "settings": {
-            "text_style": {
-              "label": "Textový styl",
-              "options__1": {
-                "label": "Hlavní část"
-              },
-              "options__2": {
-                "label": "Podtitul"
-              },
-              "options__3": {
-                "label": "Velká písmena"
-              }
-            }
-          }
-        },
-        "inventory": {
-          "name": "Stav skladových zásob",
-          "settings": {
-            "text_style": {
-              "label": "Textový styl",
-              "options__1": {
-                "label": "Hlavní část"
-              },
-              "options__2": {
-                "label": "Podtitul"
-              },
-              "options__3": {
-                "label": "Velká písmena"
-              }
-            },
-            "inventory_threshold": {
-              "label": "Práh docházejících skladových zásob",
-              "info": "Zvolte 0, pokud chcete vždy zobrazoval stav Skladem, když je zboží k dispozici."
-            },
-            "show_inventory_quantity": {
-              "label": "Zobrazovat objem skladových zásob"
             }
           }
         }
@@ -1918,19 +1829,6 @@
           },
           "options__2": {
             "label": "Vpravo"
-          }
-        },
-        "image_zoom": {
-          "label": "Zvětšení obrázků",
-          "info": "Klikněte a podržte kurzor nad výchozími možnostmi. Tím otevřete Lightbox na mobilním zařízení.",
-          "options__1": {
-            "label": "Otevřít Lightbox"
-          },
-          "options__2": {
-            "label": "Kliknout a podržet kurzor"
-          },
-          "options__3": {
-            "label": "Bez zvětšení"
           }
         }
       }
@@ -2426,23 +2324,6 @@
           "settings": {
             "paragraph": {
               "content": "Pokud chcete zobrazovat hodnocení, přidejte si aplikaci pro hodnocení produktů. [Zjistit více](https://help.shopify.com/manual/online-store/themes/theme-structure/theme-features#featured-product-rating)"
-            }
-          }
-        },
-        "sku": {
-          "name": "SKU",
-          "settings": {
-            "text_style": {
-              "label": "Textový styl",
-              "options__1": {
-                "label": "Hlavní část"
-              },
-              "options__2": {
-                "label": "Podtitul"
-              },
-              "options__3": {
-                "label": "Velká písmena"
-              }
             }
           }
         }
