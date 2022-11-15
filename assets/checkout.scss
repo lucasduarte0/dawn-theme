@@ -2,13 +2,13 @@
 @import url('//fonts.googleapis.com/css?family=Montserrat:400,700');
 
 /*  General -------------------------- */
-html { font-size: 12px; color: #3c3c3c; font-family: 'Roboto'; font-weight: 400; }
+html { font-size: 12px; color: #000000; font-family: 'Roboto'; font-weight: 400; }
 
 h3 { font-family: 'Montserrat'; font-size: 16px; font-weight: 700; letter-spacing: 0.02em; color: #000; }
 h5 { color: #000; font-family: 'Montserrat'; font-weight: 700; font-size: 13px; letter-spacing: 0.05em; margin-bottom: 13px; }
 
 label { color: #000; font-weight: 700; }
-label small { font-size: 12px; color: #3c3c3c; }
+label small { font-size: 12px; color: #000000; }
 input, select { color: #b8b8b8; }
 .field__inner--horizontal-padding, 
 .field label, 
@@ -22,10 +22,10 @@ input, select { color: #b8b8b8; }
 .boxshadow .field--error { -webkit-box-shadow: 0 0 0 1px #f9d9d9; -moz-box-shadow: 0 0 0 1px #f9d9d9; box-shadow: 0 0 0 1px #f9d9d9; }
 .boxshadow .field--focus { -webkit-box-shadow: 0 0 0 2px #969696; -moz-box-shadow: 0 0 0 2px #969696; box-shadow: 0 0 0 2px #969696; }
 
-p { color: #3c3c3c; }
+p { color: #000000; }
 .btn { font-family: 'Montserrat'; font-weight: 700; font-size: 14px; letter-spacing: 0.05em; text-transform: uppercase; padding: 17px 50px; -webkit-border-radius: 2px; -moz-border-radius: 2px; border-radius: 2px; }
 .btn:hover,
-.btn.btn--primary:hover{ border-color:; background-color: ; color: ; }
+.btn.btn--primary:hover{ border-color:#ff7677; background-color: #ff7677; color: #ffffff; }
 .btn.btn--primary { padding: 17px 30px; }
 
 /*  Header -------------------------- */
@@ -63,7 +63,7 @@ p { color: #3c3c3c; }
 .total-line--total { border-color: #dadada; padding-top: 20px; margin-top: 25px; }
 .order-summary .payment-due-container { padding: 10px 0 6px; }
 
-.call-to-action label { color: #3c3c3c; font-weight: 400; }
+.call-to-action label { color: #000000; font-weight: 400; }
 .shipping-option__price { right: 20px; }
 
 .section__summary { padding-top: 15px; }
@@ -82,7 +82,7 @@ p { color: #3c3c3c; }
 /*  Footer -------------------------- */
 .footer { padding: 35px 0 70px; margin-top: 40px; }
 .boxshadow .footer { -webkit-box-shadow: 0 -1px #dadada; -moz-box-shadow: 0 -1px #dadada; box-shadow: 0 -1px #dadada; }
-.footer__copyright, .footer a { color: #3c3c3c; font-size: 12px; }
+.footer__copyright, .footer a { color: #000000; font-size: 12px; }
 
 @media (max-width: 999px) {
   #checkout { width: 100%; }

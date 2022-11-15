@@ -1,7 +1,24 @@
-{% assign grid_results = true %}
+<div class="row">
+  {% comment %}
+  The {{ content_for_header }} in theme.liquid will output the following stylesheet just for this page:
+  - <link rel="stylesheet" href="/global/search.css" type="text/css">
 
-<div class="search-page collection-template" data-search-page>
-  <div class="container">    
+  It has a few helpers in there, but this theme writes its own styles so there
+  are no dependencies or conflicts. You can ignore that file.
+
+  Return only products or pages in results:
+  - http://docs.shopify.com/manual/configuration/store-customization/return-only-product-in-storefront-search-results
+  - Or manually add type=product or type=page to the search URL as a parameter
+  {% endcomment %}
+
+
+  {% comment %}
+  If you're only showing products with the method above, why not show them off in a grid instead?
+  Set grid_results to true and see your updated results page for the new layout.
+  {% endcomment %}
+
+  {% assign grid_results = true %}
+  <div class="search-page">
     {% if search.performed %}
 
     {% comment %}
@@ -9,7 +26,7 @@
     If you do, the pagination of results will be broken.
     {% endcomment %}
 
-    {% paginate search.results by 15 %}
+    {% paginate search.results by 10 %}
 
     {% comment %}
     We don't have any results to show. Feel free to show off featured products
@@ -18,43 +35,29 @@
 
     {% if search.results_count == 0 %}
     <header class="page-header">
-      <h2>
-        {% include 'multilang' with settings.search_1 %}
-        <strong> &nbsp;"{{ search.terms }}"&nbsp; </strong>
-        {% include 'multilang' with settings.search_2 %}
-      </h2>
+      <h2>{{ 'general.search.no_results_html' | t: terms: search.terms }}</h2>
     </header>
-
     {% else %}
-    
     <header class="page-header">
-      <h2>
-        {% include 'multilang' with settings.search_3 %}
-        <strong> &nbsp;"{{ search.terms }}"&nbsp; </strong>
-        {% include 'multilang' with settings.search_4 %}
-      </h2>
+      <h2>{{ 'general.search.results_for_html' | t: terms: search.terms }}</h2>
+   
     </header>
 
     {% comment %}
     Each result template, based on the grid_layout variable above
     {% endcomment %}
-
-    <div class="block-row col-main">
+    <div class="block-row">
       {% if grid_results == false %}
-      <div class="product-collection products-list product-search row">      
-        {% for product in search.results %}
-        <div class="grid-item col-12{% if settings.product_image_border%} grid-item-border{% endif %}">
-          {% include 'search-result' %}
-        </div>        
+      <div class="product-list">      
+        {% for item in search.results %}
+        {% render 'search-result', item: item %}
         {% endfor %}
       </div>
-
       {% else %}
-
-      <div class="products-grid product-search row product-collection">      
+      <div class="products-grid row">      
         {% for product in search.results %}
-        <div class="grid-item col-6 col-md-4 col-lg-3 col5{% if settings.product_image_border%} grid-item-border{% endif %}">
-          {% include 'search-result-grid' %}
+        <div class="{% if settings.product_image_border%}grid-item-border{% endif %}{% if settings.product_image_crop%} crop_image{% else %} no_crop_image{% endif %}  grid-item col-xs-6 col-sm-4 col-md-4">
+          {% render 'product-grid-item', product: product %}
         </div>
         {% endfor %}
       </div>
@@ -63,8 +66,8 @@
     {% endif %}
 
     {% if paginate.pages > 1 %}
-    <div class="padding">
-      {% include 'pagination-page' %}
+    <div class="text-center">
+      {% render 'pagination-page', paginate: paginate %}
     </div>
     {% endif %}
     {% endpaginate %}

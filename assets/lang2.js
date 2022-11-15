@@ -22,22 +22,19 @@ window.lang2 =
       "newsletter_text": "geben Sie Ihre E-Mail-Adresse"
     },
     "search": {
+      "no_results_html": "Ihre Suche nach \"{{ terms }}\" hat keine Ergebnisse hervorgebracht.",
+      "results_for_html": "Ihre Suche nach \"{{ terms }}\" hat folgende Ergebnisse hervorgebracht:",
       "title": "Suchen Sie auf unserer Seite nach Produkten",
-      "placeholder": "Suchen",
-      "submit": "Suchen",
-      "no_results": "no results",
-      "view_results": "See all results"
+      "placeholder": "suchen",
+      "submit": "Suchen"
     },
     "currency": {
-      "change_text": "Währung des Kaufhauses geändert",
-      "currency": "Currency"
+      "change_text": "Währung des Kaufhauses geändert"
     },
-     "language": {
-      "language": "Language"
-    },
-    "sidebar": {
-      "sidebar_more": "Sidebar"
-    }
+    "language":{
+    "lang_mb":"Sprache",
+    "currency_mb": "Währung"
+  	}
   },
   "blogs": {
     "article": {
@@ -65,16 +62,15 @@ window.lang2 =
     },
     "sidebar": {
       "recent_articles": "Neueste Artikel",
-      "categories": "Kategorien",
-      "tag_cloud": "Tag Cloud"
+      "categories": "Kategorien"
     }
   },
   "cart": {
     "general": {
-      "title": "Einkaufswagen",      
+      "title": "Einkaufswagen",
       "remove": "Entfernen",
       "note": "Besondere Hinweise an den Verkäufer",
-      "subtotal": "Zwischensumme:",
+      "subtotal": "Zwischensumme",
       "shipping_at_checkout": "Liefer- und Preisnachlässe an der Kasse berechnet",
       "update": "Einkaufswagen aktualisieren",
       "checkout": "Zur Kasse",
@@ -83,7 +79,6 @@ window.lang2 =
       "view_cart": "Einkaufswagen ansehen",
       "close_cart": "Einkaufswagen schließen",
       "shopping_cart": "Einkaufswagen",
-      "cart_supermarket": "Einkaufswagen",
       "button_checkout": "Zur Kasse gehen",
       "continue_shopping": "Weiter Warenkorb",
       "go_to_cart": "Zum Warenkorb",
@@ -106,10 +101,7 @@ window.lang2 =
       "price": "Preis",
       "quantity": "Menge",
       "total": "Gesamt",
-      "or": "oder",
-      "quick_cart": "Quick Cart",
-      "your_order": "Your order",
-      "order_summary": "Order Summary"
+      "or": "oder"
     },
     "ajax_cart": {
       "continue_shopping": "Weiter Warenkorb",
@@ -117,9 +109,7 @@ window.lang2 =
       "success_text": "Wird in den Warenkorb gelegt.",
       "error": "Fehler",
       "loading": "Wird Geladen",
-      "close": "Wird Geladen",
-      "popup_cart_des": "The following items has been added to your cart:",      
-      "items_in_your_cart": "items in your shopping cart "
+      "close": "Wird Geladen"
     }
   },
   "collections": {
@@ -139,7 +129,6 @@ window.lang2 =
         "other": "{{ count }} Produkte"
       },
       "title": "Sammlungen",
-      "shop_now": "Shop Now",
       "shop_the_collection": "Unsere Kollektion"
     },
     "sidebar": {
@@ -147,9 +136,10 @@ window.lang2 =
       "vendors": "Verkäufer",
       "tags": "Tags",
       "clear": "Klar",
-      "clear_all": "Löschen",
+      "clear_all": "alle löschen",
       "refined_by": "Sortiert nach",
-      "sidebar_more":"Refine by"      
+       "sidebar_more": "Durchsuchen Sie nach vorgestellten Produkten, Custom CMS Block",
+      "sidebar_more_blog": "Durchsuchen Sie nach aktuellen Artikeln"
     },
     "sorting": {
       "title": "Sortieren nach",
@@ -162,11 +152,12 @@ window.lang2 =
       "date_descending": "Datum, neu nach alt",
       "date_ascending": "Datum, alt nach neu"
     },
-    "toolbar": {      
-      "view_as": "Ansicht als",
-      "item_per_page": "Reihen per Seite",
+    "toolbar": {
+      "previous_product": "Vorheriger",
+      "next_product": "Nächster",
       "previous": "Vorheriger",
       "next": "Nächster",
+      "view_as": "Ansicht als",
       "show": "Show",
       "all": "Alle",
       "showing": "Zeige",
@@ -177,12 +168,10 @@ window.lang2 =
     "form": {
       "name": "Name",
       "email": "E-Mail",
-      "address": "Your Address",
       "phone": "Telefonnummer",
       "message": "Nachricht",
       "placeholder_message": "Bitte hinterlassen Sie Ihren Kommentar hier",
       "send": "Absenden",
-      "send_question": "Send Question",
       "post_success": "Danke, dass Sie uns kontaktiert haben. Wir werden uns so schnell wie möglich bei Ihnen melden.",
       "submit_contact": "Submit Kontakt"
     }
@@ -225,14 +214,8 @@ window.lang2 =
       "delete": "Löschen",
       "delete_message": "Sind Sie sicher, dass Sie diese Adresse löschen möchten?"
     },
-    "logout": {
-      "title": "Customer"
-    },
     "login": {
       "title": "Kunden Anmelden",
-      "account": "Account",
-      "returning_customer": "Returning Customer",
-      "new_customer": "New Customer",
       "email": "E-Mail",
       "password": "Passwort",
       "forgot_password": "Haben Sie Ihr Passwort vergessen?",
@@ -288,7 +271,6 @@ window.lang2 =
     },
     "register": {
       "title": "Account erstellen",
-      "register": "Register",
       "first_name": "Vorname",
       "last_name": "Nachname",
       "email": "E-Mail",
@@ -330,10 +312,9 @@ window.lang2 =
       "account": "Account",
       "logged_in_as_html": "Eingeloggt als {{ first_name }}",
       "log_out": "Ausloggen",
+      "title": "Mein Konto",
       "log_in": "Einloggen",
-      "create_account": "Account erstellen",
-      "register": "Register",
-      "title": "Mein Konto"
+      "create_account": "Account erstellen"
     },
     "footer": {
       "linklist_title": "Quick Links",
@@ -350,30 +331,18 @@ window.lang2 =
     },
     "product": {
       "sold_out": "Ausverkauft",
-      "custom_label": "Custom Label",
       "on_sale_from_html": "<strong>Im Angebot<\/strong> ab {{ price }}",
-      "unavailable": "Nicht verfügbar",
+      "unavailable": "Ausverkauft",
       "compare_at": "Vergleichen bei",
       "quantity": "Menge",
       "add_to_cart": "In den Einkaufswagen legen",
-      "add_all_to_cart": "Add all to Cart",
-      "buy_now": "Buy Now",
-      "add" : "Add",
       "select_options": "Wählen Sie Optionen",
       "quick_view": "Schnellansicht",
       "sale": "Verkauf",
       "in_stock": "auf Lager",
-      "details": "Details",
       "out_of_stock": "Ausverkauft",
       "many_in_stock": "Viele auf Lager",
-      "you_save": "Sie sparen",
-      "from": "von ",
-      "hide_options": "Varianten ausblenden",
-      "show_options": "Varianten anzeigen",
-      "adding": "Hinzufügen",
-      "thank_you": "Danke",
-      "add_more": "Mehr hinzufügen",
-      "cart_feedback": "hinzugefügt"
+      "from": "von "
     }
   },
   "gift_cards": {
@@ -394,21 +363,23 @@ window.lang2 =
   "wishlist": {
     "general": {
       "my_wishlist": "Mein Wunschzettel",
-      "wishlist": "Wunschzettel",
-      "product_image": "Image",
+      "product_image": "Product Image",
       "product_name": "Produktname",
       "unit_price": "Stückpreis",
       "share_wishlist": "Teilen Sie Wunschliste per E-Mail",
       "no_login": "Um eine Wunschliste zu erstellen müssen Sie <a href=\"\/account\/login\"> in <\/a> unterzeichnen oder <a href=\"\/account\/register\"> ein Konto <\/a> erstellen",
       "no_login_html": "Um eine Wunschliste zu erstellen müssen Sie <a href=\"\/account\/login\"> loggen <\/a> oder <a href=\"\/account\/register\"> ein Konto <\/a> erstellen.",
       "add_to_wishlist": "Auf den Wunschzettel",
-      "remove_wishlist": "Zur Wunschliste hinzugefügt",
+      "added_to_wishlist": "Zur Wunschliste hinzugefügt",
       "note": "Bereits in Ihrer Merkliste Zur Merkliste",
       "subtext": "Um eine Wunschliste zu erstellen müssen Sie",
       "sign_in": "loggen",
       "or": "oder",
-      "wishlist_empty": "Looks like you haven't started a wishlist yet...",
       "create_account": "ein Konto"
+    },
+    "ajax_wishlist": {
+      "go_to_wishlist": "Go Wunschliste",
+      "success_text": "wird in Ihrer Merkliste."
     }
   }
 }

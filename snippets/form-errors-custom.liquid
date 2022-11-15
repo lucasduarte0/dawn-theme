@@ -5,7 +5,6 @@
   <ul> wrapped with <div class="errors">
     - {{ form.errors | default_errors }}
 {% endcomment %}
-    
 {% if form.errors %}
   <div class="note form-error">
     <p{% if settings.enable_multilang %} data-translate="customer.form.error_message"{% endif %}>{{ 'customer.form.error_message' | t }}</p>

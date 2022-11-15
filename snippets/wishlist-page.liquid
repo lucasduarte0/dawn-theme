@@ -13,8 +13,8 @@
                 {{ 'wishlist.general.unit_price' | t }}
             </h4> 
 
-            <h4 class="column col-options col-title text-center"{% if settings.enable_multilang %} data-translate="products.product.add"{% endif %}>
-                {{ 'products.product.add' | t }}
+            <h4 class="column col-options col-title text-center"{% if settings.enable_multilang %} data-translate="products.product.add_to_cart"{% endif %}>
+                {{ 'products.product.add_to_cart' | t }}
             </h4>
 
             <h4 class="column col-remove col-title text-center"{% if settings.enable_multilang %} data-translate="cart.general.remove"{% endif %}>
@@ -28,8 +28,7 @@
     </div>
 
      <div class="wishlist-footer t-footer">
-        <a class="share" href="mailto:?subject={{ subject }}&amp;body={{ body | remove: ' ' | replace: '"',"'" | strip_newlines}}">
-            <i class="fa fa-envelope-o" aria-hidden="true"></i>
+        <a class="share" href="mailto:?subject= {{ page.title | strip_html }}&amp;body=">
             <span {% if settings.enable_multilang %}data-translate="wishlist.general.share_wishlist"{% endif %}>
                 {{ 'wishlist.general.share_wishlist' | t }}            
             </span>

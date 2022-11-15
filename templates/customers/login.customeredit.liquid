@@ -15,7 +15,7 @@
 
 {% layout settings.customer_layout %}
 
-{% include 'breadcrumb' %}
+
 <div class="login-page">
   {% comment %}
     If a user has successfully requested a new password, the form.posted_successfully? variable
@@ -48,9 +48,7 @@
     <p><input type="submit" {% if settings.enable_multilang %}data-translate="customer.login.login"{%endif%} class="btn" value="{{ 'customer.login.login' | t }}"></p>
     <p class="last">
       <a href="#" onclick="showRecoverPasswordForm();return false;" {% if settings.enable_multilang %}data-translate="customer.login.forgot_password"{%endif%}>{{ 'customer.login.forgot_password' | t }}</a>
-      <span>{{ 'cart.label.or' | t }}</span> <a href="{{ shop.url }}" {% if settings.enable_multilang %}data-translate="customer.login.cancel"{%endif%}>
-      {{ 'customer.login.cancel' | t }}
-      </a>
+      <span>{{ 'cart.label.or' | t }}</span> <a href="{{ shop.url }}" {% if settings.enable_multilang %}data-translate="customer.login.cancel"{%endif%}>{{ 'customer.login.cancel' | t }}</a>
     </p>
   </div>
   {% endform %}
@@ -84,15 +82,8 @@
     <input type="email" value="" name="email" id="recover-email" {% if settings.enable_multilang %}data-translate="customer.recover_password.email" translate-item="placeholder" {%endif%} placeholder="{{ 'customer.recover_password.email' | t }}" >
     
     <div class="action-btn">
-      <p>
-        <input type="submit" class="btn" {% if settings.enable_multilang %}data-translate="customer.recover_password.submit"{%endif%} value="{{ 'customer.recover_password.submit' | t }}">
-      </p>
-      <span {% if settings.enable_multilang %}data-translate="cart.label.or"{%endif%}>
-        {{ 'cart.label.or' | t }}
-      </span>
-      <a href="#" onclick="hideRecoverPasswordForm();return false;" {% if settings.enable_multilang %}data-translate="customer.recover_password.cancel"{%endif%}>
-        {{ 'customer.recover_password.cancel' | t }}
-      </a>
+      <p><input type="submit" class="btn" {% if settings.enable_multilang %}data-translate="customer.recover_password.submit"{%endif%} value="{{ 'customer.recover_password.submit' | t }}"></p>
+      <span {% if settings.enable_multilang %}data-translate="cart.label.or"{%endif%}>{{ 'cart.label.or' | t }}</span><a href="#" onclick="hideRecoverPasswordForm();return false;" {% if settings.enable_multilang %}data-translate="customer.recover_password.cancel"{%endif%}>{{ 'customer.recover_password.cancel' | t }}</a>
     </div>
     {% endform %}
     

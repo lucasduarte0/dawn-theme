@@ -8,14 +8,15 @@ body { margin: 0; line-height: 20px; color: #2d2d2d; overflow-x: hidden; font-fa
   font-size: 12px;
   
   
-    background: ;
+    background: #ffffff;
   
   
-  	background: url();
-  
-  background-position:  ;
-  background-repeat: ;
-  background-attachment: ;
+  background-position: left top;
+  background-repeat: repeat;
+  background-attachment: scroll;
+}
+.logo__image--medium{
+max-height:48px;
 }
 :focus, :active { outline: none; }
 a { color: #000000;  text-decoration: none;}
@@ -154,7 +155,7 @@ dl dd{ margin-bottom: 20px; margin-left: 0;}
 
 /* ------------------------ Themes ------------------------ */
 input[type="text"] { width: 330px!important; line-height: 36px; margin: 0;}
-#logo{ background: url(logo.png) no-repeat center; min-height:  px ; margin: 50px 0; }
+#logo{ background: url(logo.png) no-repeat center; min-height:  53px ; margin: 50px 0; }
 #container,
 #container.slim{ width: 960px; font-size: 100%; margin-top: 0;}
 #header{  padding-top: 0;}
@@ -310,4 +311,7 @@ img.credit-card{  margin-left: 0;}
   #buttons input { padding: 0 40px; width: 100%; margin: 0 0 20px; }
   #cancel-purchase { clear:both; }
   .slim #thumbs td { width: 100%; padding: 0 0 10px; }
+}
+.logo__image--medium{
+height:48px;
 }

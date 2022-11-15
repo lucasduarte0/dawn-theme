@@ -8,99 +8,58 @@
   {% assign sold_out = false %}
 {% endif %}
 
-<!-- new product -->
-{% assign custom_label = false %}
+{% assign productIndex = forloop.index |minus:1 %}
 
-{% for tag in product.tags %}
-{% assign tag_handle = tag | handle %}
-{% if tag_handle == 'label' %}
-{% assign custom_label = true %}
-{% endif %}
-{% endfor %}
-
-<div class="inner product-item{% if sold_out %} sold-out{% endif %}{% if on_sale %} on-sale{% endif %}" data-product-id="product-{{ product.id }}">
-  <div class="inner-top">
-  	<div class="product-top">
-      <div class="product-image">
-        <a href="{{ product.url | within: collection }}" class="product-grid-image" data-collections-related="/collections/{{collection.handle}}?view=related">
-          <img src="{{ product.featured_image.src | product_img_url: 'large' }}" alt="{{ product.featured_image.alt | escape }}">
-        </a>
-      </div>
-
-      {% if on_sale or sold_out or custom_label %}
-      <div class="product-label">
-        {% if on_sale %}
-        <strong class="label sale-label" {% if settings.enable_multilang %}data-translate="products.product.sale"{% endif %}>
-          {{ 'products.product.sale' | t }}
-        </strong>
-        <br>
-        {% endif %}
-        {% if sold_out %}
-        <strong class="label sold-out-label" {% if settings.enable_multilang %}data-translate="products.product.sold_out"{% endif %}>
-          {{ 'products.product.sold_out' | t }}
-        </strong>
-        <br>
-        {% endif %}
-        
-        {% if custom_label %}
-        <strong class="label custom-label" {% if settings.enable_multilang %}data-translate="products.product.custom_label"{% endif %} >
-          {{ 'products.product.custom_label' | t }}
-        </strong>
-        {% endif %}
-      </div>
-      {% endif %}
-    </div>
+<div class="grid-item product-item {% if sold_out %} sold-out{% endif %}{% if on_sale %} on-sale{% endif %}" id="product-{{ product.id }}">
+  <a href="{{ product.url | within: collection }}" class="product-grid-image">
+    <img src="{{ product.featured_image.src | product_img_url: 'compact' }}" alt="{{ product.featured_image.alt | escape }}">
+  </a>
     
-    <div class="product-bottom">
-      {% if settings.show_vendor %}
-      <div class="product-vendor">
-        {{ product.vendor | link_to_vendor }}
-      </div>
+  {% if settings.show_vendor %}
+      <div class="product-vendor">{{ product.vendor }}</div>
       {% endif %}
-      
-      <a class="product-title" href="{{ product.url | within: collection }}">
-        {% include 'multilang' with product.title %}
-      </a>
-      
-      {% if settings.display_product_reviews %}
-      <span class="shopify-product-reviews-badge" data-id="{{ product.id }}"></span>
+  
+  <div class="details">
+    <a class="product-title" href="{{ product.url | within: collection }}">
+      {% if settings.enable_multilang %}
+      <span class="lang1">{{ product.title | split: '|' | first }}</span>
+      <span class="lang2">{{ product.title | split: '|' | last }}</span>
+      {% else %}
+      {{ product.title | split: '|' | first }}
       {% endif %}
-            
-      <div class="price-box">
-        {% if on_sale %}
-        <div class="price-sale">
-          <span class="old-price">{{ product.compare_at_price_min | money }}</span>
-          <span class="special-price">{% if product.price_varies %}{% include 'varies_from' %}{% endif %}{{ product.price_min | money }}</span>
-        </div>
+    </a>
+    
+    <span class="shopify-product-reviews-badge" data-id="{{ product.id }}"></span>
+    <div class="price-box">
+      {% if on_sale %}
+        <p class="sale">
+          <span class="old-price"> {{ product.compare_at_price_min | money }}</span>
+          <span class="special-price">{% if product.price_varies %}{% render 'varies_from' %}{% endif %}{{ product.price_min | money }}</span>
+        </p>
         {% else %}
-        <div class="price-regular">
-          <span>{% if product.price_varies %}{% include 'varies_from' %}{% endif %}{{ product.price_min | money }}</span>
-        </div>
+        <p class="regular-product">
+          {% comment %}
+            You can show a leading 'from' or 'up to' by checking 'product.price_varies'
+            if your variants have different prices.
+          {% endcomment %}
+          <span>{% if product.price_varies %}{% render 'varies_from' %}{% endif %}{{ product.price_min | money }}</span>
+        </p>
         {% endif %}
-      </div>
     </div>
-    
-    <div class="action">
+    <div class="action-menu">
       {% assign variantCount = product.variants | size %}
-      <form action="/cart/add" method="post" class="variants" data-id="product-actions-{{ product.id }}" enctype="multipart/form-data">
+      <form action="/cart/add" method="post" class="variants" id="product-actions-{{ product.id }}" enctype="multipart/form-data" style="padding:0px;">    
         {% if sold_out %}
-        <button class="btn add-to-cart-btn" type="submit" disabled="disabled" {% if settings.enable_multilang %}data-translate="products.product.unavailable"{% endif %}>
-          {{ 'products.product.unavailable' | t }}
-        </button>
+        <input class="btn add-to-cart-btn" type="submit" value="{{ 'products.product.unavailable' | t }}" disabled="disabled" {% if settings.enable_multilang %}data-translate="products.product.unavailable"{% endif %}/>
         {% else %}
-        {% if variantCount > 1 %}
-        <a class="btn" href="{{ product.url }}" title="{{ product.title }}" {% if settings.enable_multilang %}data-translate="products.product.select_options"{% endif %}>
-          {{ 'products.product.select_options' | t }}
-        </a>
+        {% if variantCount > 1 %}    
+        <input class="btn" type="button" onclick="window.location.href='{{product.url}}'" value="{{ 'products.product.select_options' | t }}" {% if settings.enable_multilang %}data-translate="products.product.select_options"{% endif %}/>
         {% else %}
-        <input type="hidden" name="id" value="{{ product.variants[0].id }}" /> 
-
-        <button class="btn add-to-cart-btn" type="submit" {% if settings.enable_multilang %}data-translate="products.product.add_to_cart"{% endif %}>
-          {{ 'products.product.add_to_cart' | t }}
-        </button>
+        <input type="hidden" name="id" value="{{ product.variants[0].id }}" />      
+        <input class="btn add-to-cart-btn" type="submit" value="{{ 'products.product.add_to_cart' | t }}" {% if settings.enable_multilang %}data-translate="products.product.add_to_cart"{% endif %}/>
         {% endif %}
         {% endif %}
       </form>
-    </div>    
+    </div>
   </div>
 </div>

@@ -35,13 +35,13 @@
 {% else %}
   <meta property="og:type" content="website">
   <meta property="og:title" content="{{ page_title | escape }}">
-  {% if settings.use_logo %}
-  <meta property="og:image" content="http:{{ 'logo.png' | asset_url }}">
-  <meta property="og:image:secure_url" content="https:{{ 'logo.png' | asset_url }}">
+  {% if settings.image_share != blank %}
+  <meta property="og:image" content="http:{{ settings.image_share | img_url: 'grande' }}">
+  <meta property="og:image:secure_url" content="https:{{ settings.image_share | img_url: 'grande' }}">
   {% endif %}
 {% endif %}
 {% if page_description %}
-  <meta property="og:description" content="{{ page_description | escape }}">
+  <meta property="og:description" content="{{ page_description | escape | split: '[/countdown]' | last | strip_html }}">
 {% endif %}
 {% endif %}
   <meta property="og:url" content="{{ canonical_url }}">

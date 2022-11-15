@@ -22,7 +22,7 @@
 {% if template contains 'product' %}
   <meta name="twitter:card" content="product">
   <meta name="twitter:title" content="{{ product.title }}">
-  <meta name="twitter:description" content="{{ product.description | strip_html | truncatewords: 140, '' | escape }}">
+  <meta name="twitter:description" content="{{ product.description | strip_html | truncatewords: 140, '' | escape | split: '[/countdown]' | last }}">
   <meta name="twitter:image" content="https:{{ product.featured_image.src | img_url: 'medium' }}">
   <meta name="twitter:image:width" content="240">
   <meta name="twitter:image:height" content="240">
@@ -50,4 +50,10 @@
   <meta property="twitter:image" content="{{ src }}">
     {% endif %}
   {% endif %}
+{% else %}
+{% if settings.image_share != blank %}
+<meta name="twitter:image" content="https:{{ settings.image_share | img_url: 'grande'  }}">
+<meta name="twitter:image:width" content="240">
+<meta name="twitter:image:height" content="240">
+{% endif %}
 {% endif %}

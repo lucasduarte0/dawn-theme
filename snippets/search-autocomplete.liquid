@@ -1,146 +1,155 @@
-<script src="https://cdnjs.cloudflare.com/ajax/libs/template7/1.4.0/template7.js"></script>
+{% comment %} Width of results box {% endcomment %}
+{% assign results_box_width = '242px' %}
+{% comment %} Background color of results box {% endcomment %}
+{% assign results_box_background_color = '#ffffff' %}
+{% comment %} Border color of results box {% endcomment %}
+{% assign results_box_border_color = '#d4d4d4' %}
 
 <script>
-    (function ($) {
-        var pluginName = 'Search',
-        namespace = 'plugin_' + pluginName;
-
-        function Plugin(element) {
-            this.headerSearch = $(element);
-            this.headerSearchForm = this.headerSearch.find('.header-search__form');
-            this.headerInput = this.headerSearch.find('.header-search__input');
-            this.headerSearchResults = this.headerSearch.find('.header-search__results-wrapper');
-            this.searchResultsTemplate = Template7.compile($('#search-results-template').html());
-            this.PopularProducts = this.headerSearch.find(".header-search__product");
-            this.searchMode = "product";
-            this.searchTrending = $(".quickSearchResultsWrap .header-search__trending .item");
-            this.trending = $(".header-search__trending");
-            this.searchWrapper = this.headerSearch.find('.quickSearchResultsWrap');
-
-            this.headerInput.focus(function(e){
-                e.stopPropagation();
-                
-                $(this).closest('.header-search').find('.quickSearchResultsWrap').show();
+$(function() {
+  // Current Ajax request.
+  var currentAjaxRequest = null;
+  // Grabbing all search forms on the page, and adding a .search-results list to each.
+  var searchForms = $('form[action="/search"]').css('position','relative').each(function() {
+    // Grabbing text input.
+    var input = $(this).find('input[name="q"]');
+    // Adding a list for showing search results.
+    var offSet = input.position().top + input.innerHeight();
+    $('<ul class="search-results"></ul>').css( { 'position': 'absolute', 'left': '0px', 'top': offSet } ).appendTo($(this)).hide();    
+    // Listening to keyup and change on the text field within these search forms.
+    input.attr('autocomplete', 'off').bind('keyup change', function() {
+      // What's the search term?
+      var term = $(this).val();
+      // What's the search form?
+      var form = $(this).closest('form');
+      // What's the search URL?
+      var searchURL = '/search?type=product&q=' + term;
+      // What's the search results list?
+      var resultsList = form.find('.search-results');
+      // If that's a new term and it contains at least 3 characters.
+      if (term.length > 3 && term != $(this).attr('data-old-term')) {
+        // Saving old query.
+        $(this).attr('data-old-term', term);
+        // Killing any Ajax request that's currently being processed.
+        if (currentAjaxRequest != null) currentAjaxRequest.abort();
+        // Pulling results.
+        currentAjaxRequest = $.getJSON(searchURL + '&view=json', function(data) {
+          // Reset results.
+          resultsList.empty();
+          // If we have no results.
+          if(data.results_count == 0) {
+            // resultsList.html('<li><span class="title">No results.</span></li>');
+            // resultsList.fadeIn(200);
+            resultsList.hide();
+          } else {
+            // If we have results.
+            $.each(data.results, function(index, item) {
+              var link = $('<a></a>').attr('href', item.url);
+              link.append('<span class="thumbnail"><img src="' + item.thumbnail + '" /></span>');
+              {% if settings.enable_multilang %}
+              link.append('<span class="title lang1">' + item.title + '</span>');
+              link.append('<span class="title lang2">' + item.title1 + '</span>');
+              {% else %}
+               link.append('<span class="title">' + item.title2 + '</span>')
+              {% endif %}
+              
+              link.wrap('<li></li>');
+              resultsList.append(link.parent());
             });
-
-            $(document).mouseup(function (e) {
-                var container = $(".search-form");
-
-                if (!container.is(e.target) && container.has(e.target).length === 0){
-                    container.find('.quickSearchResultsWrap').hide();
-                }
-            });
-
-            this.headerInput.on('focusin', $.proxy(this._focusin, this));
-
-
-            this.headerInput.on('keyup', $.proxy(this._initSearch, this));
-        };
-
-        Plugin.prototype._initSearch = function(event) {
-            var target = $(event.currentTarget);
-
-            if ((event.keyCode ? event.keyCode : event.which) != 13) {
-                clearTimeout(target.data('timeout'));
-                target.data('timeout', setTimeout($.proxy(this._doSearch, this), 250));
+            // The Ajax request will return at the most 10 results.
+            // If there are more than 10, let's link to the search results page.
+            if(data.results_count > 10) {
+              resultsList.append('<li><span class="title"><a href="' + searchURL + '">See all results (' + data.results_count + ')</a></span></li>');
             }
-        };
-
-        Plugin.prototype._doSearch = function(event) {
-
-            if (this.headerInput.val().trim() === '') {
-                this.headerSearchResults.empty();
-                this.searchTrending.show();
-                this.PopularProducts.show();
-                this.searchWrapper.show();
-                this.trending.show();
-
-                return; 
-            }
-            else {
-                this.headerSearchResults.html(this.searchResultsTemplate({is_loading: true}));
-            }
-
-            if (this.headerInput.val().length > 2) {
-                this.searchWrapper.hide();
-                this._doCompleteSearch();
-            }
-            else {
-                this.headerSearchResults.html(this.searchResultsTemplate({is_show: false}));
-                this.searchTrending.show();
-                this.PopularProducts.show();
-                this.searchWrapper.show();
-            }
-
-            if(this.searchTrending.css('display') == 'none') {
-                this.trending.hide();
-            } else {
-                this.trending.show();
-            }
-        };
-
-        Plugin.prototype._doCompleteSearch = function(event) {
-            var self = this;
-
-            $.ajax({
-                method: 'GET',
-                url: '/search?view=json',
-                dataType: 'json',
-                data: {
-                    q: this.headerInput.val() + '*',
-                    type: this.searchMode
-                }
-            }).then(function(data) {
-
-                self.headerSearchResults.html(self.searchResultsTemplate({
-                    is_show: true,
-                    is_loading: false,
-                    results: data['results'],
-                    has_results: (data['results'].length > 0),
-                    results_count: data['results_count'],
-                    results_label: data['results_label'],
-                    results_url: (data['url'] + '&type=' + self.searchMode)
-                }));
-
-                self.PopularProducts.hide();
-
-
-                var value = self.headerInput.val().toLowerCase();
-                if (data && data.length) {
-                    self.searchTrending.filter(function(e) {
-                        $(this).toggle($(this).find('.highlight span').text().toLowerCase().indexOf(value) > -1);
-                    });
-                    self.trending.show();
-                }
-                else {
-                    self.trending.hide();
-                }
-
-                self.searchWrapper.show();
-            });
-        };
-
-        $.fn[pluginName] = function(options) {
-            var method = false,
-            methodArgs = arguments;
-
-            if (typeof options == 'string') {
-                method = options;
-            }
-
-            return this.each(function() {
-                var plugin = $.data(this, namespace);
-
-                if (!plugin && !method) {
-                    $.data(this, namespace, new Plugin(this, options));
-                } else if (method) {
-                    callMethod(plugin, method, Array.prototype.slice.call(methodArgs, 1));
-                }
-            });
-        };
-    }(jQuery));
-
-    $(function() {
-        $('[data-ajax-search]').Search();
+            resultsList.fadeIn(200);
+          }        
+        });
+      }
     });
+  });
+  // Clicking outside makes the results disappear.
+  $('body').bind('click', function(){
+    $('.search-results').hide();
+  });
+});
 </script>
+
+<!-- Some styles to get you started. -->
+<style>
+  .have-fixed .search-results{top:37px!important;}
+.search-results {
+  z-index: 9;
+  list-style-type: none;   
+  width:100%;
+  margin: 0;
+  padding: 0;
+  background: {{ results_box_background_color }};
+  border: 1px solid {{ results_box_border_color }};
+  border-radius: 0px;
+  -webkit-box-shadow: 0px 4px 7px 0px rgba(0,0,0,0.1);
+  box-shadow: 0px 4px 7px 0px rgba(0,0,0,0.1);
+  overflow: hidden;
+  right:0px;
+      left: initial!important;
+}
+.search-results li {
+  display: block;
+  width: 100%;
+/*   height: 47px; */
+  margin: 0;
+  padding: 0;
+  border-top: 1px solid {{ results_box_border_color }};
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  font-size:12px;
+}
+.search-results li:first-child {
+  border-top: none;
+}
+  .search-results li:nth-child(2n+2){
+    background:#F5F5F5
+}
+.search-results .title {
+  float: left;
+  width: {{ results_box_width | remove: 'px' | to_number | minus: 50 }}px;
+  padding-left: 8px;
+  white-space: nowrap;
+  overflow: hidden;
+  /* The text-overflow property is supported in all major browsers. */
+  text-overflow: ellipsis;
+  -o-text-overflow: ellipsis;
+  text-align: left;
+  height:40px;
+  line-height:40px;
+}
+.search-results .thumbnail {
+  float: left;
+      border-radius: 0px;
+  display: block;
+  width: 50px;
+  height: 50px;    
+  margin: 3px 0 3px 8px;
+  padding: 0;
+  text-align: center;
+  overflow: hidden;
+}
+.search-results li a{
+    display: flex;
+    align-items: center;
+    font-size:12px;
+  max-width:100%;
+}
+  
+.search-results li:nth-child(2n+2){
+    background:#F5F5F5
+}
+.search-results  .title a{
+    font-family: Karla, sans-serif;
+    font-size: 13px;
+    font-weight:600;
+    color: #2c8cce;
+    margin-left:5px;
+}
+
+</style>

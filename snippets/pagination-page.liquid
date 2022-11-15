@@ -1,4 +1,5 @@
 {% comment %}
+
   This snippet renders a custom widget based on the current 'paginate' context,
   defined in { % paginate XXXX by 5 % } tags wrapping the content.
   The example below breaks the pagination down so you can setup your own styles and behavior if you wish.
@@ -16,19 +17,23 @@
   More information:
    - index#pagination
    - http://docs.shopify.com/themes/liquid-variables/paginate
+
 {% endcomment %}
 
 {% if settings.collection_infinite_scrolling %}
   {% if paginate.next %}    
     <div class="infinite-scrolling">
-      <a class="btn" href="{{ paginate.next.url }}" {% if settings.enable_multilang %}data-translate="collections.general.show_more"{% endif %}>
+      <a href="{{ paginate.next.url }}" {% if settings.enable_multilang %}data-translate="collections.general.show_more"{% endif %}>
         {{ 'collections.general.show_more' | t}}
       </a>
+      <a href="javascript:void(0)" class="disabled" style="display:none" {% if settings.enable_multilang %}data-translate="collections.general.no_more_product"{% endif %}>
+        {{ 'collections.general.no_more_product' | t}} 
+      </a>  
     </div>
   {% endif %}
-
 {% else %}
-<div class="toolbar-bottom">
+
+<div class="toolbar toolbar-bottom">
   <p class="page-total">
     <span {% if settings.enable_multilang %}data-translate="collections.toolbar.showing"{% endif %}>{{ 'collections.toolbar.showing' | t }}</span>: 
     {{ paginate.current_offset | plus: 1 }} -
@@ -43,21 +48,9 @@
 
   <ul class="pagination-page">
     {% if paginate.previous %}
-    <li class="text">
-      <a href="{{ paginate.previous.url }}" title="{{ 'collections.toolbar.previous' | t }}" {% if settings.enable_multilang %}data-translate="collections.toolbar.previous" translate-item="title"{% endif %}>
-        <i class="fa fa-angle-left" aria-hidden="true"></i>
-        <span {% if settings.enable_multilang %}data-translate="collections.toolbar.previous"{% endif %}>
-          {{ 'collections.toolbar.previous' | t }}
-        </span>
-      </a>
-    </li>
+    <li class="text"><a href="{{ paginate.previous.url }}" title="{{ 'collections.toolbar.previous' | t }}"  {% if settings.enable_multilang %}data-translate="collections.toolbar.previous" translate-item="title"{% endif %}><span {% if settings.enable_multilang %}data-translate="collections.toolbar.previous"{% endif %}>{{ 'collections.toolbar.previous' | t }}</span></a></li>
     {% else %}
-    <li class="disabled">
-      <i class="fa fa-angle-left" aria-hidden="true"></i>
-      <span {% if settings.enable_multilang %}data-translate="collections.toolbar.previous"{% endif %}>
-        {{ 'collections.toolbar.previous' | t }}
-      </span>
-    </li>
+    <li class="disabled"><span {% if settings.enable_multilang %}data-translate="collections.toolbar.previous"{% endif %}>{{ 'collections.toolbar.previous' | t }}</span></li>
     {% endif %}
 
     {% for part in paginate.parts %}
@@ -75,21 +68,9 @@
     {% endfor %}
 
     {% if paginate.next %}
-    <li class="text">
-      <a href="{{ paginate.next.url }}" title="{{ 'collections.toolbar.next' | t }}" {% if settings.enable_multilang %}data-translate="collections.toolbar.next" translate-item="title"{% endif %}>
-        <span {% if settings.enable_multilang %}data-translate="collections.toolbar.next"{% endif %}>
-        {{ 'collections.toolbar.next' | t }}
-        </span>
-        <i class="fa fa-angle-right" aria-hidden="true"></i>
-      </a>
-    </li>
+    <li class="text"><a href="{{ paginate.next.url }}" title="{{ 'collections.toolbar.next' | t }}"  {% if settings.enable_multilang %}data-translate="collections.toolbar.next" translate-item="title"{% endif %}><span {% if settings.enable_multilang %}data-translate="collections.toolbar.next"{% endif %}>{{ 'collections.toolbar.next' | t }}</span></a></li>
     {% else %}
-    <li class="disabled">
-      <span {% if settings.enable_multilang %}data-translate="collections.toolbar.next"{% endif %}>
-        {{ 'collections.toolbar.next' | t }}
-      </span>
-      <i class="fa fa-angle-right" aria-hidden="true"></i>
-    </li>
+    <li class="disabled"><span {% if settings.enable_multilang %}data-translate="collections.toolbar.next"{% endif %}>{{ 'collections.toolbar.next' | t }}</span></li>
     {% endif %}
   </ul>
 </div>
